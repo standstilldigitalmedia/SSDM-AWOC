@@ -5,7 +5,7 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jy68i"]
 bg_color = Color(0, 0, 0, 0.11764706)
 
-[node name="HBoxContainer" type="HBoxContainer" unique_id=131900058 node_paths=PackedStringArray("menu_button", "clip_wrapper", "panel_container", "content_container")]
+[node name="HBoxContainer" type="HBoxContainer" unique_id=131900058 node_paths=PackedStringArray("clip_wrapper", "menu_button_wrapper", "panel_container", "content_container", "close_button", "menu_button")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -13,13 +13,17 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
 script = ExtResource("1_f4h4v")
-menu_button = NodePath("MenuButton")
+hide_close_button = false
 clip_wrapper = NodePath("ClipWrapper")
+menu_button_wrapper = NodePath("MenuButtonWrapper")
 panel_container = NodePath("ClipWrapper/PanelContainer")
 content_container = NodePath("ClipWrapper/PanelContainer/MarginContainer/ContentContainer")
+close_button = NodePath("ClipWrapper/PanelContainer/MarginContainer/ContentContainer/HBoxContainer/CloseButton")
+menu_button = NodePath("MenuButtonWrapper/MenuButton")
 
 [node name="ClipWrapper" type="Control" parent="." unique_id=1643154331]
 clip_contents = true
+custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_vertical = 3
 
@@ -43,10 +47,31 @@ theme_override_constants/margin_bottom = 5
 [node name="ContentContainer" type="VBoxContainer" parent="ClipWrapper/PanelContainer/MarginContainer" unique_id=2119092832]
 layout_mode = 2
 
-[node name="MenuButton" type="Button" parent="." unique_id=1847332973]
+[node name="HBoxContainer" type="HBoxContainer" parent="ClipWrapper/PanelContainer/MarginContainer/ContentContainer" unique_id=1184482749]
 layout_mode = 2
+alignment = 2
+
+[node name="CloseButton" type="Button" parent="ClipWrapper/PanelContainer/MarginContainer/ContentContainer/HBoxContainer" unique_id=621875231]
+custom_minimum_size = Vector2(31, 0)
+layout_mode = 2
+text = "X"
+
+[node name="MenuButtonWrapper" type="Control" parent="." unique_id=1782009931]
+clip_contents = true
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 5
+
+[node name="MenuButton" type="Button" parent="MenuButtonWrapper" unique_id=1847332973]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_vertical = 3
 toggle_mode = true
+button_pressed = true
 text = "M
 e
 n
@@ -59,4 +84,5 @@ t
 o
 n"
 
-[connection signal="toggled" from="MenuButton" to="." method="_on_menu_button_toggled"]
+[connection signal="pressed" from="ClipWrapper/PanelContainer/MarginContainer/ContentContainer/HBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="toggled" from="MenuButtonWrapper/MenuButton" to="." method="_on_menu_button_toggled"]

@@ -5,19 +5,32 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jy68i"]
 bg_color = Color(0, 0, 0, 0.11764706)
 
-[node name="VBoxContainer" type="VBoxContainer" unique_id=106236835 node_paths=PackedStringArray("menu_button", "clip_wrapper", "panel_container", "content_container")]
-offset_left = 4.0
-offset_right = 114.0
-offset_bottom = 31.0
+[node name="VBoxContainer" type="VBoxContainer" unique_id=106236835 node_paths=PackedStringArray("clip_wrapper", "menu_button_wrapper", "panel_container", "content_container", "close_button", "menu_button")]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 32.0
+grow_horizontal = 2
 theme_override_constants/separation = 0
 script = ExtResource("1_u5cal")
-menu_button = NodePath("MenuButton")
+hide_close_button = false
 clip_wrapper = NodePath("ClipWrapper")
+menu_button_wrapper = NodePath("MenuButtonWrapper")
 panel_container = NodePath("ClipWrapper/PanelContainer")
 content_container = NodePath("ClipWrapper/PanelContainer/MarginContainer/ContentContainer")
+close_button = NodePath("ClipWrapper/PanelContainer/MarginContainer/ContentContainer/HBoxContainer/CloseButton")
+menu_button = NodePath("MenuButtonWrapper/MenuButton")
 
-[node name="MenuButton" type="Button" parent="." unique_id=1847332973]
+[node name="MenuButtonWrapper" type="Control" parent="." unique_id=1451716525]
+clip_contents = true
+custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
+
+[node name="MenuButton" type="Button" parent="MenuButtonWrapper" unique_id=1847332973]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 31.0
+grow_horizontal = 2
 size_flags_vertical = 3
 toggle_mode = true
 text = "Menu Button"
@@ -46,4 +59,14 @@ theme_override_constants/margin_bottom = 5
 [node name="ContentContainer" type="VBoxContainer" parent="ClipWrapper/PanelContainer/MarginContainer" unique_id=2119092832]
 layout_mode = 2
 
-[connection signal="toggled" from="MenuButton" to="." method="_on_menu_button_toggled"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ClipWrapper/PanelContainer/MarginContainer/ContentContainer" unique_id=933965460]
+layout_mode = 2
+alignment = 2
+
+[node name="CloseButton" type="Button" parent="ClipWrapper/PanelContainer/MarginContainer/ContentContainer/HBoxContainer" unique_id=15888946]
+custom_minimum_size = Vector2(31, 0)
+layout_mode = 2
+text = "X"
+
+[connection signal="toggled" from="MenuButtonWrapper/MenuButton" to="." method="_on_menu_button_toggled"]
+[connection signal="pressed" from="ClipWrapper/PanelContainer/MarginContainer/ContentContainer/HBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]

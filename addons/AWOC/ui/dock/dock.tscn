@@ -92,6 +92,7 @@ layout_mode = 2
 
 [node name="HBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/ScrollContainer2/PanelContainer/MarginContainer/VBoxContainer" unique_id=131900058 instance=ExtResource("2_s152w")]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="ScrollContainer3" type="ScrollContainer" parent="PanelContainer/MarginContainer/HBoxContainer" unique_id=1344108033]
 layout_mode = 2

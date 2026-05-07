@@ -10,6 +10,8 @@ func _ready() -> void:
 	final_size = panel_width
 	clip_wrapper.custom_minimum_size.x = 0
 	tween_property = "custom_minimum_size:x"
+	menu_button.set_pressed_no_signal(true)
+	slide_open()
 
 
 func _on_menu_button_toggled(toggled_on: bool) -> void:
