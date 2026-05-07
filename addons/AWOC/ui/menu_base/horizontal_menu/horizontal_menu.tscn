@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://uw1bs8r88m6y"]
+
+[ext_resource type="Script" uid="uid://cij8vbyipv7cl" path="res://addons/AWOC/ui/menu_base/horizontal_menu/horizontal_menu.gd" id="1_f4h4v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jy68i"]
+bg_color = Color(0, 0, 0, 0.11764706)
+
+[node name="HBoxContainer" type="HBoxContainer" unique_id=131900058 node_paths=PackedStringArray("menu_button", "clip_wrapper", "panel_container", "content_container")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+script = ExtResource("1_f4h4v")
+menu_button = NodePath("MenuButton")
+clip_wrapper = NodePath("ClipWrapper")
+panel_container = NodePath("ClipWrapper/PanelContainer")
+content_container = NodePath("ClipWrapper/PanelContainer/MarginContainer/ContentContainer")
+
+[node name="ClipWrapper" type="Control" parent="." unique_id=1643154331]
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="ClipWrapper" unique_id=2029568086]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jy68i")
+
+[node name="MarginContainer" type="MarginContainer" parent="ClipWrapper/PanelContainer" unique_id=1214248334]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="ContentContainer" type="VBoxContainer" parent="ClipWrapper/PanelContainer/MarginContainer" unique_id=2119092832]
+layout_mode = 2
+
+[node name="MenuButton" type="Button" parent="." unique_id=1847332973]
+layout_mode = 2
+size_flags_vertical = 3
+toggle_mode = true
+text = "M
+e
+n
+u
+
+B
+u
+t
+t
+o
+n"
+
+[connection signal="toggled" from="MenuButton" to="." method="_on_menu_button_toggled"]

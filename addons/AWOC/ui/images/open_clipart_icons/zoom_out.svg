@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="71.254013mm"
+   height="71.254013mm"
+   viewBox="0 0 71.254013 71.254012"
+   version="1.1"
+   id="svg8"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs2" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     transform="translate(638.9693,1251.8563)">
+    <path
+       id="path1387"
+       d="m -593.30473,-1243.1046 c -9.92375,0 -17.99013,8.0684 -17.99011,17.9921 0.007,2.2904 0.51234,4.5368 1.36737,6.6565 l -20.64837,20.6483 a 1.0584391,1.0584391 0 0 0 0,1.4961 l 8.46666,8.4672 a 1.0584391,1.0584391 0 0 0 1.49604,0 l 20.64475,-20.6427 c 2.12185,0.8545 4.36993,1.3582 6.66212,1.3632 a 1.0584391,1.0584391 0 0 0 0.002,0 c 9.92396,0 17.99217,-8.0661 17.99217,-17.9901 0,-9.924 -8.06818,-17.9922 -17.99217,-17.9922 z m 5.3e-4,2.1171 c 8.78004,0 15.875,7.095 15.875,15.875 0,8.7801 -7.09496,15.8751 -15.875,15.875 -2.24901,-0.01 -4.47175,-0.4891 -6.52002,-1.4179 a 1.0584391,1.0584391 0 0 0 -1.18547,0.2144 l -20.35119,20.3538 -6.97064,-6.9706 20.35689,-20.3575 a 1.0584391,1.0584391 0 0 0 0.21704,-1.1854 c -0.9292,-2.0462 -1.41463,-4.2665 -1.42161,-6.5138 0.001,-8.779 7.09581,-15.8727 15.875,-15.873 z m 0,2.8417 c -7.18487,2e-4 -13.03142,5.8485 -13.03126,13.0333 1.6e-4,7.1847 5.8466,13.0312 13.03126,13.0313 7.18484,2e-4 13.03263,-5.8464 13.03279,-13.0313 1.6e-4,-7.185 -5.84771,-13.0334 -13.03279,-13.0333 z m 0,2.1172 c 6.0411,-10e-5 10.91575,4.875 10.9156,10.9161 -1.1e-4,6.041 -4.87469,10.9143 -10.9156,10.9141 -6.04073,-10e-5 -10.916,-4.8733 -10.91613,-10.9141 -1.3e-4,-6.0409 4.87521,-10.916 10.91613,-10.9161 z m -8.56176,7.8342 a 1.0584391,1.0584391 0 0 0 -1.05833,1.0583 v 4.2323 a 1.0584391,1.0584391 0 0 0 1.05833,1.0588 h 16.93386 a 1.0584391,1.0584391 0 0 0 1.05834,-1.0588 v -4.2323 a 1.0584391,1.0584391 0 0 0 -1.05834,-1.0583 z m 1.05886,2.1171 h 14.81614 v 2.1152 h -14.81614 z"
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2.11667;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate" />
+    <rect
+       style="display:inline;fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-opacity:0"
+       id="rect20"
+       width="71.254013"
+       height="71.254013"
+       x="-710.09991"
+       y="-1322.8015" />
+    <rect
+       style="display:inline;fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-opacity:0"
+       id="rect24"
+       width="71.254013"
+       height="71.254013"
+       x="-638.9693"
+       y="-1251.8563" />
+  </g>
+</svg>
