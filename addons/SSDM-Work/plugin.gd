@@ -19,7 +19,6 @@ func load_from_config() -> void:
 		return
 	if !work_manager:
 		work_manager = SSDMWorkManager.new()
-		add_child(work_manager)
 	if config.dock_scene:
 		main_ui = config.dock_scene.instantiate()
 		main_ui.name = get_plugin_name()
@@ -51,7 +50,8 @@ func has_main_screen_config(configure_path: String) -> bool:
 	
 
 func _make_visible(visible):
-	main_ui.visible = visible
+	if main_ui:
+		main_ui.visible = visible
 		
 			
 func _get_plugin_name() -> String:
@@ -73,7 +73,6 @@ func _enter_tree() -> void:
 func _exit_tree() -> void:
 	config = null
 	if work_manager:
-		work_manager.queue_free()
 		work_manager = null
 	work_manager = null
 	if dock:

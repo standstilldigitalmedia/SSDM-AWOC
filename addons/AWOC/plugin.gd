@@ -2,7 +2,7 @@
 class_name AWOCPlugin
 extends SSDMPlugin
 
-const AWOC_CONFIG_PATH: String = "res://addons/AWOC/editor/config/config.tres"
+const AWOC_CONFIG_PATH: String = "res://addons/AWOC/config/config.tres"
 const AWOC_PLUGIN_NAME: String = "AWOC"
 
 

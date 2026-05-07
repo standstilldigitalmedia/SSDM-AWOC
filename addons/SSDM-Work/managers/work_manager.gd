@@ -1,6 +1,6 @@
 @tool
 class_name SSDMWorkManager
-extends Node
+extends RefCounted
 
 static var config: SSDMPluginConfig = null
 

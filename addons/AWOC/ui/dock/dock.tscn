@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cdoiwhcq71tio"]
 
 [ext_resource type="Script" uid="uid://njhehti6kk5i" path="res://addons/AWOC/ui/dock/dock.gd" id="1_q8xoc"]
-[ext_resource type="PackedScene" uid="uid://cfo13vhr0wo13" path="res://addons/AWOC/ui/new_resource/new_awoc_menu.tscn" id="2_eapie"]
 [ext_resource type="PackedScene" uid="uid://uw1bs8r88m6y" path="res://addons/SSDM-UI/menu_base/horizontal_menu/horizontal_menu.tscn" id="2_s152w"]
+[ext_resource type="PackedScene" uid="uid://bl8gkjiytj30d" path="res://addons/SSDM-UI/menu_base/vertical_menu/vertical_menu_base.tscn" id="2_upe0u"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ilvsu"]
 bg_color = Color(1, 1, 1, 0.039215688)
@@ -71,7 +71,7 @@ layout_mode = 2
 text = "Welcome"
 horizontal_alignment = 1
 
-[node name="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/ScrollContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=106236835 instance=ExtResource("2_eapie")]
+[node name="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/ScrollContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=106236835 instance=ExtResource("2_upe0u")]
 layout_mode = 2
 
 [node name="ScrollContainer2" type="ScrollContainer" parent="PanelContainer/MarginContainer/HBoxContainer" unique_id=1555864329]
@@ -92,7 +92,6 @@ layout_mode = 2
 
 [node name="HBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/ScrollContainer2/PanelContainer/MarginContainer/VBoxContainer" unique_id=131900058 instance=ExtResource("2_s152w")]
 layout_mode = 2
-size_flags_vertical = 3
 
 [node name="ScrollContainer3" type="ScrollContainer" parent="PanelContainer/MarginContainer/HBoxContainer" unique_id=1344108033]
 layout_mode = 2
