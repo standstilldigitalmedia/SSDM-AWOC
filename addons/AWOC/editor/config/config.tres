@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="AWOCConfig" format=3 uid="uid://dgh7orgcshqil"]
-
-[ext_resource type="PackedScene" uid="uid://cdoiwhcq71tio" path="res://addons/AWOC/ui/dock/dock.tscn" id="1_tqgtg"]
-[ext_resource type="Script" uid="uid://bil4j2tifuhae" path="res://addons/AWOC/editor/config/config.gd" id="2_rscjm"]
-
-[resource]
-script = ExtResource("2_rscjm")
-dock_scene = ExtResource("1_tqgtg")
-dock_slot = 9

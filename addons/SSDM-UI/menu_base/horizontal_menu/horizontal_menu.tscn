@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://uw1bs8r88m6y"]
 
-[ext_resource type="Script" uid="uid://cij8vbyipv7cl" path="res://addons/AWOC/ui/menu_base/horizontal_menu/horizontal_menu.gd" id="1_f4h4v"]
+[ext_resource type="Script" uid="uid://cij8vbyipv7cl" path="res://addons/SSDM-UI/menu_base/horizontal_menu/horizontal_menu.gd" id="1_f4h4v"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jy68i"]
 bg_color = Color(0, 0, 0, 0.11764706)

@@ -1,5 +1,9 @@
-class_name AWOCConfig
+class_name SSDMPluginConfig
 extends Resource
+
+
+@export_group("Managers")
+@export var manager_registry_entries: Array[SSDMRegistryEntry] = []
 
 
 @export_group("Delete Behavior")

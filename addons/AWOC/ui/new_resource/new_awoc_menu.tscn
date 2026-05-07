@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cfo13vhr0wo13"]
 
-[ext_resource type="PackedScene" uid="uid://bl8gkjiytj30d" path="res://addons/AWOC/ui/menu_base/vertical_menu/vertical_menu_base.tscn" id="1_k57fg"]
+[ext_resource type="PackedScene" uid="uid://bl8gkjiytj30d" path="res://addons/SSDM-UI/menu_base/vertical_menu/vertical_menu_base.tscn" id="1_k57fg"]
 
 [node name="VBoxContainer" unique_id=106236835 instance=ExtResource("1_k57fg")]
 

@@ -1,5 +1,5 @@
 @tool
-class_name AWOCDock
+class_name SSDMDock
 extends Control
 
 func _ready() -> void:

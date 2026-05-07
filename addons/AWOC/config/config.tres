@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="SSDMPluginConfig" format=3 uid="uid://xlf6ekeqo7gl"]
+
+[ext_resource type="Script" uid="uid://cprfld2ov04wa" path="res://addons/SSDM-Work/resource/registry_entry.gd" id="1_23ld7"]
+[ext_resource type="Script" uid="uid://cd255oodrf87g" path="res://addons/SSDM-Work/config/config.gd" id="2_jpq1g"]
+
+[resource]
+script = ExtResource("2_jpq1g")
