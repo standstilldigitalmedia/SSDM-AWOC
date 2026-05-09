@@ -10,13 +10,6 @@ var managers := {}
 func get_manager(type: String) -> SSDMResourceManagerBase:
 	return managers.get(type)
 	
-	
-func get_new_resource(type: String) -> SSDMResult:
-	var manager: SSDMResourceManagerBase = get_manager(type)
-	if not manager:
-		return SSDMResult.failure("SSDMManager: Unknown resource type: " + type)
-	return manager.get_new_resource()
-
 
 func has_resources(type: String) -> SSDMResult:
 	var manager: SSDMResourceManagerBase = get_manager(type)
@@ -39,25 +32,32 @@ func get_sorted_name_array(type: String) -> SSDMResult:
 	return manager.get_sorted_name_array()
 	
 	
-func create_resource(type: String, res_name: String, resource_reference: SSDMResourceReference, additional_data: Variant = null, parent_name: String = ""):
+func create_resource(type: String) -> SSDMResult:
 	var manager: SSDMResourceManagerBase = get_manager(type)
 	if not manager:
 		return SSDMResult.failure("SSDMManager: Unknown resource type: " + type)
-	return manager.create_resource(res_name, resource_reference, additional_data, parent_name)
+	return manager.create_resource()
 	
 	
-func rename_resource(type: String, old_name: String, new_name: String) -> SSDMResult:
+func add_resource(type: String, res_name: String, resource_reference: SSDMResourceReference, additional_data: Variant = null, parent_name: String = ""):
 	var manager: SSDMResourceManagerBase = get_manager(type)
 	if not manager:
 		return SSDMResult.failure("SSDMManager: Unknown resource type: " + type)
-	return manager.rename_resource(old_name, new_name)
+	return await manager.add_new_resource(res_name, resource_reference, additional_data, parent_name)
 	
 	
-func delete_resource(type: String, resource_name: String) -> SSDMResult:
+func rename_resource(type: String, old_name: String, new_name: String, resource_reference: SSDMResourceReference = null) -> SSDMResult:
 	var manager: SSDMResourceManagerBase = get_manager(type)
 	if not manager:
 		return SSDMResult.failure("SSDMManager: Unknown resource type: " + type)
-	return manager.delete_resource(resource_name)
+	return await manager.rename_resource(old_name, new_name, resource_reference)
+	
+	
+func delete_resource(type: String, resource_name: String, resource_reference: SSDMResourceReference = null) -> SSDMResult:
+	var manager: SSDMResourceManagerBase = get_manager(type)
+	if not manager:
+		return SSDMResult.failure("SSDMManager: Unknown resource type: " + type)
+	return await manager.delete_resource(resource_name, resource_reference)
 
 
 func validate_manager_entry(entry: SSDMRegistryEntry) -> SSDMResult:
@@ -71,17 +71,14 @@ func validate_manager_entry(entry: SSDMRegistryEntry) -> SSDMResult:
 	var test_instance = entry.manager_script.new()
 
 	if not test_instance is SSDMResourceManagerBase:
-		test_instance.free()
 		return SSDMResult.failure("SSDMManager: Manager " + entry.type_key + " must extend SSDMResourceManagerBase")
-
-	test_instance.free()
 	return SSDMResult.success()
 	
 	
-func load_config(path: String):
-	config = load(path)
+func _init(configure: SSDMPluginConfig) -> void:
+	config = configure
 	if !config:
-		push_error("SSDMManager: Config could not be loaded: " + path)
+		push_error("Config is null")
 		return
 	for entry in config.manager_registry_entries:
 		var validation: SSDMResult = validate_manager_entry(entry)
@@ -90,7 +87,3 @@ func load_config(path: String):
 			continue
 		var manager = entry.manager_script.new()
 		managers[entry.type_key] = manager
-		
-		
-func _exit_tree() -> void:
-	config = null

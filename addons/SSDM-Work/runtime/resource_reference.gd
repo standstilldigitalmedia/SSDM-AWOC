@@ -29,7 +29,7 @@ func get_ref_path() -> SSDMResult:
 		res_path = ResourceUID.get_id_path(res_uid)
 	elif FileAccess.file_exists(res_path):
 		res_uid = ResourceLoader.get_resource_uid(res_path)
-	else:
+	if res_path.is_empty():
 		return SSDMResult.failure("SSDMWork: Could not determine path for resource")
 	return SSDMResult.success("", res_path)
 

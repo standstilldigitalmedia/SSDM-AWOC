@@ -1,3 +1,4 @@
+@tool
 class_name AWOCNewAWOCMenu
 extends SSDMVerticalMenu
 
@@ -5,7 +6,3 @@ extends SSDMVerticalMenu
 @export var path_line_edit: LineEdit
 @export var error_label: Label
 @export var file_dialog: FileDialog
-
-func _ready() -> void:
-	file_dialog.hide()
-	error_label.hide()

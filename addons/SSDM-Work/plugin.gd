@@ -18,7 +18,7 @@ func load_from_config() -> void:
 		push_error("SSDMResource: Main configuration could not be loaded.")
 		return
 	if !work_manager:
-		work_manager = SSDMWorkManager.new()
+		work_manager = SSDMWorkManager.new(config)
 	if config.dock_scene:
 		main_ui = config.dock_scene.instantiate()
 		main_ui.name = get_plugin_name()

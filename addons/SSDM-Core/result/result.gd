@@ -29,7 +29,7 @@ func with_detail(msg: String, sev: SSDMSeverity.Level) -> SSDMResult:
 	details.append({"message": msg, "severity": sev})
 	return self
 
-
+	
 func with_warning(msg: String) -> SSDMResult:
 	return with_detail(msg, SSDMSeverity.Level.WARNING)
 

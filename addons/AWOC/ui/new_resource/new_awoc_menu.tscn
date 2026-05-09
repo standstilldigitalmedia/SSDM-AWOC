@@ -1,8 +1,48 @@
-[gd_scene format=3 uid="uid://cfo13vhr0wo13"]
+[gd_scene format=3 uid="uid://s15fiwqh6ua"]
 
 [ext_resource type="PackedScene" uid="uid://bl8gkjiytj30d" path="res://addons/SSDM-UI/menu_base/vertical_menu/vertical_menu_base.tscn" id="1_k57fg"]
+[ext_resource type="Script" uid="uid://xjbsutou3kvd" path="res://addons/AWOC/ui/new_resource/new_awoc_menu.gd" id="2_6m504"]
+[ext_resource type="Texture2D" uid="uid://bsuxag4mut1ee" path="res://addons/SSDM-UI/images/godot_icons/folder.svg" id="3_nsnkr"]
 
-[node name="VBoxContainer" unique_id=106236835 instance=ExtResource("1_k57fg")]
+[node name="NewAWOCMenu" unique_id=106236835 instance=ExtResource("1_k57fg")]
+script = ExtResource("2_6m504")
 
-[node name="MenuButton" parent="." index="0" unique_id=1847332973]
+[node name="MenuButton" parent="MenuButtonWrapper" parent_id_path=PackedInt32Array(1451716525) index="0" unique_id=1847332973]
 text = "New AWOC"
+
+[node name="MarginContainer" parent="ClipWrapper/PanelContainer" parent_id_path=PackedInt32Array(2029568086) index="0" unique_id=1214248334]
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" parent="ClipWrapper/PanelContainer/MarginContainer/ContentContainer" parent_id_path=PackedInt32Array(2119092832) index="0" unique_id=933965460]
+visible = false
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ClipWrapper/PanelContainer/MarginContainer/ContentContainer" parent_id_path=PackedInt32Array(2119092832) index="1" unique_id=323119714]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="ClipWrapper/PanelContainer/MarginContainer/ContentContainer/HBoxContainer2" index="0" unique_id=1201376402]
+layout_mode = 2
+text = "Name: "
+
+[node name="LineEdit" type="LineEdit" parent="ClipWrapper/PanelContainer/MarginContainer/ContentContainer/HBoxContainer2" index="1" unique_id=426736226]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ClipWrapper/PanelContainer/MarginContainer/ContentContainer" parent_id_path=PackedInt32Array(2119092832) index="2" unique_id=181387966]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ClipWrapper/PanelContainer/MarginContainer/ContentContainer/HBoxContainer3" index="0" unique_id=229536684]
+layout_mode = 2
+text = "Name: "
+
+[node name="LineEdit" type="LineEdit" parent="ClipWrapper/PanelContainer/MarginContainer/ContentContainer/HBoxContainer3" index="1" unique_id=219329280]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "MyAWOC"
+
+[node name="Button" type="Button" parent="ClipWrapper/PanelContainer/MarginContainer/ContentContainer/HBoxContainer3" index="2" unique_id=1316114972]
+custom_minimum_size = Vector2(31, 0)
+layout_mode = 2
+icon = ExtResource("3_nsnkr")
+icon_alignment = 1

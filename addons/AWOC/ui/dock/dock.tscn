@@ -1,17 +1,6 @@
 [gd_scene format=3 uid="uid://cdoiwhcq71tio"]
 
-[ext_resource type="Script" uid="uid://njhehti6kk5i" path="res://addons/AWOC/ui/dock/dock.gd" id="1_q8xoc"]
-[ext_resource type="PackedScene" uid="uid://uw1bs8r88m6y" path="res://addons/SSDM-UI/menu_base/horizontal_menu/horizontal_menu.tscn" id="2_s152w"]
-[ext_resource type="PackedScene" uid="uid://bl8gkjiytj30d" path="res://addons/SSDM-UI/menu_base/vertical_menu/vertical_menu_base.tscn" id="2_upe0u"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ilvsu"]
-bg_color = Color(1, 1, 1, 0.039215688)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q8xoc"]
-bg_color = Color(1, 1, 1, 0.039215688)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s152w"]
-bg_color = Color(1, 1, 1, 0.039215688)
+[ext_resource type="PackedScene" uid="uid://cbwyq2v3du2d0" path="res://addons/AWOC/ui/panels/welcome_panel.tscn" id="3_upe0u"]
 
 [node name="Dock" type="Control" unique_id=2047145779]
 layout_mode = 3
@@ -20,9 +9,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_q8xoc")
 
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=188143680]
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=493768277]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,84 +18,27 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=198062723]
+[node name="PanelContainer" type="PanelContainer" parent="ScrollContainer" unique_id=188143680]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/PanelContainer" unique_id=198062723]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer" unique_id=969608177]
-layout_mode = 2
-theme_override_constants/separation = 5
-
-[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/MarginContainer/HBoxContainer" unique_id=1179299827]
-custom_minimum_size = Vector2(400, 0)
-layout_mode = 2
-
-[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/HBoxContainer/ScrollContainer" unique_id=2126589274]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_ilvsu")
-
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/HBoxContainer/ScrollContainer/PanelContainer" unique_id=253623110]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/ScrollContainer/PanelContainer/MarginContainer" unique_id=1698885931]
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/PanelContainer/MarginContainer" unique_id=969608177]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="HomeButton" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/ScrollContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=507726639]
-layout_mode = 2
-text = "AWOC"
-
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/ScrollContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=35767146]
-layout_mode = 2
-text = "Welcome"
-horizontal_alignment = 1
-
-[node name="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/ScrollContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=106236835 instance=ExtResource("2_upe0u")]
+[node name="WelcomePanel" parent="ScrollContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=1876830973 instance=ExtResource("3_upe0u")]
 layout_mode = 2
 
-[node name="ScrollContainer2" type="ScrollContainer" parent="PanelContainer/MarginContainer/HBoxContainer" unique_id=1555864329]
-layout_mode = 2
-size_flags_horizontal = 3
+[node name="MarginContainer" parent="ScrollContainer/PanelContainer/MarginContainer/HBoxContainer/WelcomePanel/HBoxContainer/Control" parent_id_path=PackedInt32Array(1876830973, 1636588195) index="0" unique_id=249093010]
+offset_bottom = 30.0
 
-[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/HBoxContainer/ScrollContainer2" unique_id=1343988088]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_q8xoc")
-
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/HBoxContainer/ScrollContainer2/PanelContainer" unique_id=1149364721]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/ScrollContainer2/PanelContainer/MarginContainer" unique_id=1428163132]
-layout_mode = 2
-
-[node name="HBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/ScrollContainer2/PanelContainer/MarginContainer/VBoxContainer" unique_id=131900058 instance=ExtResource("2_s152w")]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="ScrollContainer3" type="ScrollContainer" parent="PanelContainer/MarginContainer/HBoxContainer" unique_id=1344108033]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/HBoxContainer/ScrollContainer3" unique_id=686463551]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_s152w")
-
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/HBoxContainer/ScrollContainer3/PanelContainer" unique_id=354098602]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/ScrollContainer3/PanelContainer/MarginContainer" unique_id=151143967]
-layout_mode = 2
-
-[connection signal="pressed" from="PanelContainer/MarginContainer/HBoxContainer/ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/HomeButton" to="." method="_on_home_button_pressed"]
+[editable path="ScrollContainer/PanelContainer/MarginContainer/HBoxContainer/WelcomePanel"]
+[editable path="ScrollContainer/PanelContainer/MarginContainer/HBoxContainer/WelcomePanel/HBoxContainer/Control/PanelContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/NewAWOCMenu"]
