@@ -11,6 +11,14 @@ func get_manager(type: String) -> SSDMResourceManagerBase:
 	return managers.get(type)
 	
 
+func set_manager(type: String, resource_reference: SSDMResourceReference, resource_dictionary: Dictionary) -> SSDMResult:
+	var manager: SSDMResourceManagerBase = get_manager(type)
+	if not manager:
+		return SSDMResult.failure("SSDMManager: Unknown resource type: " + type)
+	manager.set_manager(resource_reference, resource_dictionary)
+	return SSDMResult.success()
+	
+	
 func has_resources(type: String) -> SSDMResult:
 	var manager: SSDMResourceManagerBase = get_manager(type)
 	if not manager:
@@ -43,7 +51,7 @@ func add_resource(type: String, res_name: String, resource_reference: SSDMResour
 	var manager: SSDMResourceManagerBase = get_manager(type)
 	if not manager:
 		return SSDMResult.failure("SSDMManager: Unknown resource type: " + type)
-	return await manager.add_new_resource(res_name, resource_reference, additional_data, parent_name)
+	return await manager.add_resource(res_name, resource_reference, additional_data, parent_name)
 	
 	
 func rename_resource(type: String, old_name: String, new_name: String, resource_reference: SSDMResourceReference = null) -> SSDMResult:

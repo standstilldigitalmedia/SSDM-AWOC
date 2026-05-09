@@ -1,15 +1,7 @@
-[gd_resource type="Resource" script_class="AWOCWelcomeResource" format=3 uid="uid://dnn15foqvj41c"]
+[gd_resource type="Resource" script_class="AWOCWelcomeResource" format=3 uid="uid://jciqf655bf83"]
 
 [ext_resource type="Script" uid="uid://cosu0v2nwobf8" path="res://addons/SSDM-Work/runtime/resource_reference.gd" id="1_641r2"]
 [ext_resource type="Script" uid="uid://d4f0xcwlwyvcj" path="res://addons/AWOC/resource/welcome.gd" id="2_wv764"]
 
-[sub_resource type="Resource" id="Resource_641r2"]
-script = ExtResource("1_641r2")
-res_uid = 3218038535619159883
-res_path = "res://testing/new_awoc/my_awoc.tres"
-
 [resource]
 script = ExtResource("2_wv764")
-awoc_dictionary = Dictionary[String, ExtResource("1_641r2")]({
-"my_awoc": SubResource("Resource_641r2")
-})

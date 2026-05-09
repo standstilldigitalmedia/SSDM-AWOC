@@ -6,7 +6,12 @@ extends SSDMDiskResourceManager
 @abstract func create_resource() -> SSDMResult
 
 
-func add_new_resource(res_name: String, resource_reference: SSDMResourceReference, additional_data: Variant = null, parent_name: String = "") -> SSDMResult:
+func set_manager(ref: SSDMResourceReference, dict: Dictionary) -> void:
+	_parent_resource_reference = ref
+	_resource_dictionary = dict
+	
+	
+func add_resource(res_name: String, resource_reference: SSDMResourceReference, additional_data: Variant = null, parent_name: String = "") -> SSDMResult:
 	if resource_reference.dictionary_resource:
 		var reference_validate: SSDMResult = validate_dictionary_resource_reference(resource_reference)
 		if !reference_validate.is_success():

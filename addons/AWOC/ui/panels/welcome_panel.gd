@@ -13,9 +13,8 @@ func _ready() -> void:
 		new_awoc_res_ref.resource = get_new.data
 	else:
 		print("error: " + get_new.message)
-	new_awoc_res_ref.res_path = "res://testing/new_awoc"
-	AWOCPlugin.work_manager.get_manager("welcome")._parent_resource_reference = create.data
-	AWOCPlugin.work_manager.get_manager("welcome")._resource_dictionary = create.data.resource.awoc_dictionary
-	var new_awoc = await AWOCPlugin.work_manager.add_resource("welcome", "my_awoc", new_awoc_res_ref)
+	new_awoc_res_ref.res_path = "res://testing/new_awoc/next_name.tres"
+	AWOCPlugin.work_manager.set_manager("welcome", create.data, create.data.resource.awoc_dictionary)
+	var new_awoc = await AWOCPlugin.work_manager.delete_resource("welcome", "next_name", new_awoc_res_ref)
 	if !new_awoc.is_success():
 		print("error: " + new_awoc.message)

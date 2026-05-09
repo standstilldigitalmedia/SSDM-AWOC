@@ -119,7 +119,7 @@ func _delete_resource_from_disk(resource_name: String, resource_reference: SSDMR
 	var dir: DirAccess = DirAccess.open("res://")
 	if !dir:
 		return SSDMResult.failure("SSDMManager: Failed to open directory for deletion")
-	if SSDMWorkManager.config.send_to_recylce:
+	if AWOCPlugin.config.send_to_recycle:
 		var trash_result = OS.move_to_trash(ProjectSettings.globalize_path(file_path))
 		if trash_result != OK:
 			result = "SSDMManager: Failed to move file to trash: " + file_path + " (Error: " + str(trash_result) + ")"

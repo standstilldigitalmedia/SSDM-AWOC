@@ -17,4 +17,4 @@ extends Resource
 
 @export_group("Dock")
 @export var dock_scene: PackedScene
-@export var dock_slot: EditorDock.DockSlot
+@export var dock_slot: EditorDock.DockSlot = EditorDock.DockSlot.DOCK_SLOT_MAX
