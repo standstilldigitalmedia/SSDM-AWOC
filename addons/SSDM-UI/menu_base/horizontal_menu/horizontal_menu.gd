@@ -12,7 +12,3 @@ func _ready() -> void:
 	tween_property = "custom_minimum_size:x"
 	menu_button.set_pressed_no_signal(true)
 	slide_open()
-
-
-func _on_button_pressed() -> void:
-	print("clicked")

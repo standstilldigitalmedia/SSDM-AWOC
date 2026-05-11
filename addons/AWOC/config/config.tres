@@ -15,4 +15,3 @@ metadata/_custom_type_script = "uid://cprfld2ov04wa"
 script = ExtResource("2_jpq1g")
 manager_registry_entries = Array[ExtResource("1_23ld7")]([SubResource("Resource_xad5w")])
 dock_scene = ExtResource("1_xad5w")
-dock_slot = 9

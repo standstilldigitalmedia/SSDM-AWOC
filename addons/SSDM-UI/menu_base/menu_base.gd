@@ -4,14 +4,13 @@ extends Node
 
 @export var remove_on_close: bool = false
 @export var animation_speed: float = 0.25
-@export var hide_close_button: bool = true
 
 @export_group("Controls")
-@export var outer_panel_container: PanelContainer
-@export var animate_container: Control
 @export var menu_button_wrapper: Control
-@export var close_button: Button
 @export var menu_button: Button
+@export var animate_container: Control
+@export var outer_panel_container: PanelContainer
+
 
 var panel_tween: Tween
 var button_tween: Tween
@@ -75,14 +74,8 @@ func _on_menu_button_toggled(toggled_on: bool) -> void:
 		
 					
 func _ready() -> void:
-	if hide_close_button:
-		close_button.hide()
-	else:
-		close_button.show()
 	animate_container.clip_contents = true
 	menu_button_wrapper.clip_contents = true
-	#clip_wrapper.show()
-	menu_button_wrapper.show()
 	await get_tree().process_frame
 	if not is_inside_tree():
 		return

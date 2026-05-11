@@ -1,22 +1,24 @@
 [gd_scene format=3 uid="uid://bl8gkjiytj30d"]
 
 [ext_resource type="Script" uid="uid://csr02auixg6s4" path="res://addons/SSDM-UI/menu_base/vertical_menu/vertical_menu_base.gd" id="1_u5cal"]
+[ext_resource type="PackedScene" uid="uid://b82y5boavm1r5" path="res://addons/SSDM-UI/message_display/message_display.tscn" id="2_k4ffg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jy68i"]
 bg_color = Color(0, 0, 0, 0.11764706)
 
-[node name="VBoxContainer" type="VBoxContainer" unique_id=106236835 node_paths=PackedStringArray("outer_panel_container", "animate_container", "menu_button_wrapper", "close_button", "menu_button")]
+[node name="VBoxContainer" type="VBoxContainer" unique_id=106236835 node_paths=PackedStringArray("message_display", "create_button", "menu_button_wrapper", "menu_button", "animate_container", "outer_panel_container")]
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 32.0
 grow_horizontal = 2
 theme_override_constants/separation = 0
 script = ExtResource("1_u5cal")
-outer_panel_container = NodePath("ClipWrapper/PanelContainer")
-animate_container = NodePath("ClipWrapper")
+message_display = NodePath("AnimateContainer/OuterPanelContainer/MarginContainer/ContentContainer/MessageDisplay")
+create_button = NodePath("AnimateContainer/OuterPanelContainer/MarginContainer/ContentContainer/CreateButton")
 menu_button_wrapper = NodePath("MenuButtonWrapper")
-close_button = NodePath("ClipWrapper/PanelContainer/MarginContainer/ContentContainer/HBoxContainer/CloseButton")
 menu_button = NodePath("MenuButtonWrapper/MenuButton")
+animate_container = NodePath("AnimateContainer")
+outer_panel_container = NodePath("AnimateContainer/OuterPanelContainer")
 
 [node name="MenuButtonWrapper" type="Control" parent="." unique_id=1451716525]
 clip_contents = true
@@ -33,11 +35,11 @@ size_flags_vertical = 3
 toggle_mode = true
 text = "Menu Button"
 
-[node name="ClipWrapper" type="Control" parent="." unique_id=1643154331]
+[node name="AnimateContainer" type="Control" parent="." unique_id=1643154331]
 clip_contents = true
 layout_mode = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="ClipWrapper" unique_id=2029568086]
+[node name="OuterPanelContainer" type="PanelContainer" parent="AnimateContainer" unique_id=2029568086]
 clip_contents = true
 layout_mode = 1
 anchors_preset = 15
@@ -47,26 +49,24 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_jy68i")
 
-[node name="MarginContainer" type="MarginContainer" parent="ClipWrapper/PanelContainer" unique_id=1214248334]
+[node name="MarginContainer" type="MarginContainer" parent="AnimateContainer/OuterPanelContainer" unique_id=1214248334]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="ContentContainer" type="VBoxContainer" parent="ClipWrapper/PanelContainer/MarginContainer" unique_id=2119092832]
+[node name="ContentContainer" type="VBoxContainer" parent="AnimateContainer/OuterPanelContainer/MarginContainer" unique_id=2119092832]
 layout_mode = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 15
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ClipWrapper/PanelContainer/MarginContainer/ContentContainer" unique_id=933965460]
-layout_mode = 2
-alignment = 2
-
-[node name="CloseButton" type="Button" parent="ClipWrapper/PanelContainer/MarginContainer/ContentContainer/HBoxContainer" unique_id=15888946]
+[node name="MessageDisplay" parent="AnimateContainer/OuterPanelContainer/MarginContainer/ContentContainer" unique_id=773782046 instance=ExtResource("2_k4ffg")]
 visible = false
-custom_minimum_size = Vector2(31, 0)
 layout_mode = 2
-text = "X"
+
+[node name="CreateButton" type="Button" parent="AnimateContainer/OuterPanelContainer/MarginContainer/ContentContainer" unique_id=1256462584]
+layout_mode = 2
+text = "CreateButton"
 
 [connection signal="toggled" from="MenuButtonWrapper/MenuButton" to="." method="_on_menu_button_toggled"]
-[connection signal="pressed" from="ClipWrapper/PanelContainer/MarginContainer/ContentContainer/HBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="AnimateContainer/OuterPanelContainer/MarginContainer/ContentContainer/CreateButton" to="." method="_on_create_button_pressed"]

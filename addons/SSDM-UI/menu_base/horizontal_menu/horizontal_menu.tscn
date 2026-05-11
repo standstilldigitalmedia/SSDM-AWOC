@@ -6,16 +6,16 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f8qk5"]
 bg_color = Color(0, 0, 0, 0.039215688)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m0x76"]
-bg_color = Color(0.078431375, 0.078431375, 0.078431375, 0.23529412)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ve3yj"]
 bg_color = Color(1, 1, 1, 0.039215688)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_txox3"]
 bg_color = Color(1, 1, 1, 0.078431375)
 
-[node name="HorizontalMenu" type="PanelContainer" unique_id=1876830973 node_paths=PackedStringArray("outer_panel_container", "animate_container", "menu_button_wrapper", "close_button", "menu_button")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m0x76"]
+bg_color = Color(0.078431375, 0.078431375, 0.078431375, 0.23529412)
+
+[node name="HorizontalMenu" type="PanelContainer" unique_id=1876830973 node_paths=PackedStringArray("menu_button_wrapper", "menu_button", "animate_container", "outer_panel_container", "close_button")]
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 4.0
@@ -23,23 +23,22 @@ grow_vertical = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_f8qk5")
 script = ExtResource("1_f4h4v")
-hide_close_button = false
-outer_panel_container = NodePath("HBoxContainer/Control/PanelContainer")
-animate_container = NodePath("HBoxContainer/Control")
-menu_button_wrapper = NodePath("HBoxContainer/Control2")
-close_button = NodePath("HBoxContainer/Control/MarginContainer/HBoxContainer/CloseButton")
-menu_button = NodePath("HBoxContainer/Control2/MenuButton")
+menu_button_wrapper = NodePath("HBoxContainer/MenuButtonWrapper")
+menu_button = NodePath("HBoxContainer/MenuButtonWrapper/MenuButton")
+animate_container = NodePath("HBoxContainer/AnimateContainer")
+outer_panel_container = NodePath("HBoxContainer/AnimateContainer/OuterPanelContainer")
+close_button = NodePath("HBoxContainer/AnimateContainer/CloseButtonMarginContainer/HBoxContainer/CloseButton")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1515243151]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Control2" type="Control" parent="HBoxContainer" unique_id=101045684]
+[node name="MenuButtonWrapper" type="Control" parent="HBoxContainer" unique_id=101045684]
 clip_contents = true
-custom_minimum_size = Vector2(30, 0)
+custom_minimum_size = Vector2(24, 0)
 layout_mode = 2
 
-[node name="MenuButton" type="Button" parent="HBoxContainer/Control2" unique_id=1863147800]
+[node name="MenuButton" type="Button" parent="HBoxContainer/MenuButtonWrapper" unique_id=1863147800]
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
@@ -59,33 +58,12 @@ t
 o
 n"
 
-[node name="Control" type="Control" parent="HBoxContainer" unique_id=1636588195]
+[node name="AnimateContainer" type="Control" parent="HBoxContainer" unique_id=1636588195]
 clip_contents = true
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Control" unique_id=249093010]
-custom_minimum_size = Vector2(0, 10)
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-grow_horizontal = 2
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Control/MarginContainer" unique_id=1586192343]
-layout_mode = 2
-theme_override_constants/separation = 4
-alignment = 2
-
-[node name="CloseButton" type="Button" parent="HBoxContainer/Control/MarginContainer/HBoxContainer" unique_id=812130050]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_m0x76")
-icon = ExtResource("2_r5nr2")
-icon_alignment = 1
-
-[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/Control" unique_id=482388324]
+[node name="OuterPanelContainer" type="PanelContainer" parent="HBoxContainer/AnimateContainer" unique_id=482388324]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -94,33 +72,57 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ve3yj")
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Control/PanelContainer" unique_id=1622736073]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/AnimateContainer/OuterPanelContainer" unique_id=1622736073]
 layout_mode = 2
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/Control/PanelContainer/MarginContainer" unique_id=2018926426]
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/AnimateContainer/OuterPanelContainer/MarginContainer" unique_id=2018926426]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_txox3")
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Control/PanelContainer/MarginContainer/PanelContainer" unique_id=348934345]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/AnimateContainer/OuterPanelContainer/MarginContainer/PanelContainer" unique_id=348934345]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Control/PanelContainer/MarginContainer/PanelContainer/MarginContainer" unique_id=872025785]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/AnimateContainer/OuterPanelContainer/MarginContainer/PanelContainer/MarginContainer" unique_id=872025785]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Label" type="Label" parent="HBoxContainer/Control/PanelContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=564239326]
+[node name="PanelLabel" type="Label" parent="HBoxContainer/AnimateContainer/OuterPanelContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=564239326]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Title Text"
 horizontal_alignment = 1
 
-[connection signal="toggled" from="HBoxContainer/Control2/MenuButton" to="." method="_on_menu_button_toggled"]
-[connection signal="pressed" from="HBoxContainer/Control/MarginContainer/HBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]
+[node name="CloseButtonMarginContainer" type="MarginContainer" parent="HBoxContainer/AnimateContainer" unique_id=249093010]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -30.0
+offset_bottom = 30.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/AnimateContainer/CloseButtonMarginContainer" unique_id=1586192343]
+layout_mode = 2
+theme_override_constants/separation = 4
+alignment = 2
+
+[node name="CloseButton" type="Button" parent="HBoxContainer/AnimateContainer/CloseButtonMarginContainer/HBoxContainer" unique_id=812130050]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_m0x76")
+icon = ExtResource("2_r5nr2")
+icon_alignment = 1
+
+[connection signal="toggled" from="HBoxContainer/MenuButtonWrapper/MenuButton" to="." method="_on_menu_button_toggled"]
+[connection signal="pressed" from="HBoxContainer/AnimateContainer/CloseButtonMarginContainer/HBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]

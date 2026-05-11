@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://dnno40ndvt4jq"]
+
+[ext_resource type="PackedScene" uid="uid://bl8gkjiytj30d" path="res://addons/SSDM-UI/menu_base/vertical_menu/vertical_menu_base.tscn" id="1_7qepx"]
+[ext_resource type="Script" uid="uid://xjbsutou3kvd" path="res://addons/AWOC/ui/new_resource/new_awoc/new_awoc_menu.gd" id="2_kihbg"]
+[ext_resource type="Texture2D" uid="uid://bsuxag4mut1ee" path="res://addons/SSDM-UI/images/godot_icons/folder.svg" id="3_p6yf0"]
+
+[node name="NewAWOCMenu" unique_id=106236835 node_paths=PackedStringArray("name_line_edit", "path_line_edit") instance=ExtResource("1_7qepx")]
+script = ExtResource("2_kihbg")
+name_line_edit = NodePath("AnimateContainer/OuterPanelContainer/MarginContainer/ContentContainer/NameLineEdit")
+path_line_edit = NodePath("AnimateContainer/OuterPanelContainer/MarginContainer/ContentContainer/HBoxContainer/PathLineEdit")
+
+[node name="Label" type="Label" parent="AnimateContainer/OuterPanelContainer/MarginContainer/ContentContainer" parent_id_path=PackedInt32Array(2119092832) index="1" unique_id=323746100]
+layout_mode = 2
+text = "AWOC Name:"
+
+[node name="NameLineEdit" type="LineEdit" parent="AnimateContainer/OuterPanelContainer/MarginContainer/ContentContainer" parent_id_path=PackedInt32Array(2119092832) index="2" unique_id=1528119]
+layout_mode = 2
+placeholder_text = "MyNewAWOC"
+
+[node name="Label2" type="Label" parent="AnimateContainer/OuterPanelContainer/MarginContainer/ContentContainer" parent_id_path=PackedInt32Array(2119092832) index="3" unique_id=771568999]
+layout_mode = 2
+text = "Asset Creation Path"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AnimateContainer/OuterPanelContainer/MarginContainer/ContentContainer" parent_id_path=PackedInt32Array(2119092832) index="4" unique_id=588543186]
+layout_mode = 2
+
+[node name="PathLineEdit" type="LineEdit" parent="AnimateContainer/OuterPanelContainer/MarginContainer/ContentContainer/HBoxContainer" index="0" unique_id=152373511]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "res://my_new_awoc"
+
+[node name="BrowseButton" type="Button" parent="AnimateContainer/OuterPanelContainer/MarginContainer/ContentContainer/HBoxContainer" index="1" unique_id=224001263]
+custom_minimum_size = Vector2(31, 0)
+layout_mode = 2
+icon = ExtResource("3_p6yf0")
+icon_alignment = 1
+
+[node name="CreateButton" parent="AnimateContainer/OuterPanelContainer/MarginContainer/ContentContainer" parent_id_path=PackedInt32Array(2119092832) index="5" unique_id=1256462584]
+disabled = true
+
+[connection signal="text_changed" from="AnimateContainer/OuterPanelContainer/MarginContainer/ContentContainer/NameLineEdit" to="." method="validate"]
+[connection signal="text_changed" from="AnimateContainer/OuterPanelContainer/MarginContainer/ContentContainer/HBoxContainer/PathLineEdit" to="." method="validate"]
