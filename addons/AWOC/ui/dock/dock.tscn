@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://cdoiwhcq71tio"]
 
+[ext_resource type="PackedScene" uid="uid://dfnc5i0jx5ub3" path="res://addons/AWOC/ui/panels/welcome/welcome_panel.tscn" id="1_gamll"]
+
 [node name="Dock" type="Control" unique_id=2047145779]
 layout_mode = 3
 anchors_preset = 15
@@ -31,3 +33,6 @@ theme_override_constants/margin_bottom = 5
 [node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/PanelContainer/MarginContainer" unique_id=969608177]
 layout_mode = 2
 theme_override_constants/separation = 10
+
+[node name="WelcomePanel" parent="ScrollContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=1876830973 instance=ExtResource("1_gamll")]
+layout_mode = 2

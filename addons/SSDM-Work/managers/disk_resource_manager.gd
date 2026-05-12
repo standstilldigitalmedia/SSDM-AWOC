@@ -92,7 +92,7 @@ func _save_resource_to_disk(resource_reference: SSDMResourceReference, bundle: b
 	return SSDMResult.success("", uid)
 	
 	
-func _create_resource_on_disk(resource_name: String, resource_reference: SSDMResourceReference) -> SSDMResult:
+func _add_resource_to_disk(resource_name: String, resource_reference: SSDMResourceReference) -> SSDMResult:
 	var path: SSDMResult = resource_reference.get_ref_path()
 	if !path.is_success():
 		return path
@@ -101,6 +101,8 @@ func _create_resource_on_disk(resource_name: String, resource_reference: SSDMRes
 		return dir_created
 	var full_path: String = path.data.path_join(resource_name + ".tres")
 	resource_reference.res_path = full_path
+	if resource_reference == null:
+		printerr("No resource reference here in disk resource manager 2nd")
 	var save_result: SSDMResult = await _save_resource_to_disk(resource_reference)
 	if save_result.error:
 		return save_result

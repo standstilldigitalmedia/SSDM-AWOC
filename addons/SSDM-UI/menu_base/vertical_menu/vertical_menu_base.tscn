@@ -6,7 +6,7 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jy68i"]
 bg_color = Color(0, 0, 0, 0.11764706)
 
-[node name="VBoxContainer" type="VBoxContainer" unique_id=106236835 node_paths=PackedStringArray("message_display", "create_button", "menu_button_wrapper", "menu_button", "animate_container", "outer_panel_container")]
+[node name="VBoxContainer" type="VBoxContainer" unique_id=106236835 node_paths=PackedStringArray("message_display", "create_button", "animate_container", "outer_panel_container")]
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 32.0
@@ -14,9 +14,7 @@ grow_horizontal = 2
 theme_override_constants/separation = 0
 script = ExtResource("1_u5cal")
 message_display = NodePath("AnimateContainer/OuterPanelContainer/MarginContainer/ContentContainer/MessageDisplay")
-create_button = NodePath("AnimateContainer/OuterPanelContainer/MarginContainer/ContentContainer/CreateButton")
-menu_button_wrapper = NodePath("MenuButtonWrapper")
-menu_button = NodePath("MenuButtonWrapper/MenuButton")
+create_button = NodePath("")
 animate_container = NodePath("AnimateContainer")
 outer_panel_container = NodePath("AnimateContainer/OuterPanelContainer")
 
@@ -61,12 +59,6 @@ layout_mode = 2
 theme_override_constants/separation = 15
 
 [node name="MessageDisplay" parent="AnimateContainer/OuterPanelContainer/MarginContainer/ContentContainer" unique_id=773782046 instance=ExtResource("2_k4ffg")]
-visible = false
 layout_mode = 2
-
-[node name="CreateButton" type="Button" parent="AnimateContainer/OuterPanelContainer/MarginContainer/ContentContainer" unique_id=1256462584]
-layout_mode = 2
-text = "CreateButton"
 
 [connection signal="toggled" from="MenuButtonWrapper/MenuButton" to="." method="_on_menu_button_toggled"]
-[connection signal="pressed" from="AnimateContainer/OuterPanelContainer/MarginContainer/ContentContainer/CreateButton" to="." method="_on_create_button_pressed"]

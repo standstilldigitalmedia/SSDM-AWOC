@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://0q576wd7cocs"]
+
+[ext_resource type="Script" uid="uid://ogr0bn6dg7mf" path="res://addons/SSDM-UI/menu_base/row_management/row_management_base.gd" id="1_j84g4"]
+[ext_resource type="Texture2D" uid="uid://71y04x6cnkpp" path="res://addons/SSDM-UI/images/godot_icons/Remove.svg" id="1_yjcom"]
+[ext_resource type="Texture2D" uid="uid://bjthynaqshg8e" path="res://addons/SSDM-UI/images/godot_icons/Edit.svg" id="2_a2h8p"]
+[ext_resource type="PackedScene" uid="uid://b82y5boavm1r5" path="res://addons/SSDM-UI/message_display/message_display.tscn" id="4_y4r5w"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_j84g4"]
+load_path = "res://.godot/imported/rename.svg-57bd1d71e9f37a70accf2861ce60a23c.ctex"
+
+[node name="RowManagementBase" type="VBoxContainer" unique_id=1351309720 node_paths=PackedStringArray("name_line_edit", "rename_button", "message_display", "rename_confirmation_dialog", "delete_confirmation_dialog")]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 58.0
+grow_horizontal = 2
+script = ExtResource("1_j84g4")
+name_line_edit = NodePath("HBoxContainer/NameLineEdit")
+rename_button = NodePath("HBoxContainer/RenameButton")
+message_display = NodePath("MessageDisplay")
+rename_confirmation_dialog = NodePath("RenameConfirmationDialog")
+delete_confirmation_dialog = NodePath("DeleteConfirmationDialog")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1135298900]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 5
+
+[node name="NameLineEdit" type="LineEdit" parent="HBoxContainer" unique_id=278478598]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Resource Name"
+
+[node name="RenameButton" type="Button" parent="HBoxContainer" unique_id=1684860038]
+custom_minimum_size = Vector2(31, 0)
+layout_mode = 2
+tooltip_text = "Rename"
+icon = SubResource("CompressedTexture2D_j84g4")
+icon_alignment = 1
+
+[node name="DeleteButton" type="Button" parent="HBoxContainer" unique_id=639104111]
+custom_minimum_size = Vector2(31, 0)
+layout_mode = 2
+tooltip_text = "Delete"
+icon = ExtResource("1_yjcom")
+icon_alignment = 1
+
+[node name="EditButton" type="Button" parent="HBoxContainer" unique_id=2032669063]
+custom_minimum_size = Vector2(31, 0)
+layout_mode = 2
+tooltip_text = "Edit"
+icon = ExtResource("2_a2h8p")
+icon_alignment = 1
+
+[node name="MessageDisplay" parent="." unique_id=773782046 instance=ExtResource("4_y4r5w")]
+layout_mode = 2
+
+[node name="RenameConfirmationDialog" type="ConfirmationDialog" parent="." unique_id=267990889]
+initial_position = 1
+ok_button_text = "Yes"
+cancel_button_text = "No"
+
+[node name="DeleteConfirmationDialog" type="ConfirmationDialog" parent="." unique_id=1105250805]
+initial_position = 1
+ok_button_text = "Yes"
+cancel_button_text = "No"
+
+[connection signal="text_changed" from="HBoxContainer/NameLineEdit" to="." method="_on_name_line_edit_text_changed"]
+[connection signal="pressed" from="HBoxContainer/RenameButton" to="." method="_on_rename_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/DeleteButton" to="." method="_on_delete_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/EditButton" to="." method="_on_edit_button_pressed"]
+[connection signal="confirmed" from="RenameConfirmationDialog" to="." method="_on_rename_confirmation_dialog_confirmed"]
+[connection signal="confirmed" from="DeleteConfirmationDialog" to="." method="_on_delete_confirmation_dialog_confirmed"]

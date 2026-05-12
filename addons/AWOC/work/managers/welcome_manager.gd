@@ -4,7 +4,7 @@ extends SSDMResourceManagerBase
 const WELCOME_RESOURCE_PATH: String = "res://addons/AWOC/start_here/welcome.tres"
 
 
-func create_resource() -> SSDMResult:
+func get_new_resource() -> SSDMResult:
 	return SSDMResult.success("", AWOCResource.new())
 	
 	

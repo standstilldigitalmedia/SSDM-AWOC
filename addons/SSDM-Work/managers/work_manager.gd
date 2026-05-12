@@ -2,6 +2,8 @@
 class_name SSDMWorkManager
 extends RefCounted
 
+signal resource_created(type: String)
+
 static var config: SSDMPluginConfig = null
 
 var managers := {}
@@ -40,18 +42,21 @@ func get_sorted_name_array(type: String) -> SSDMResult:
 	return manager.get_sorted_name_array()
 	
 	
-func create_resource(type: String) -> SSDMResult:
+func get_new_resource(type: String) -> SSDMResult:
 	var manager: SSDMResourceManagerBase = get_manager(type)
 	if not manager:
 		return SSDMResult.failure("SSDMManager: Unknown resource type: " + type)
-	return manager.create_resource()
+	return manager.get_new_resource()
 	
 	
-func add_resource(type: String, res_name: String, resource_reference: SSDMResourceReference, additional_data: Variant = null, parent_name: String = ""):
+func add_resource(type: String, res_name: String, resource_reference: SSDMResourceReference, additional_data: Variant = null, parent_name: String = "") -> SSDMResult:
 	var manager: SSDMResourceManagerBase = get_manager(type)
 	if not manager:
 		return SSDMResult.failure("SSDMManager: Unknown resource type: " + type)
-	return await manager.add_resource(res_name, resource_reference, additional_data, parent_name)
+	var add_resource: SSDMResult = await manager.add_resource(res_name, resource_reference, additional_data, parent_name)
+	if add_resource.is_success():
+		resource_created.emit()
+	return add_resource
 	
 	
 func rename_resource(type: String, old_name: String, new_name: String, resource_reference: SSDMResourceReference = null) -> SSDMResult:

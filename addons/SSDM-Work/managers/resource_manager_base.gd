@@ -3,7 +3,7 @@
 extends SSDMDiskResourceManager
 
 
-@abstract func create_resource() -> SSDMResult
+@abstract func get_new_resource() -> SSDMResult
 
 
 func set_manager(ref: SSDMResourceReference, dict: Dictionary) -> void:
@@ -33,7 +33,7 @@ func add_resource(res_name: String, resource_reference: SSDMResourceReference, a
 		var disk_validate: SSDMResult = validate_new_disk_resource(res_name,resource_reference)
 		if !disk_validate.is_success():
 			return disk_validate
-		var disk_resource: SSDMResult = await _create_resource_on_disk(res_name, resource_reference)
+		var disk_resource: SSDMResult = await _add_resource_to_disk(res_name, resource_reference)
 		if !disk_resource.is_success():
 			return disk_resource
 		var add_resource: SSDMResult = _add_resource_reference_to_dictionary(res_name, resource_reference)
