@@ -3,10 +3,8 @@
 [ext_resource type="Script" uid="uid://ogr0bn6dg7mf" path="res://addons/SSDM-UI/menu_base/row_management/row_management_base.gd" id="1_j84g4"]
 [ext_resource type="Texture2D" uid="uid://71y04x6cnkpp" path="res://addons/SSDM-UI/images/godot_icons/Remove.svg" id="1_yjcom"]
 [ext_resource type="Texture2D" uid="uid://bjthynaqshg8e" path="res://addons/SSDM-UI/images/godot_icons/Edit.svg" id="2_a2h8p"]
+[ext_resource type="Texture2D" uid="uid://d1dyk1eac3eeo" path="res://addons/SSDM-UI/images/godot_icons/Rename.svg" id="2_y4r5w"]
 [ext_resource type="PackedScene" uid="uid://b82y5boavm1r5" path="res://addons/SSDM-UI/message_display/message_display.tscn" id="4_y4r5w"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_j84g4"]
-load_path = "res://.godot/imported/rename.svg-57bd1d71e9f37a70accf2861ce60a23c.ctex"
 
 [node name="RowManagementBase" type="VBoxContainer" unique_id=1351309720 node_paths=PackedStringArray("name_line_edit", "rename_button", "message_display", "rename_confirmation_dialog", "delete_confirmation_dialog")]
 anchors_preset = 10
@@ -34,7 +32,8 @@ placeholder_text = "Resource Name"
 custom_minimum_size = Vector2(31, 0)
 layout_mode = 2
 tooltip_text = "Rename"
-icon = SubResource("CompressedTexture2D_j84g4")
+disabled = true
+icon = ExtResource("2_y4r5w")
 icon_alignment = 1
 
 [node name="DeleteButton" type="Button" parent="HBoxContainer" unique_id=639104111]
