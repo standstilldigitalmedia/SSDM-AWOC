@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://dnno40ndvt4jq"]
+
+[ext_resource type="PackedScene" uid="uid://hqii0orp85rs" path="res://addons/AWOC/editor/ui/new_resource/base/new_resource_menu_base.tscn" id="1_o06fc"]
+[ext_resource type="Script" uid="uid://xjbsutou3kvd" path="res://addons/AWOC/editor/ui/new_resource/new_awoc/new_awoc_menu.gd" id="2_kihbg"]
+[ext_resource type="Texture2D" uid="uid://bsuxag4mut1ee" path="res://addons/AWOC/editor/ui/images/godot_icons/folder.svg" id="3_p6yf0"]
+
+[node name="NewAWOCMenu" unique_id=106236835 node_paths=PackedStringArray("path_line_edit", "file_dialog", "name_line_edit", "create_button") instance=ExtResource("1_o06fc")]
+script = ExtResource("2_kihbg")
+path_line_edit = NodePath("AnimateContainer/OuterPanelContainer/MarginContainer/ContentContainer/HBoxContainer/PathLineEdit")
+file_dialog = NodePath("FileDialog")
+name_line_edit = NodePath("AnimateContainer/OuterPanelContainer/MarginContainer/ContentContainer/NameLineEdit")
+create_button = NodePath("AnimateContainer/OuterPanelContainer/MarginContainer/ContentContainer/CreateButton")
+
+[node name="AnimateContainer" parent="." index="1" unique_id=1643154331]
+custom_minimum_size = Vector2(0, 0)
+
+[node name="NameLabel" parent="AnimateContainer/OuterPanelContainer/MarginContainer/ContentContainer" parent_id_path=PackedInt32Array(2119092832) index="0" unique_id=1088926116]
+text = "AWOC Name:"
+
+[node name="NameLineEdit" parent="AnimateContainer/OuterPanelContainer/MarginContainer/ContentContainer" parent_id_path=PackedInt32Array(2119092832) index="1" unique_id=1282537335]
+placeholder_text = "MyNewAWOC"
+
+[node name="PathLabel" type="Label" parent="AnimateContainer/OuterPanelContainer/MarginContainer/ContentContainer" parent_id_path=PackedInt32Array(2119092832) index="2" unique_id=2109810116]
+layout_mode = 2
+text = "Asset Creation Path:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AnimateContainer/OuterPanelContainer/MarginContainer/ContentContainer" parent_id_path=PackedInt32Array(2119092832) index="3" unique_id=38270786]
+layout_mode = 2
+
+[node name="PathLineEdit" type="LineEdit" parent="AnimateContainer/OuterPanelContainer/MarginContainer/ContentContainer/HBoxContainer" index="0" unique_id=430023696]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "res://MyNewAWOC"
+
+[node name="BrowseButton" type="Button" parent="AnimateContainer/OuterPanelContainer/MarginContainer/ContentContainer/HBoxContainer" index="1" unique_id=1493444602]
+custom_minimum_size = Vector2(31, 0)
+layout_mode = 2
+icon = ExtResource("3_p6yf0")
+icon_alignment = 1
+
+[node name="CreateButton" parent="AnimateContainer/OuterPanelContainer/MarginContainer/ContentContainer" parent_id_path=PackedInt32Array(2119092832) index="5" unique_id=386152226]
+text = "Create New AWOC"
+
+[node name="FileDialog" type="FileDialog" parent="." index="2" unique_id=785766149]
+title = "Open a Directory"
+initial_position = 1
+file_mode = 2
+root_subfolder = "res://"
+
+[connection signal="pressed" from="AnimateContainer/OuterPanelContainer/MarginContainer/ContentContainer/HBoxContainer/BrowseButton" to="." method="_on_browse_button_pressed"]
+[connection signal="dir_selected" from="FileDialog" to="." method="_on_file_dialog_dir_selected"]

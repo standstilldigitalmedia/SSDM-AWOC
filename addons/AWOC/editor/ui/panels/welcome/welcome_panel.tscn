@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dfnc5i0jx5ub3"]
+
+[ext_resource type="PackedScene" uid="uid://bu6dxeogyw5f7" path="res://addons/AWOC/editor/ui/menu_base/horizontal_menu/horizontal_menu.tscn" id="1_allms"]
+[ext_resource type="Script" uid="uid://cr60fyemc38sm" path="res://addons/AWOC/editor/ui/panels/welcome/welcome_panel.gd" id="2_cknns"]
+[ext_resource type="PackedScene" uid="uid://dnno40ndvt4jq" path="res://addons/AWOC/editor/ui/new_resource/new_awoc/new_awoc_menu.tscn" id="3_6nlmk"]
+
+[node name="WelcomePanel" unique_id=1876830973 instance=ExtResource("1_allms")]
+script = ExtResource("2_cknns")
+
+[node name="AnimateContainer" parent="HBoxContainer" parent_id_path=PackedInt32Array(1515243151) index="1" unique_id=1636588195]
+custom_minimum_size = Vector2(0, 0)
+
+[node name="NewAWOCMenu" parent="HBoxContainer/AnimateContainer/OuterPanelContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(872025785) index="1" unique_id=106236835 instance=ExtResource("3_6nlmk")]
+layout_mode = 2
