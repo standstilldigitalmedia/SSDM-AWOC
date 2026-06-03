@@ -131,7 +131,6 @@ func save_resource_to_disk(bundle: bool = false) -> SSDMResult:
 	if save_result != OK:
 		return SSDMResult.failure("SSDMDiskManager: save_resource failed: " + str(save_result))
 	await wait_for_scan()
-	
 	return SSDMResult.success("", path)
 	
 	

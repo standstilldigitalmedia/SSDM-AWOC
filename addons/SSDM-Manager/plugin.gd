@@ -5,7 +5,7 @@ extends EditorPlugin
 
 static var config: SSDMPluginConfig = null
 static var dock: EditorDock = null
-#static var work_manager: SSDMWorkManager = null
+static var work_manager: SSDMWorkManager = null
 var main_ui: Control
 
 
@@ -29,8 +29,8 @@ func load_from_config() -> void:
 			return
 		push_error("SSDMPlugin: Configure your plugin. New config file created at: " + path_result.data)
 		return
-	#if !work_manager:
-		#work_manager = SSDMWorkManager.new(config)
+	if !work_manager:
+		work_manager = SSDMWorkManager.new(config)
 	if config.dock_scene:
 		main_ui = config.dock_scene.instantiate()
 		main_ui.name = _get_plugin_name()
@@ -94,9 +94,7 @@ func _enter_tree() -> void:
 
 func _exit_tree() -> void:
 	config = null
-	#if work_manager:
-		#work_manager = null
-	#work_manager = null
+	work_manager = null
 	if dock:
 		remove_dock(dock)
 		dock.queue_free()

@@ -2,7 +2,16 @@
 
 [ext_resource type="Script" uid="uid://d32dvxengdtnr" path="res://addons/SSDM-Manager/editor/resource/config.gd" id="1_eil4d"]
 [ext_resource type="PackedScene" uid="uid://cdoiwhcq71tio" path="res://addons/AWOC/editor/ui/dock/dock.tscn" id="1_tqgtg"]
+[ext_resource type="Script" uid="uid://bn6ksi2rwtblx" path="res://addons/SSDM-Manager/editor/resource/registry_entry.gd" id="2_1rsbv"]
+[ext_resource type="Script" uid="uid://qsklpkkqph7a" path="res://addons/AWOC/editor/work/welcome_library_manager.gd" id="3_oooc3"]
+
+[sub_resource type="Resource" id="Resource_q48wo"]
+script = ExtResource("2_1rsbv")
+type_key = "welcome"
+manager_script = ExtResource("3_oooc3")
+metadata/_custom_type_script = "uid://bn6ksi2rwtblx"
 
 [resource]
 script = ExtResource("1_eil4d")
+manager_registry_entries = Array[ExtResource("2_1rsbv")]([SubResource("Resource_q48wo")])
 dock_scene = ExtResource("1_tqgtg")

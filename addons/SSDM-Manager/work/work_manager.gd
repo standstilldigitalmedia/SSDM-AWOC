@@ -1,66 +1,74 @@
 class_name SSDMWorkManager
 extends RefCounted
 
-
 signal resource_created(type: String)
 
 static var config: SSDMPluginConfig = null
-
 var managers := {}
 
 
-func get_manager(type: String) -> SSDMLibraryManagerBase:
-	return managers.get(type)
-	
-	
-func set_library_ref(resource_reference: SSDMResourceReference) -> SSDMResult:
-	var manager: SSDMLibraryManagerBase = get_manager(resource_reference.res_type)
+func set_library_ref(type: String, resource_reference: SSDMResourceReference) -> SSDMResult:
+	var manager: SSDMLibraryManagerBase = managers.get(type)
 	if not manager:
 		return SSDMResult.failure("AWOCWorkManager: Unknown resource type: " + resource_reference.res_type)
 	manager.set_library_ref(resource_reference)
 	return SSDMResult.success()
 	
 	
-func has_resources(type: String) -> SSDMResult:
-	var manager: SSDMLibraryManagerBase = get_manager(type)
+func has_refs(type: String) -> SSDMResult:
+	var manager: SSDMLibraryManagerBase = managers.get(type)
 	if not manager:
 		return SSDMResult.failure("AWOCWorkManager: Unknown resource type: " + type)
-	return manager.library_manager.has_refs_of_type(type)
+	return manager.library_manager.has_refs()
+	
+	
+func get_refs(type: String) -> SSDMResult:
+	var manager: SSDMLibraryManagerBase = managers.get(type)
+	if not manager:
+		return SSDMResult.failure("AWOCWorkManager: Unknown resource type: " + type)
+	return manager.library_manager.get_refs()
 	
 	
 func get_ref_by_name(type: String, resource_name: String) -> SSDMResult:
-	var manager: SSDMLibraryManagerBase = get_manager(type)
+	var manager: SSDMLibraryManagerBase = managers.get(type)
 	if not manager:
 		return SSDMResult.failure("AWOCWorkManager: Unknown resource type: " + type)
 	return manager.library_manager.get_ref_by_name(resource_name)
 	
 	
+func get_ref_by_uid(type: String, uid: String) -> SSDMResult:
+	var manager: SSDMLibraryManagerBase = managers.get(type)
+	if not manager:
+		return SSDMResult.failure("AWOCWorkManager: Unknown resource type: " + type)
+	return manager.library_manager.get_ref_by_uid(uid)
+	
+	
 func get_sorted_name_array(type: String) -> SSDMResult:
-	var manager: SSDMLibraryManagerBase = get_manager(type)
+	var manager: SSDMLibraryManagerBase = managers.get(type)
 	if not manager:
 		return SSDMResult.failure("AWOCWorkManager: Unknown resource type: " + type)
-	return manager.library_manager.get_sorted_name_array_of_type(type)
+	return manager.library_manager.get_sorted_name_array()
 	
 	
-func add_resource(type: String, res_name: String, resource_reference: SSDMResourceReference, additional_data: Variant = null, parent_name: String = "") -> SSDMResult:
-	var manager: SSDMLibraryManagerBase = get_manager(type)
+func add_resource(type: String, params: Dictionary) -> SSDMResult:
+	var manager: SSDMLibraryManagerBase = managers.get(type)
 	if not manager:
 		return SSDMResult.failure("AWOCWorkManager: Unknown resource type: " + type)
-	var add_resource: SSDMResult = await manager.add_resource(resource_reference)
+	var add_resource: SSDMResult = await manager.add_resource(params)
 	if add_resource.is_success():
-		resource_created.emit()
+		resource_created.emit(type)
 	return add_resource
 	
 	
 func rename_resource(type: String, new_name: String, resource_reference: SSDMResourceReference) -> SSDMResult:
-	var manager: SSDMLibraryManagerBase = get_manager(type)
+	var manager: SSDMLibraryManagerBase = managers.get(type)
 	if not manager:
 		return SSDMResult.failure("AWOCWorkManager: Unknown resource type: " + type)
 	return await manager.rename_resource(new_name, resource_reference)
 	
 	
 func delete_resource(type: String, resource_name: String, resource_reference: SSDMResourceReference) -> SSDMResult:
-	var manager: SSDMLibraryManagerBase = get_manager(type)
+	var manager: SSDMLibraryManagerBase = managers.get(type)
 	if not manager:
 		return SSDMResult.failure("AWOCWorkManager: Unknown resource type: " + type)
 	return await manager.delete_resource(resource_reference)

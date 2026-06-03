@@ -1,3 +1,4 @@
+@tool
 class_name SSDMLibrary
 extends Resource
 
@@ -5,17 +6,16 @@ extends Resource
 var library_ref: SSDMResourceReference
 
 
-func has_refs_of_type(type: String) -> SSDMResult:
-	for resource_ref: SSDMResourceReference in resource_dictionary:
-		if resource_ref.type == type:
-			return SSDMResult.success()
+func has_refs() -> SSDMResult:
+	if resource_dictionary.size() > 0:
+		return SSDMResult.success()
 	return SSDMResult.failure()
 		
 		
 func get_ref_by_name(resource_name: String) -> SSDMResult:
-	for resource_ref: SSDMResourceReference in resource_dictionary:
-		if resource_ref.res_name == resource_name:
-			return SSDMResult.success("", resource_ref)
+	for key in resource_dictionary.keys():
+		if resource_dictionary[key].res_name == resource_name:
+			return SSDMResult.success("", resource_dictionary[key])
 	return SSDMResult.failure("No resources with that name found")
 	
 	
@@ -25,19 +25,18 @@ func get_ref_by_uid(uid: String) -> SSDMResult:
 	return SSDMResult.success("", resource_dictionary.get(uid))
 	
 
-func get_sorted_name_array_of_type(type: String) -> SSDMResult:
+func get_sorted_name_array() -> SSDMResult:
 	var names: Array[String] = []
 	for resource: SSDMResourceReference in resource_dictionary:
-		if resource.type == type:
-			names.append(resource.res_name)
+		names.append(resource.res_name)
 	if names.size() < 1:
 		return SSDMResult.failure()
 	names.sort()
 	return SSDMResult.success("", names)
 	
 		
-func get_refs_by_type(type: String) -> SSDMResult:
-	var name_array_result := get_sorted_name_array_of_type(type)
+func get_refs() -> SSDMResult:
+	var name_array_result := get_sorted_name_array()
 	if !name_array_result.is_success():
 		return name_array_result
 	var return_array = []
@@ -48,7 +47,8 @@ func get_refs_by_type(type: String) -> SSDMResult:
 
 func validate_new_dictionary_resource(resource_reference: SSDMResourceReference) -> SSDMResult:
 	var res_name = resource_reference.res_name
-	if get_ref_by_name(res_name):
+	var get_ref_result: SSDMResult = get_ref_by_name(res_name)
+	if get_ref_result.is_success():
 		return SSDMResult.failure("SSDMDictionaryManager: Can not add a resource that already exists: " + res_name)
 	if !SSDMValidator.is_valid_name(res_name):
 		return SSDMResult.failure("SSDMDictionaryManager: Invalid name: " + res_name)

@@ -3,7 +3,6 @@ extends Resource
 
 @export var res_name: String = ""
 @export var res_uid: String = ""
-@export var res_type: String = ""
 @export var stored_resource: Resource = null
 
 

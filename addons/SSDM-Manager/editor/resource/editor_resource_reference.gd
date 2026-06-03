@@ -30,7 +30,7 @@ func get_res_path() -> SSDMResult:
 	
 	
 func save_resource_to_disk(bundle: bool = false) -> SSDMResult:
-	var save_result: SSDMResult = await super()
+	var save_result: SSDMResult = await super.save_resource_to_disk(bundle)
 	if !save_result.is_success():
 		return save_result
 	var path: String = save_result.data

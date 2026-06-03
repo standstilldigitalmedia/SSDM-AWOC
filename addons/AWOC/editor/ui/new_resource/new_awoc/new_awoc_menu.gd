@@ -29,17 +29,11 @@ func _on_name_line_edit_text_changed(new_text: String) -> void:
 	
 	
 func _on_create_button_pressed() -> void:
-	"""var resource_reference: SSDMResourceReference = SSDMResourceReference.new()
-	var create_resource: SSDMResult = SSDMPlugin.work_manager.get_new_resource("welcome")
-	if !create_resource.is_success():
-		set_label(create_resource)
-		return
-	resource_reference.resource = create_resource.data
-	resource_reference.res_path = path_line_edit.text
-	var add_resource: SSDMResult = await SSDMPlugin.work_manager.add_resource("welcome", name_line_edit.text, resource_reference)
-	set_label(add_resource)
-	if add_resource.is_success():
-		reset_menu()"""
+	create_button.disabled = true
+	var params: Dictionary = {}
+	params.set("name", name_line_edit.text)
+	params.set("path", path_line_edit.text)
+	var add_result: SSDMResult = await AWOCPlugin.work_manager.add_resource("welcome", params)
 	animate_container.custom_minimum_size.y = outer_panel_container.get_combined_minimum_size().y
 
 
@@ -50,3 +44,13 @@ func _on_browse_button_pressed() -> void:
 func _on_file_dialog_dir_selected(dir: String) -> void:
 	path_line_edit.text = dir
 	validate(dir)
+	
+	
+func _on_resource_created() -> void:
+	name_line_edit.text = ""
+	path_line_edit.text = ""
+	create_button.disabled = true
+	
+func _ready() -> void:
+	super()
+	AWOCPlugin.work_manager.resource_created.connect(_on_resource_created)

@@ -6,10 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://dvaeb1ibrydpv" path="res://addons/SSDM-Manager/editor/ui/list_management/base/list_management_base.tscn" id="4_21xtl"]
 [ext_resource type="PackedScene" uid="uid://nggckdjmsiw5" path="res://addons/AWOC/editor/ui/row_management/welcome_row_management/welcome_row_management.tscn" id="5_rmg2d"]
 
-[node name="WelcomePanel" unique_id=1876830973 node_paths=PackedStringArray("new_awoc_control", "list_management_control") instance=ExtResource("1_allms")]
+[node name="WelcomePanel" unique_id=1876830973 node_paths=PackedStringArray("new_awoc_menu", "list_management_menu") instance=ExtResource("1_allms")]
 script = ExtResource("2_cknns")
-new_awoc_control = NodePath("HBoxContainer/AnimateContainer/OuterPanelContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/NewAWOCMenu")
-list_management_control = NodePath("HBoxContainer/AnimateContainer/OuterPanelContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ListManagementBase")
+new_awoc_menu = NodePath("HBoxContainer/AnimateContainer/OuterPanelContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/NewAWOCMenu")
+list_management_menu = NodePath("HBoxContainer/AnimateContainer/OuterPanelContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ListManagementBase")
 
 [node name="MenuButton" parent="HBoxContainer/MenuButtonWrapper" parent_id_path=PackedInt32Array(101045684) index="0" unique_id=1863147800]
 text = "W

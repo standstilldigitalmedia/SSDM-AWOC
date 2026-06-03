@@ -3,7 +3,7 @@ extends Resource
 
 
 @export_group("Managers")
-#@export var manager_registry_entries: Array[SSDMRegistryEntry] = []
+@export var manager_registry_entries: Array[SSDMRegistryEntry] = []
 
 @export_group("Delete Behavior")
 @export var send_to_recycle: bool = false

@@ -3,5 +3,9 @@ class_name AWOCWelcomePanel
 extends SSDMHorizontalMenu
 
 
-@export var new_awoc_control: SSDMNewResourceMenuBase
-@export var list_management_control: SSDMListManagementBase
+@export var new_awoc_menu: SSDMNewResourceMenuBase
+@export var list_management_menu: SSDMListManagementBase
+
+
+func _ready() -> void:
+	AWOCPlugin.work_manager.set_library_ref("welcome", null)
