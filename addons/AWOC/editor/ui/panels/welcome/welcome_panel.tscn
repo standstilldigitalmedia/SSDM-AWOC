@@ -1,14 +1,46 @@
 [gd_scene format=3 uid="uid://dfnc5i0jx5ub3"]
 
-[ext_resource type="PackedScene" uid="uid://bu6dxeogyw5f7" path="res://addons/AWOC/editor/ui/menu_base/horizontal_menu/horizontal_menu.tscn" id="1_allms"]
+[ext_resource type="PackedScene" uid="uid://bu6dxeogyw5f7" path="res://addons/SSDM-Manager/editor/ui/menu_base/horizontal_menu/horizontal_menu.tscn" id="1_allms"]
 [ext_resource type="Script" uid="uid://cr60fyemc38sm" path="res://addons/AWOC/editor/ui/panels/welcome/welcome_panel.gd" id="2_cknns"]
 [ext_resource type="PackedScene" uid="uid://dnno40ndvt4jq" path="res://addons/AWOC/editor/ui/new_resource/new_awoc/new_awoc_menu.tscn" id="3_6nlmk"]
+[ext_resource type="PackedScene" uid="uid://dvaeb1ibrydpv" path="res://addons/SSDM-Manager/editor/ui/list_management/base/list_management_base.tscn" id="4_21xtl"]
+[ext_resource type="PackedScene" uid="uid://nggckdjmsiw5" path="res://addons/AWOC/editor/ui/row_management/welcome_row_management/welcome_row_management.tscn" id="5_rmg2d"]
 
-[node name="WelcomePanel" unique_id=1876830973 instance=ExtResource("1_allms")]
+[node name="WelcomePanel" unique_id=1876830973 node_paths=PackedStringArray("new_awoc_control", "list_management_control") instance=ExtResource("1_allms")]
 script = ExtResource("2_cknns")
+new_awoc_control = NodePath("HBoxContainer/AnimateContainer/OuterPanelContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/NewAWOCMenu")
+list_management_control = NodePath("HBoxContainer/AnimateContainer/OuterPanelContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ListManagementBase")
 
-[node name="AnimateContainer" parent="HBoxContainer" parent_id_path=PackedInt32Array(1515243151) index="1" unique_id=1636588195]
-custom_minimum_size = Vector2(0, 0)
+[node name="MenuButton" parent="HBoxContainer/MenuButtonWrapper" parent_id_path=PackedInt32Array(101045684) index="0" unique_id=1863147800]
+text = "W
+e
+l
+c
+o
+m
+e"
+
+[node name="PanelLabel" parent="HBoxContainer/AnimateContainer/OuterPanelContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(872025785) index="0" unique_id=564239326]
+text = "Welcome"
 
 [node name="NewAWOCMenu" parent="HBoxContainer/AnimateContainer/OuterPanelContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(872025785) index="1" unique_id=106236835 instance=ExtResource("3_6nlmk")]
 layout_mode = 2
+
+[node name="ListManagementBase" parent="HBoxContainer/AnimateContainer/OuterPanelContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(872025785) index="2" unique_id=437920796 instance=ExtResource("4_21xtl")]
+layout_mode = 2
+resource_type = ""
+row_management_scene = ExtResource("5_rmg2d")
+
+[node name="MenuButton" parent="HBoxContainer/AnimateContainer/OuterPanelContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ListManagementBase/MenuButtonWrapper" parent_id_path=PackedInt32Array(437920796, 1451716525) index="0" unique_id=1847332973]
+text = "Manage AWOCs"
+
+[node name="AnimateContainer" parent="HBoxContainer/AnimateContainer/OuterPanelContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ListManagementBase" index="1" unique_id=1643154331]
+custom_minimum_size = Vector2(0, 20)
+
+[node name="HBoxContainer" parent="HBoxContainer/AnimateContainer/CloseButtonMarginContainer" parent_id_path=PackedInt32Array(249093010) index="0" unique_id=1586192343]
+visible = false
+
+[node name="CloseButton" parent="HBoxContainer/AnimateContainer/CloseButtonMarginContainer/HBoxContainer" index="0" unique_id=812130050]
+visible = false
+
+[editable path="HBoxContainer/AnimateContainer/OuterPanelContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ListManagementBase"]

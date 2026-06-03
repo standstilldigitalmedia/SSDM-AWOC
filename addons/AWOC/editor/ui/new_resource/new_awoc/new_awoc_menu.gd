@@ -1,6 +1,6 @@
 @tool
 class_name AWOCNewAWOCMenu
-extends AWOCNewResourceMenuBase
+extends SSDMNewResourceMenuBase
 
 @export var path_line_edit: LineEdit
 @export var file_dialog: FileDialog
@@ -13,15 +13,14 @@ func reset_menu() -> void:
 	
 	
 func validate(new_text: String) -> void:
-	var name_validate: AWOCResult = validate_name()
+	var name_validate: SSDMResult = validate_name()
 	if name_validate.is_success():		
-		var path_validate: AWOCResult = AWOCValidator.is_valid_new_path(path_line_edit.text)
+		var path_validate: SSDMResult = SSDMValidator.is_valid_new_path(path_line_edit.text)
 		if !path_validate.is_success():
 			set_label(path_validate)
 			create_button.disabled = true
-			return
-			
-		set_label(AWOCResult.success())
+			return			
+		set_label(SSDMResult.success())
 		create_button.disabled = false
 
 
@@ -30,17 +29,17 @@ func _on_name_line_edit_text_changed(new_text: String) -> void:
 	
 	
 func _on_create_button_pressed() -> void:
-	var resource_reference: AWOCResourceReference = AWOCResourceReference.new()
-	var create_resource: AWOCResult = AWOCPlugin.work_manager.get_new_resource("welcome")
+	"""var resource_reference: SSDMResourceReference = SSDMResourceReference.new()
+	var create_resource: SSDMResult = SSDMPlugin.work_manager.get_new_resource("welcome")
 	if !create_resource.is_success():
 		set_label(create_resource)
 		return
 	resource_reference.resource = create_resource.data
 	resource_reference.res_path = path_line_edit.text
-	var add_resource: AWOCResult = await AWOCPlugin.work_manager.add_resource("welcome", name_line_edit.text, resource_reference)
+	var add_resource: SSDMResult = await SSDMPlugin.work_manager.add_resource("welcome", name_line_edit.text, resource_reference)
 	set_label(add_resource)
 	if add_resource.is_success():
-		reset_menu()
+		reset_menu()"""
 	animate_container.custom_minimum_size.y = outer_panel_container.get_combined_minimum_size().y
 
 

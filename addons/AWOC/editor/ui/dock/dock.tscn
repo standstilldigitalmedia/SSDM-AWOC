@@ -1,14 +1,17 @@
 [gd_scene format=3 uid="uid://cdoiwhcq71tio"]
 
+[ext_resource type="Script" uid="uid://5uqojswpxfrx" path="res://addons/AWOC/editor/ui/dock/dock.gd" id="1_7psl5"]
 [ext_resource type="PackedScene" uid="uid://dfnc5i0jx5ub3" path="res://addons/AWOC/editor/ui/panels/welcome/welcome_panel.tscn" id="1_gamll"]
 
-[node name="Dock" type="Control" unique_id=2047145779]
+[node name="Dock" type="Control" unique_id=2047145779 node_paths=PackedStringArray("welcome_panel")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_7psl5")
+welcome_panel = NodePath("ScrollContainer/PanelContainer/MarginContainer/HBoxContainer/WelcomePanel")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=493768277]
 layout_mode = 1

@@ -1,17 +1,8 @@
-[gd_resource type="Resource" script_class="AWOCPluginConfig" format=3 uid="uid://xlf6ekeqo7gl"]
+[gd_resource type="Resource" script_class="SSDMPluginConfig" format=3 uid="uid://b8gjh681e051u"]
 
-[ext_resource type="Script" uid="uid://cprfld2ov04wa" path="res://addons/AWOC/editor/resource/registry_entry.gd" id="1_23ld7"]
-[ext_resource type="PackedScene" uid="uid://cdoiwhcq71tio" path="res://addons/AWOC/editor/ui/dock/dock.tscn" id="1_xad5w"]
-[ext_resource type="Script" uid="uid://cd255oodrf87g" path="res://addons/AWOC/editor/resource/config.gd" id="2_jpq1g"]
-[ext_resource type="Script" uid="uid://dop0eb28jyt4m" path="res://addons/AWOC/editor/work/managers/welcome_manager.gd" id="2_xad5w"]
-
-[sub_resource type="Resource" id="Resource_xad5w"]
-script = ExtResource("1_23ld7")
-type_key = "welcome"
-manager_script = ExtResource("2_xad5w")
-metadata/_custom_type_script = "uid://cprfld2ov04wa"
+[ext_resource type="Script" uid="uid://d32dvxengdtnr" path="res://addons/SSDM-Manager/editor/resource/config.gd" id="1_eil4d"]
+[ext_resource type="PackedScene" uid="uid://cdoiwhcq71tio" path="res://addons/AWOC/editor/ui/dock/dock.tscn" id="1_tqgtg"]
 
 [resource]
-script = ExtResource("2_jpq1g")
-manager_registry_entries = Array[ExtResource("1_23ld7")]([SubResource("Resource_xad5w")])
-dock_scene = ExtResource("1_xad5w")
+script = ExtResource("1_eil4d")
+dock_scene = ExtResource("1_tqgtg")

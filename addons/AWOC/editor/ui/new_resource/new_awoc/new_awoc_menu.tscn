@@ -1,18 +1,16 @@
 [gd_scene format=3 uid="uid://dnno40ndvt4jq"]
 
-[ext_resource type="PackedScene" uid="uid://hqii0orp85rs" path="res://addons/AWOC/editor/ui/new_resource/base/new_resource_menu_base.tscn" id="1_o06fc"]
+[ext_resource type="PackedScene" uid="uid://hqii0orp85rs" path="res://addons/SSDM-Manager/editor/ui/new_resource/base/new_resource_menu_base.tscn" id="1_o06fc"]
 [ext_resource type="Script" uid="uid://xjbsutou3kvd" path="res://addons/AWOC/editor/ui/new_resource/new_awoc/new_awoc_menu.gd" id="2_kihbg"]
-[ext_resource type="Texture2D" uid="uid://bsuxag4mut1ee" path="res://addons/AWOC/editor/ui/images/godot_icons/folder.svg" id="3_p6yf0"]
+[ext_resource type="Texture2D" uid="uid://bsuxag4mut1ee" path="res://addons/SSDM-Manager/editor/ui/images/godot_icons/folder.svg" id="3_p6yf0"]
 
-[node name="NewAWOCMenu" unique_id=106236835 node_paths=PackedStringArray("path_line_edit", "file_dialog", "name_line_edit", "create_button") instance=ExtResource("1_o06fc")]
+[node name="NewAWOCMenu" unique_id=106236835 node_paths=PackedStringArray("path_line_edit", "file_dialog") instance=ExtResource("1_o06fc")]
 script = ExtResource("2_kihbg")
 path_line_edit = NodePath("AnimateContainer/OuterPanelContainer/MarginContainer/ContentContainer/HBoxContainer/PathLineEdit")
 file_dialog = NodePath("FileDialog")
-name_line_edit = NodePath("AnimateContainer/OuterPanelContainer/MarginContainer/ContentContainer/NameLineEdit")
-create_button = NodePath("AnimateContainer/OuterPanelContainer/MarginContainer/ContentContainer/CreateButton")
 
-[node name="AnimateContainer" parent="." index="1" unique_id=1643154331]
-custom_minimum_size = Vector2(0, 0)
+[node name="MenuButton" parent="MenuButtonWrapper" parent_id_path=PackedInt32Array(1451716525) index="0" unique_id=1847332973]
+text = "New AWOC"
 
 [node name="NameLabel" parent="AnimateContainer/OuterPanelContainer/MarginContainer/ContentContainer" parent_id_path=PackedInt32Array(2119092832) index="0" unique_id=1088926116]
 text = "AWOC Name:"
@@ -37,6 +35,9 @@ custom_minimum_size = Vector2(31, 0)
 layout_mode = 2
 icon = ExtResource("3_p6yf0")
 icon_alignment = 1
+
+[node name="MessageDisplay" parent="AnimateContainer/OuterPanelContainer/MarginContainer/ContentContainer" parent_id_path=PackedInt32Array(2119092832) index="4" unique_id=773782046]
+visible = false
 
 [node name="CreateButton" parent="AnimateContainer/OuterPanelContainer/MarginContainer/ContentContainer" parent_id_path=PackedInt32Array(2119092832) index="5" unique_id=386152226]
 text = "Create New AWOC"
