@@ -27,8 +27,8 @@ func get_ref_by_uid(uid: String) -> SSDMResult:
 
 func get_sorted_name_array() -> SSDMResult:
 	var names: Array[String] = []
-	for resource: SSDMResourceReference in resource_dictionary:
-		names.append(resource.res_name)
+	for key: String in resource_dictionary.keys():
+		names.append(resource_dictionary[key].res_name)
 	if names.size() < 1:
 		return SSDMResult.failure()
 	names.sort()
@@ -41,7 +41,10 @@ func get_refs() -> SSDMResult:
 		return name_array_result
 	var return_array = []
 	for name in name_array_result.data:
-		return_array.append(get_ref_by_name(name))
+		var ref_by_name_result: SSDMResult = get_ref_by_name(name)
+		if !ref_by_name_result.is_success():
+			return ref_by_name_result
+		return_array.append(ref_by_name_result.data)
 	return SSDMResult.success("", return_array)
 
 

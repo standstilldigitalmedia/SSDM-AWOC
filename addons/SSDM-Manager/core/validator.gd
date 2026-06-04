@@ -29,17 +29,29 @@ static func is_valid_node_path(path: String) -> SSDMResult:
 
 
 static func is_valid_new_path(path: String) -> SSDMResult:
-	if path.is_empty():
-		return SSDMResult.failure("SSDMValidator: New path is empty")
 	var clean_path: String = path.strip_edges()
 	if clean_path.is_empty():
 		return SSDMResult.failure("SSDMValidator: Cleaned path is empty")
 	if !clean_path.is_absolute_path():
 		return SSDMResult.failure("SSDMValidator: New path is not an absolute path: " + clean_path)
-	if !clean_path.begins_with("res://"):
-		return SSDMResult.failure("SSDMValidator: New path does not begin with res:// : " + clean_path)
-	if clean_path.contains(":") and clean_path.find(":") != 3:
-		return SSDMResult.failure("SSDMValidator: New path format is not valid: " + clean_path)
+	
+	
+	
+	var extension: String = clean_path.get_extension()
+	if !extension.is_empty():
+		clean_path = clean_path.get_base_dir()
+	var prefix_split := clean_path.split(":")
+	if prefix_split[0] == "res":
+		clean_path = clean_path.trim_prefix("res://")
+	elif prefix_split[0] == "user":
+		clean_path = clean_path.trim_prefix("user://")
+	else:
+		return SSDMResult.failure("SSDMValidator: Invalid path: " + path)
+	var base_split := clean_path.split("/")
+	for path_path in base_split:
+		var valid_name_result: SSDMResult = is_valid_name(path_path)
+		if !valid_name_result.is_success():
+			return valid_name_result
 	return SSDMResult.success()
 
 

@@ -2,20 +2,29 @@
 class_name SSDMMessageDisplay
 extends Label
 
+signal timeout()
+
 var hide_timer: Timer
+var timer_started: bool = false
 
 
 func _on_timer_timeout() -> void:
 	text = ""
+	hide()
+	timer_started = false
+	timeout.emit()
 	
 
 func start_timer(time: float) -> void:
+	if timer_started:
+		return
 	hide_timer = Timer.new()
 	hide_timer.wait_time = time
 	hide_timer.one_shot = true
 	hide_timer.timeout.connect(_on_timer_timeout)
 	add_child(hide_timer)
 	hide_timer.start()
+	timer_started = true
 	
 		
 func set_label(result: SSDMResult) -> void:

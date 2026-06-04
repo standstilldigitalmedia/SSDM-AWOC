@@ -2,6 +2,7 @@ class_name SSDMWorkManager
 extends RefCounted
 
 signal resource_created(type: String)
+signal resource_deleted(type: String)
 
 static var config: SSDMPluginConfig = null
 var managers := {}
@@ -54,10 +55,10 @@ func add_resource(type: String, params: Dictionary) -> SSDMResult:
 	var manager: SSDMLibraryManagerBase = managers.get(type)
 	if not manager:
 		return SSDMResult.failure("AWOCWorkManager: Unknown resource type: " + type)
-	var add_resource: SSDMResult = await manager.add_resource(params)
-	if add_resource.is_success():
+	var add_resource_result: SSDMResult = await manager.add_resource(params)
+	if add_resource_result.is_success():
 		resource_created.emit(type)
-	return add_resource
+	return add_resource_result
 	
 	
 func rename_resource(type: String, new_name: String, resource_reference: SSDMResourceReference) -> SSDMResult:
@@ -67,11 +68,14 @@ func rename_resource(type: String, new_name: String, resource_reference: SSDMRes
 	return await manager.rename_resource(new_name, resource_reference)
 	
 	
-func delete_resource(type: String, resource_name: String, resource_reference: SSDMResourceReference) -> SSDMResult:
+func delete_resource(type: String, resource_reference: SSDMResourceReference) -> SSDMResult:
 	var manager: SSDMLibraryManagerBase = managers.get(type)
 	if not manager:
 		return SSDMResult.failure("AWOCWorkManager: Unknown resource type: " + type)
-	return await manager.delete_resource(resource_reference)
+	var delete_resource_result: SSDMResult = await manager.delete_resource(resource_reference)
+	if delete_resource_result.is_success():
+		resource_deleted.emit(type)
+	return delete_resource_result
 
 
 func validate_manager_entry(entry: SSDMRegistryEntry) -> SSDMResult:

@@ -1,64 +1,71 @@
-[gd_scene format=3 uid="uid://3hbkriecqlf8"]
+[gd_scene format=3 uid="uid://bcqoweecre1xk"]
 
-[ext_resource type="Script" uid="uid://bijqua52qb7bs" path="res://addons/SSDM-Manager/editor/ui/row_management/base/row_management_base.gd" id="1_sxktf"]
-[ext_resource type="Texture2D" uid="uid://d1dyk1eac3eeo" path="res://addons/SSDM-Manager/editor/ui/images/godot_icons/Rename.svg" id="2_n6as0"]
-[ext_resource type="Texture2D" uid="uid://71y04x6cnkpp" path="res://addons/SSDM-Manager/editor/ui/images/godot_icons/Remove.svg" id="3_kn1f3"]
-[ext_resource type="Texture2D" uid="uid://bjthynaqshg8e" path="res://addons/SSDM-Manager/editor/ui/images/godot_icons/Edit.svg" id="4_lwo8q"]
-[ext_resource type="PackedScene" uid="uid://b82y5boavm1r5" path="res://addons/SSDM-Manager/editor/ui/message_display/message_display.tscn" id="5_hhkjo"]
+[ext_resource type="Script" uid="uid://bijqua52qb7bs" path="res://addons/SSDM-Manager/editor/ui/row_management/base/row_management_base.gd" id="1_fxohw"]
+[ext_resource type="Texture2D" uid="uid://d1dyk1eac3eeo" path="res://addons/SSDM-Manager/editor/ui/images/godot_icons/Rename.svg" id="2_2emfw"]
+[ext_resource type="Texture2D" uid="uid://b43p1ps05vrua" path="res://addons/SSDM-Manager/editor/ui/images/godot_icons/trash.svg" id="3_fnw12"]
+[ext_resource type="Texture2D" uid="uid://bjthynaqshg8e" path="res://addons/SSDM-Manager/editor/ui/images/godot_icons/Edit.svg" id="4_ga4eb"]
+[ext_resource type="PackedScene" uid="uid://b82y5boavm1r5" path="res://addons/SSDM-Manager/editor/ui/message_display/message_display.tscn" id="7_tocm5"]
 
-[node name="RowManagementBase" type="PanelContainer" unique_id=1067275641 node_paths=PackedStringArray("name_line_edit", "rename_button", "message_display", "rename_confirmation_dialog", "delete_confirmation_dialog")]
-anchors_preset = 10
-anchor_right = 1.0
-grow_horizontal = 2
-script = ExtResource("1_sxktf")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nawq2"]
+bg_color = Color(1, 1, 1, 0.19607843)
+
+[node name="RowManagementBase" type="PanelContainer" unique_id=1576762436 node_paths=PackedStringArray("name_line_edit", "rename_button", "delete_button", "edit_button", "message_display", "rename_confirmation_dialog", "delete_confirmation_dialog")]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_nawq2")
+script = ExtResource("1_fxohw")
 name_line_edit = NodePath("MarginContainer/VBoxContainer/HBoxContainer/NameLineEdit")
 rename_button = NodePath("MarginContainer/VBoxContainer/HBoxContainer/RenameButton")
+delete_button = NodePath("MarginContainer/VBoxContainer/HBoxContainer/DeleteButton")
+edit_button = NodePath("MarginContainer/VBoxContainer/HBoxContainer/EditButton")
 message_display = NodePath("MarginContainer/VBoxContainer/MessageDisplay")
 rename_confirmation_dialog = NodePath("RenameConfirmationDialog")
 delete_confirmation_dialog = NodePath("DeleteConfirmationDialog")
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=892344186]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1866963106]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=509224876]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1694724091]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1731688202]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1213667413]
 layout_mode = 2
 
-[node name="NameLineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=41676229]
+[node name="NameLineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1887820625]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="RenameButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=903728186]
+[node name="RenameButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1647905893]
 custom_minimum_size = Vector2(31, 0)
 layout_mode = 2
-icon = ExtResource("2_n6as0")
+disabled = true
+icon = ExtResource("2_2emfw")
 icon_alignment = 1
 
-[node name="DeleteButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=572746091]
+[node name="DeleteButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=995222737]
 custom_minimum_size = Vector2(31, 0)
 layout_mode = 2
-icon = ExtResource("3_kn1f3")
+icon = ExtResource("3_fnw12")
 icon_alignment = 1
 
-[node name="EditButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1096453211]
+[node name="EditButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=2024673787]
 custom_minimum_size = Vector2(31, 0)
 layout_mode = 2
-icon = ExtResource("4_lwo8q")
+icon = ExtResource("4_ga4eb")
 icon_alignment = 1
 
-[node name="MessageDisplay" parent="MarginContainer/VBoxContainer" unique_id=773782046 instance=ExtResource("5_hhkjo")]
+[node name="MessageDisplay" parent="MarginContainer/VBoxContainer" unique_id=773782046 instance=ExtResource("7_tocm5")]
+visible = false
 layout_mode = 2
 
-[node name="RenameConfirmationDialog" type="ConfirmationDialog" parent="." unique_id=1528151514]
+[node name="RenameConfirmationDialog" type="ConfirmationDialog" parent="." unique_id=1155247439]
 initial_position = 2
 
-[node name="DeleteConfirmationDialog" type="ConfirmationDialog" parent="." unique_id=1402154688]
+[node name="DeleteConfirmationDialog" type="ConfirmationDialog" parent="." unique_id=97469427]
 initial_position = 2
 
 [connection signal="text_changed" from="MarginContainer/VBoxContainer/HBoxContainer/NameLineEdit" to="." method="_on_name_line_edit_text_changed"]

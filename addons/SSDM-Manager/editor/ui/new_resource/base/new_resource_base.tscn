@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://djgldb71qf7tw"]
+
+[ext_resource type="PackedScene" uid="uid://bl8gkjiytj30d" path="res://addons/SSDM-Manager/editor/ui/menu_base/vertical_menu/vertical_menu_base.tscn" id="1_d43ps"]
+[ext_resource type="Script" uid="uid://v7535gpqj6f8" path="res://addons/SSDM-Manager/editor/ui/new_resource/base/new_resource_menu_base.gd" id="2_8wf1y"]
+
+[node name="NewResourceBase" unique_id=106236835 node_paths=PackedStringArray("name_line_edit", "create_button") instance=ExtResource("1_d43ps")]
+script = ExtResource("2_8wf1y")
+name_line_edit = NodePath("AnimateContainer/OuterPanelContainer/MarginContainer/VBoxContainer/VBoxContainer/NameLineEdit")
+create_button = NodePath("AnimateContainer/OuterPanelContainer/MarginContainer/VBoxContainer/CreateButton")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AnimateContainer/OuterPanelContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(2119092832) index="1" unique_id=445549113]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="NameLabel" type="Label" parent="AnimateContainer/OuterPanelContainer/MarginContainer/VBoxContainer/VBoxContainer" index="0" unique_id=249806965]
+layout_mode = 2
+
+[node name="NameLineEdit" type="LineEdit" parent="AnimateContainer/OuterPanelContainer/MarginContainer/VBoxContainer/VBoxContainer" index="1" unique_id=1128293067]
+layout_mode = 2
+
+[node name="CreateButton" type="Button" parent="AnimateContainer/OuterPanelContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(2119092832) index="2" unique_id=807079657]
+layout_mode = 2
+disabled = true
+
+[connection signal="text_changed" from="AnimateContainer/OuterPanelContainer/MarginContainer/VBoxContainer/VBoxContainer/NameLineEdit" to="." method="_on_name_line_edit_text_changed"]
+[connection signal="pressed" from="AnimateContainer/OuterPanelContainer/MarginContainer/VBoxContainer/CreateButton" to="." method="_on_create_button_pressed"]

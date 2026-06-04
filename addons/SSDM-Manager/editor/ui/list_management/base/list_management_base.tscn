@@ -1,8 +1,14 @@
-[gd_scene format=3 uid="uid://dvaeb1ibrydpv"]
+[gd_scene format=3 uid="uid://buoynvm4vxow5"]
 
-[ext_resource type="PackedScene" uid="uid://bl8gkjiytj30d" path="res://addons/SSDM-Manager/editor/ui/menu_base/vertical_menu/vertical_menu_base.tscn" id="1_kbinb"]
-[ext_resource type="Script" uid="uid://b8b51anvypoox" path="res://addons/SSDM-Manager/editor/ui/list_management/base/list_management_base.gd" id="2_3hodb"]
+[ext_resource type="PackedScene" uid="uid://bl8gkjiytj30d" path="res://addons/SSDM-Manager/editor/ui/menu_base/vertical_menu/vertical_menu_base.tscn" id="1_afnn3"]
+[ext_resource type="Script" uid="uid://b8b51anvypoox" path="res://addons/SSDM-Manager/editor/ui/list_management/base/list_management_base.gd" id="2_j7pbn"]
 
-[node name="ListManagementBase" unique_id=106236835 node_paths=PackedStringArray("content_container") instance=ExtResource("1_kbinb")]
-script = ExtResource("2_3hodb")
-content_container = NodePath("AnimateContainer/OuterPanelContainer/MarginContainer/ContentContainer")
+[node name="ListManagementBase" unique_id=106236835 node_paths=PackedStringArray("content_container") instance=ExtResource("1_afnn3")]
+script = ExtResource("2_j7pbn")
+resource_type = ""
+row_management_scene = null
+content_container = NodePath("AnimateContainer/OuterPanelContainer/MarginContainer/VBoxContainer/ContentContainer")
+
+[node name="ContentContainer" type="VBoxContainer" parent="AnimateContainer/OuterPanelContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(2119092832) index="1" unique_id=343662624]
+layout_mode = 2
+theme_override_constants/separation = 10

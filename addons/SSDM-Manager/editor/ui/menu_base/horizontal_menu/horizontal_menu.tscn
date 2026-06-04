@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cij8vbyipv7cl" path="res://addons/SSDM-Manager/editor/ui/menu_base/horizontal_menu/horizontal_menu.gd" id="1_f4h4v"]
 [ext_resource type="Texture2D" uid="uid://drtnpm1qa1ego" path="res://addons/SSDM-Manager/editor/ui/images/godot_icons/Close.svg" id="2_r5nr2"]
+[ext_resource type="PackedScene" uid="uid://b82y5boavm1r5" path="res://addons/SSDM-Manager/editor/ui/message_display/message_display.tscn" id="2_yfs1k"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f8qk5"]
 bg_color = Color(0, 0, 0, 0.039215688)
@@ -15,7 +16,7 @@ bg_color = Color(1, 1, 1, 0.078431375)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m0x76"]
 bg_color = Color(0.078431375, 0.078431375, 0.078431375, 0.23529412)
 
-[node name="HorizontalMenu" type="PanelContainer" unique_id=1876830973 node_paths=PackedStringArray("menu_button_wrapper", "menu_button", "animate_container", "outer_panel_container", "close_button")]
+[node name="HorizontalMenu" type="PanelContainer" unique_id=1876830973 node_paths=PackedStringArray("menu_button_wrapper", "message_display", "animate_container", "outer_panel_container", "menu_button")]
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 4.0
@@ -24,10 +25,10 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_f8qk5")
 script = ExtResource("1_f4h4v")
 menu_button_wrapper = NodePath("HBoxContainer/MenuButtonWrapper")
-menu_button = NodePath("HBoxContainer/MenuButtonWrapper/MenuButton")
+message_display = NodePath("HBoxContainer/AnimateContainer/OuterPanelContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MessageDisplay")
 animate_container = NodePath("HBoxContainer/AnimateContainer")
 outer_panel_container = NodePath("HBoxContainer/AnimateContainer/OuterPanelContainer")
-close_button = NodePath("HBoxContainer/AnimateContainer/CloseButtonMarginContainer/HBoxContainer/CloseButton")
+menu_button = NodePath("HBoxContainer/MenuButtonWrapper/MenuButton")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1515243151]
 layout_mode = 2
@@ -60,7 +61,7 @@ n"
 
 [node name="AnimateContainer" type="Control" parent="HBoxContainer" unique_id=1636588195]
 clip_contents = true
-custom_minimum_size = Vector2(400, 0)
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 
 [node name="OuterPanelContainer" type="PanelContainer" parent="HBoxContainer/AnimateContainer" unique_id=482388324]
@@ -99,6 +100,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Title Text"
 horizontal_alignment = 1
+
+[node name="MessageDisplay" parent="HBoxContainer/AnimateContainer/OuterPanelContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=773782046 instance=ExtResource("2_yfs1k")]
+layout_mode = 2
 
 [node name="CloseButtonMarginContainer" type="MarginContainer" parent="HBoxContainer/AnimateContainer" unique_id=249093010]
 custom_minimum_size = Vector2(0, 10)

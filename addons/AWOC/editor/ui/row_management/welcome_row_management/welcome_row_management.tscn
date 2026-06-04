@@ -1,10 +1,7 @@
 [gd_scene format=3 uid="uid://nggckdjmsiw5"]
 
-[ext_resource type="PackedScene" uid="uid://3hbkriecqlf8" path="res://addons/SSDM-Manager/editor/ui/row_management/base/row_management_base.tscn" id="1_j0bme"]
+[ext_resource type="PackedScene" uid="uid://bcqoweecre1xk" path="res://addons/SSDM-Manager/editor/ui/row_management/base/row_management_base.tscn" id="1_j0bme"]
 [ext_resource type="Script" uid="uid://cej8onqwecvra" path="res://addons/AWOC/editor/ui/row_management/welcome_row_management/welcome_row_management.gd" id="2_1x5w3"]
 
-[node name="RowManagementBase" unique_id=1067275641 instance=ExtResource("1_j0bme")]
+[node name="WelcomeRowManagement" unique_id=1576762436 instance=ExtResource("1_j0bme")]
 script = ExtResource("2_1x5w3")
-
-[node name="RenameButton" parent="MarginContainer/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1731688202) index="1" unique_id=903728186]
-disabled = true

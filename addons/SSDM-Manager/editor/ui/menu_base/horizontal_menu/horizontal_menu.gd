@@ -4,13 +4,17 @@ extends SSDMMenuBase
 
 @export var panel_width: int = 400
 @export var remove_on_close: bool = false
-
 @export_group("Controls")
 @export var menu_button_wrapper: Control
+@export var message_display: SSDMMessageDisplay
 
 var button_tween: Tween
 
 
+func set_label(result: SSDMResult) -> void:
+	message_display.set_label(result)
+	
+	
 func slide_closed() -> void:
 	super()
 	if remove_on_close:
@@ -42,4 +46,5 @@ func _ready() -> void:
 	animate_container.custom_minimum_size.x = 0
 	tween_property = "custom_minimum_size:x"
 	menu_button.set_pressed_no_signal(true)
+	message_display.set_label(SSDMResult.success())
 	slide_open()
