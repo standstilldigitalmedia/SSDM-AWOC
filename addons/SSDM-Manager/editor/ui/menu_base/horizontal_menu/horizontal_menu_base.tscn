@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://dbjy4ltjs8j4p"]
+
+[ext_resource type="Script" uid="uid://cla3817rqi25t" path="res://addons/SSDM-Manager/editor/ui/menu_base/horizontal_menu/horizontal_menu_base.gd" id="1_7p0yp"]
+[ext_resource type="Texture2D" uid="uid://drtnpm1qa1ego" path="res://addons/SSDM-Manager/editor/ui/images/godot_icons/Close.svg" id="1_f7au8"]
+[ext_resource type="PackedScene" uid="uid://b82y5boavm1r5" path="res://addons/SSDM-Manager/editor/ui/message_display/message_display.tscn" id="3_4fngk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4fngk"]
+bg_color = Color(1, 1, 1, 0.19607843)
+
+[node name="HorizontalMenuBase" type="HBoxContainer" unique_id=651554068 node_paths=PackedStringArray("menu_button", "scroll_container", "message_display")]
+custom_minimum_size = Vector2(400, 0)
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 27.0
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+script = ExtResource("1_7p0yp")
+menu_button = NodePath("MenuButton")
+scroll_container = NodePath("ScrollContainer")
+message_display = NodePath("ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/MessageDisplay")
+
+[node name="MenuButton" type="Button" parent="." unique_id=152522930]
+layout_mode = 2
+toggle_mode = true
+text = "M
+e
+n
+u
+B
+u
+t
+t
+o
+n"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1684934289]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="ScrollContainer" unique_id=2019810197]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_4fngk")
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/PanelContainer" unique_id=1993562604]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/PanelContainer/MarginContainer" unique_id=1067927598]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=413284406]
+layout_mode = 2
+
+[node name="MenuLabel" type="Label" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1895106066]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Menu Label"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="CloseButton" type="Button" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=809110526]
+layout_mode = 2
+tooltip_text = "Close"
+icon = ExtResource("1_f7au8")
+icon_alignment = 1
+
+[node name="MessageDisplay" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=773782046 instance=ExtResource("3_4fngk")]
+layout_mode = 2
+
+[connection signal="toggled" from="MenuButton" to="." method="_on_menu_button_toggled"]
+[connection signal="pressed" from="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]

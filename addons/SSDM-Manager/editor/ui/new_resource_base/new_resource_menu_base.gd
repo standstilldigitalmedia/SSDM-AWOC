@@ -1,10 +1,10 @@
 @tool
 class_name SSDMNewResourceMenuBase
-extends SSDMVerticalMenu
+extends SSDMVerticalMenuBase
 
 @export var name_line_edit: LineEdit
 @export var create_button: Button
-	
+
 
 func reset_menu() -> void:
 	name_line_edit.text = ""
@@ -23,14 +23,10 @@ func _on_name_line_edit_text_changed(new_text: String) -> void:
 
 
 func _on_create_button_pressed() -> void:
-	set_label(SSDMResult.failure("_on_create_button_pressed must be overridden"))
+	message_display.set_label(SSDMResult.failure("_on_create_button_pressed must be overridden"))
 	
 	
 func _ready() -> void:
 	message_display.hide()
 	create_button.disabled = true
 	super()
-
-
-func _on_create_pressed() -> void:
-	pass # Replace with function body.

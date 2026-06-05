@@ -1,16 +1,16 @@
 [gd_scene format=3 uid="uid://bylg4iuckm5gy"]
 
-[ext_resource type="PackedScene" uid="uid://bu6dxeogyw5f7" path="res://addons/SSDM-Manager/editor/ui/menu_base/horizontal_menu/horizontal_menu.tscn" id="1_21xtl"]
-[ext_resource type="Script" uid="uid://cr60fyemc38sm" path="res://addons/AWOC/editor/ui/panels/welcome/welcome_panel.gd" id="2_rmg2d"]
-[ext_resource type="PackedScene" uid="uid://cydymullplkx7" path="res://addons/AWOC/editor/ui/new_resource/new_awoc/new_awoc_menu.tscn" id="3_cct4g"]
-[ext_resource type="PackedScene" uid="uid://cw0yl22a5r22i" path="res://addons/AWOC/editor/ui/list_management/welcome_list_management/welcome_list_management.tscn" id="4_4q18o"]
+[ext_resource type="PackedScene" uid="uid://dbjy4ltjs8j4p" path="res://addons/SSDM-Manager/editor/ui/menu_base/horizontal_menu/horizontal_menu_base.tscn" id="1_86ju3"]
+[ext_resource type="Script" uid="uid://bjveifce8sjut" path="res://addons/AWOC/editor/ui/panels/welcome/welcome_panel.gd" id="2_21xtl"]
+[ext_resource type="PackedScene" uid="uid://bj18v1smsp8sg" path="res://addons/AWOC/editor/ui/new_resource/welcome/new_welcome_resource_menu.tscn" id="3_rmg2d"]
+[ext_resource type="PackedScene" uid="uid://o1rq8k4dxdwo" path="res://addons/AWOC/editor/ui/list_management/welcome/welcome_list_management.tscn" id="4_cct4g"]
 
-[node name="WelcomePanel" unique_id=1876830973 node_paths=PackedStringArray("new_awoc_menu", "list_management_menu") instance=ExtResource("1_21xtl")]
-script = ExtResource("2_rmg2d")
-new_awoc_menu = NodePath("HBoxContainer/AnimateContainer/OuterPanelContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/NewAWOCMenu")
-list_management_menu = NodePath("HBoxContainer/AnimateContainer/OuterPanelContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/WelcomeListManagement")
+[node name="WelcomePanel" unique_id=651554068 node_paths=PackedStringArray("new_awoc_menu", "list_management_menu") instance=ExtResource("1_86ju3")]
+script = ExtResource("2_21xtl")
+new_awoc_menu = NodePath("ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/NewWelcomeResourceMenu")
+list_management_menu = NodePath("ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/WelcomeListManagement")
 
-[node name="MenuButton" parent="HBoxContainer/MenuButtonWrapper" parent_id_path=PackedInt32Array(101045684) index="0" unique_id=1863147800]
+[node name="MenuButton" parent="." index="0" unique_id=152522930]
 text = "W
 e
 l
@@ -19,20 +19,11 @@ o
 m
 e"
 
-[node name="AnimateContainer" parent="HBoxContainer" parent_id_path=PackedInt32Array(1515243151) index="1" unique_id=1636588195]
-custom_minimum_size = Vector2(400, 0)
-
-[node name="PanelLabel" parent="HBoxContainer/AnimateContainer/OuterPanelContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(872025785) index="0" unique_id=564239326]
+[node name="MenuLabel" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(413284406) index="0" unique_id=1895106066]
 text = "Welcome"
 
-[node name="MessageDisplay" parent="HBoxContainer/AnimateContainer/OuterPanelContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(872025785) index="1" unique_id=773782046]
-visible = false
-
-[node name="NewAWOCMenu" parent="HBoxContainer/AnimateContainer/OuterPanelContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(872025785) index="2" unique_id=106236835 instance=ExtResource("3_cct4g")]
+[node name="NewWelcomeResourceMenu" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1067927598) index="2" unique_id=114491061 instance=ExtResource("3_rmg2d")]
 layout_mode = 2
 
-[node name="WelcomeListManagement" parent="HBoxContainer/AnimateContainer/OuterPanelContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(872025785) index="3" unique_id=775530672 instance=ExtResource("4_4q18o")]
+[node name="WelcomeListManagement" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1067927598) index="3" unique_id=684174204 instance=ExtResource("4_cct4g")]
 layout_mode = 2
-
-[node name="CloseButton" parent="HBoxContainer/AnimateContainer/CloseButtonMarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(1586192343) index="0" unique_id=812130050]
-visible = false

@@ -1,6 +1,6 @@
 @tool
-class_name SSDMRowManagementBase
-extends PanelContainer
+class_name SSDMRowManagementMenuBase
+extends VBoxContainer
 
 var resource_reference: SSDMResourceReference
 var resource_type: String
@@ -9,7 +9,6 @@ var resource_type: String
 @export var name_line_edit: LineEdit
 @export var rename_button: Button
 @export var delete_button: Button
-@export var edit_button: Button
 @export var message_display: SSDMMessageDisplay
 @export var rename_confirmation_dialog: ConfirmationDialog
 @export var delete_confirmation_dialog: ConfirmationDialog
@@ -48,10 +47,6 @@ func _on_delete_button_pressed() -> void:
 	delete_confirmation_dialog.title = "Delete " + resource_reference.res_name + "?"
 	delete_confirmation_dialog.dialog_text = "Are you sure you wish to delete " + resource_reference.res_name + "?"
 	delete_confirmation_dialog.show()
-
-
-func _on_edit_button_pressed() -> void:
-	message_display.set_label(SSDMResult.failure("_on_edit_button_pressed must be overridden"))
 	
 	
 func _ready() -> void:

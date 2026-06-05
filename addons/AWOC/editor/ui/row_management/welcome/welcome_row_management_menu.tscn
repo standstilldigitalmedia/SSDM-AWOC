@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://b21ejfbvc741b"]
+
+[ext_resource type="PackedScene" uid="uid://caidexsi3uvwy" path="res://addons/SSDM-Manager/editor/ui/row_management_base/row_management_menu_base.tscn" id="1_lpnce"]
+[ext_resource type="Script" uid="uid://cfdbvtjkduiv" path="res://addons/AWOC/editor/ui/row_management/welcome/welcome_row_management.gd" id="2_5yi3h"]
+
+[node name="WelcomeRowManagementMenu" unique_id=290776461 instance=ExtResource("1_lpnce")]
+script = ExtResource("2_5yi3h")
+
+[node name="RenameButton" parent="HBoxContainer" parent_id_path=PackedInt32Array(2142149330) index="1" unique_id=758146315]
+disabled = true
+
+[node name="MessageDisplay" parent="." index="1" unique_id=773782046]
+visible = false

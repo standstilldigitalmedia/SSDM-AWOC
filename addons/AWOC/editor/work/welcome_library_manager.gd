@@ -4,7 +4,7 @@ extends SSDMLibraryManagerBase
 
 func set_library_ref(resource_reference: SSDMResourceReference) -> SSDMResult:
 	library_manager_ref = SSDMEditorResourceReference.new()
-	library_manager_ref.set_res_path("res://", "addons/AWOC/welcome/", "welcome", ".tres")
+	library_manager_ref.set_res_path("res://", "addons/AWOC/start_here", "welcome", ".tres")
 	var library_manager_result: SSDMResult = library_manager_ref.get_resource()
 	if !library_manager_result.is_success():
 		var welcome_library := SSDMLibrary.new()

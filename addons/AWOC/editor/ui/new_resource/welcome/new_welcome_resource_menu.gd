@@ -1,6 +1,7 @@
 @tool
-class_name AWOCNewAWOCMenu
+class_name AWOCNewWelcomeResourceMenu
 extends SSDMNewResourceMenuBase
+
 
 @export var path_line_edit: LineEdit
 @export var file_dialog: FileDialog
@@ -15,15 +16,15 @@ func reset_menu() -> void:
 func validate(new_text: String) -> void:
 	var name_validate: SSDMResult = SSDMValidator.is_valid_name(name_line_edit.text)
 	if !name_validate.is_success():	
-		set_label(name_validate)
+		message_display.set_label(name_validate)
 		create_button.disabled = true
 		return	
 	var path_validate: SSDMResult = SSDMValidator.is_valid_new_path(path_line_edit.text)
 	if !path_validate.is_success():
-		set_label(path_validate)
+		message_display.set_label(path_validate)
 		create_button.disabled = true
 		return			
-	set_label(SSDMResult.success())
+	message_display.set_label(SSDMResult.success())
 	create_button.disabled = false
 
 
@@ -37,8 +38,7 @@ func _on_create_button_pressed() -> void:
 	params.set("name", name_line_edit.text)
 	params.set("path", path_line_edit.text)
 	var add_result: SSDMResult = await AWOCPlugin.work_manager.add_resource("welcome", params)
-	set_label(add_result)
-	animate_container.custom_minimum_size.y = outer_panel_container.get_combined_minimum_size().y
+	message_display.set_label(add_result)
 
 
 func _on_browse_button_pressed() -> void:

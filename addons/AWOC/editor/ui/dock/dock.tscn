@@ -36,5 +36,5 @@ theme_override_constants/margin_bottom = 5
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="WelcomePanel" parent="ScrollContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=1876830973 instance=ExtResource("2_7psl5")]
+[node name="WelcomePanel" parent="ScrollContainer/PanelContainer/MarginContainer" unique_id=651554068 instance=ExtResource("2_7psl5")]
 layout_mode = 2

@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://nggckdjmsiw5"]
-
-[ext_resource type="PackedScene" uid="uid://bcqoweecre1xk" path="res://addons/SSDM-Manager/editor/ui/row_management/base/row_management_base.tscn" id="1_j0bme"]
-[ext_resource type="Script" uid="uid://cej8onqwecvra" path="res://addons/AWOC/editor/ui/row_management/welcome_row_management/welcome_row_management.gd" id="2_1x5w3"]
-
-[node name="WelcomeRowManagement" unique_id=1576762436 instance=ExtResource("1_j0bme")]
-script = ExtResource("2_1x5w3")

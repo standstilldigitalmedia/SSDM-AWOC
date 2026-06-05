@@ -1,65 +1,48 @@
-[gd_scene format=3 uid="uid://bl8gkjiytj30d"]
+[gd_scene format=3 uid="uid://cf0lu5cj10bdh"]
 
-[ext_resource type="Script" uid="uid://csr02auixg6s4" path="res://addons/SSDM-Manager/editor/ui/menu_base/vertical_menu/vertical_menu_base.gd" id="1_u5cal"]
-[ext_resource type="PackedScene" uid="uid://b82y5boavm1r5" path="res://addons/SSDM-Manager/editor/ui/message_display/message_display.tscn" id="2_8p2x3"]
+[ext_resource type="Script" uid="uid://dfc4o7nuaiud0" path="res://addons/SSDM-Manager/editor/ui/menu_base/vertical_menu/vertical_menu_base.gd" id="1_8p2x3"]
+[ext_resource type="PackedScene" uid="uid://b82y5boavm1r5" path="res://addons/SSDM-Manager/editor/ui/message_display/message_display.tscn" id="1_wp77n"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jy68i"]
-bg_color = Color(0, 0, 0, 0.11764706)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8p2x3"]
+bg_color = Color(1, 1, 1, 0.078431375)
 
-[node name="VBoxContainer" type="VBoxContainer" unique_id=106236835 node_paths=PackedStringArray("message_display", "animate_container", "outer_panel_container", "menu_button")]
+[node name="VerticalMenuBase" type="VBoxContainer" unique_id=114491061 node_paths=PackedStringArray("menu_button", "panel_container", "message_display")]
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 32.0
+offset_bottom = 12.0
 grow_horizontal = 2
+size_flags_horizontal = 3
 theme_override_constants/separation = 0
-script = ExtResource("1_u5cal")
-message_display = NodePath("AnimateContainer/OuterPanelContainer/MarginContainer/VBoxContainer/MessageDisplay")
-animate_container = NodePath("AnimateContainer")
-outer_panel_container = NodePath("AnimateContainer/OuterPanelContainer")
-menu_button = NodePath("MenuButtonWrapper/MenuButton")
+script = ExtResource("1_8p2x3")
+menu_button = NodePath("MenuButton")
+panel_container = NodePath("PanelContainer")
+message_display = NodePath("PanelContainer/MarginContainer/VBoxContainer/MessageDisplay")
 
-[node name="MenuButtonWrapper" type="Control" parent="." unique_id=1451716525]
-clip_contents = true
-custom_minimum_size = Vector2(0, 32)
+[node name="MenuButton" type="Button" parent="." unique_id=137478399]
 layout_mode = 2
-
-[node name="MenuButton" type="Button" parent="MenuButtonWrapper" unique_id=1847332973]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 31.0
-grow_horizontal = 2
-size_flags_vertical = 3
 toggle_mode = true
-text = "Menu Button"
+text = "MenuButton"
 
-[node name="AnimateContainer" type="Control" parent="." unique_id=1643154331]
-clip_contents = true
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=652884381]
+visible = false
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8p2x3")
 
-[node name="OuterPanelContainer" type="PanelContainer" parent="AnimateContainer" unique_id=2029568086]
-clip_contents = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_jy68i")
-
-[node name="MarginContainer" type="MarginContainer" parent="AnimateContainer/OuterPanelContainer" unique_id=1214248334]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=802060247]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="AnimateContainer/OuterPanelContainer/MarginContainer" unique_id=2119092832]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=186389240]
+layout_mode = 2
+
+[node name="MessageDisplay" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=773782046 instance=ExtResource("1_wp77n")]
+layout_mode = 2
+
+[node name="ContentContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1946287784]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="MessageDisplay" parent="AnimateContainer/OuterPanelContainer/MarginContainer/VBoxContainer" unique_id=773782046 instance=ExtResource("2_8p2x3")]
-visible = false
-layout_mode = 2
-
-[connection signal="toggled" from="MenuButtonWrapper/MenuButton" to="." method="_on_menu_button_toggled"]
+[connection signal="toggled" from="MenuButton" to="." method="_on_menu_button_toggled"]

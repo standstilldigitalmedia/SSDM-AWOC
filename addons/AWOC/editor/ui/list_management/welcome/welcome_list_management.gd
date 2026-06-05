@@ -1,6 +1,6 @@
 @tool
 class_name AWOCWelcomeListManagement
-extends SSDMListManagementBase
+extends SSDMListManagementMenuBase
 
 
 func get_resources() -> SSDMResult:

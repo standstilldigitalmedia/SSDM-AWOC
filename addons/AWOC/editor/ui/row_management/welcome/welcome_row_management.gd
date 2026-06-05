@@ -1,6 +1,6 @@
 @tool
 class_name AWOCWelcomeRowManagement
-extends SSDMRowManagementBase
+extends SSDMRowManagementMenuBase
 
 
 func _on_rename_confirmation_dialog_confirmed() -> void:

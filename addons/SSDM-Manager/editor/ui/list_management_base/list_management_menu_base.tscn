@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dic11brmwmkjj"]
+
+[ext_resource type="PackedScene" uid="uid://cf0lu5cj10bdh" path="res://addons/SSDM-Manager/editor/ui/menu_base/vertical_menu/vertical_menu_base.tscn" id="1_i5pc4"]
+[ext_resource type="Script" uid="uid://b4ujwboc58rah" path="res://addons/SSDM-Manager/editor/ui/list_management_base/list_management_menu_base.gd" id="2_vr03c"]
+
+[node name="ListManagementBase" unique_id=114491061 node_paths=PackedStringArray("content_container") instance=ExtResource("1_i5pc4")]
+script = ExtResource("2_vr03c")
+content_container = NodePath("PanelContainer/MarginContainer/VBoxContainer/ContentContainer")
+
+[node name="PanelContainer" parent="." index="1" unique_id=652884381]
+visible = false

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cx1kfb1drqs1v"]
+
+[ext_resource type="PackedScene" uid="uid://cf0lu5cj10bdh" path="res://addons/SSDM-Manager/editor/ui/menu_base/vertical_menu/vertical_menu_base.tscn" id="1_p3pfp"]
+[ext_resource type="Script" uid="uid://fw3c1wyugsk" path="res://addons/SSDM-Manager/editor/ui/new_resource_base/new_resource_menu_base.gd" id="2_p3pfp"]
+
+[node name="NewResourceMenuBase" unique_id=114491061 node_paths=PackedStringArray("name_line_edit", "create_button") instance=ExtResource("1_p3pfp")]
+script = ExtResource("2_p3pfp")
+name_line_edit = NodePath("PanelContainer/MarginContainer/VBoxContainer/ContentContainer/VBoxContainer/NameLineEdit")
+create_button = NodePath("PanelContainer/MarginContainer/VBoxContainer/ContentContainer/CreateButton")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ContentContainer" parent_id_path=PackedInt32Array(1946287784) index="0" unique_id=1934722368]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="NameLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/ContentContainer/VBoxContainer" index="0" unique_id=976989672]
+layout_mode = 2
+
+[node name="NameLineEdit" type="LineEdit" parent="PanelContainer/MarginContainer/VBoxContainer/ContentContainer/VBoxContainer" index="1" unique_id=441299481]
+layout_mode = 2
+
+[node name="CreateButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/ContentContainer" parent_id_path=PackedInt32Array(1946287784) index="1" unique_id=1269181174]
+layout_mode = 2
+text = "Create Button"
+
+[connection signal="text_changed" from="PanelContainer/MarginContainer/VBoxContainer/ContentContainer/VBoxContainer/NameLineEdit" to="." method="_on_name_line_edit_text_changed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/ContentContainer/CreateButton" to="." method="_on_create_button_pressed"]

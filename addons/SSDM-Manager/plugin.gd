@@ -18,15 +18,13 @@ func load_from_config() -> void:
 	var config_ref := SSDMDiskResourceReference.new()
 	set_config_path(config_ref)
 	var config_result: SSDMResult = config_ref.get_resource()
-	if !config_result.is_success():
-		return
 	config = config_result.data
 	if !config:
 		config_ref.loaded_resource = SSDMPluginConfig.new()
 		config_ref.save_resource_to_disk()
 		var path_result: SSDMResult = config_ref.get_res_path()
 		if !path_result.is_success():
-			return
+			push_error(path_result.message)
 		push_error("SSDMPlugin: Configure your plugin. New config file created at: " + path_result.data)
 		return
 	if !work_manager:
