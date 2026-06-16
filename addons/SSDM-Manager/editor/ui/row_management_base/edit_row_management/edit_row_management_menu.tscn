@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bac3bv6qgyopy"]
+
+[ext_resource type="PackedScene" uid="uid://caidexsi3uvwy" path="res://addons/SSDM-Manager/editor/ui/row_management_base/row_management_menu_base.tscn" id="1_3txog"]
+[ext_resource type="Script" uid="uid://p6bcbiny7l5t" path="res://addons/SSDM-Manager/editor/ui/row_management_base/edit_row_management/edit_row_management_menu.gd" id="2_g5c73"]
+[ext_resource type="Texture2D" uid="uid://bjthynaqshg8e" path="res://addons/SSDM-Manager/editor/ui/images/godot_icons/Edit.svg" id="3_ybhcr"]
+
+[node name="EditRowManagementMenu" unique_id=290776461 instance=ExtResource("1_3txog")]
+script = ExtResource("2_g5c73")
+
+[node name="EditButton" type="Button" parent="HBoxContainer" parent_id_path=PackedInt32Array(2142149330) index="3" unique_id=345220904]
+custom_minimum_size = Vector2(31, 0)
+layout_mode = 2
+icon = ExtResource("3_ybhcr")
+icon_alignment = 1
+
+[connection signal="pressed" from="HBoxContainer/EditButton" to="." method="_on_edit_button_pressed"]

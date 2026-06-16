@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dcgdellnfwytm"]
+
+[ext_resource type="PackedScene" uid="uid://y0xxnaha584p" path="res://addons/AWOC/editor/ui/tabs/base/tab_base.tscn" id="1_4ir7p"]
+[ext_resource type="Script" uid="uid://b4bw4j8qt6rij" path="res://addons/AWOC/editor/ui/tabs/slots/slots_tab.gd" id="2_d1gg2"]
+[ext_resource type="PackedScene" uid="uid://jvxaxjnir3vb" path="res://addons/AWOC/editor/ui/awoc_list_management_base/awoc_list_management_base.tscn" id="3_knja3"]
+[ext_resource type="PackedScene" uid="uid://b8ibrfoxsuq2r" path="res://addons/AWOC/editor/ui/new_resource/slot/new_slot_resource_menu.tscn" id="4_kxuuw"]
+
+[node name="SlotsTab" unique_id=1843086620 node_paths=PackedStringArray("new_resource_menu", "list_management_menu") instance=ExtResource("1_4ir7p")]
+script = ExtResource("2_d1gg2")
+new_resource_menu = NodePath("ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/NewSlotResourceMenu")
+list_management_menu = NodePath("ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/AWOCListManagementBase")
+
+[node name="NewSlotResourceMenu" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1067927598) index="2" unique_id=1400075119 instance=ExtResource("4_kxuuw")]
+layout_mode = 2
+
+[node name="AWOCListManagementBase" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1067927598) index="3" unique_id=114491061 instance=ExtResource("3_knja3")]
+layout_mode = 2
+
+[editable path="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/AWOCListManagementBase"]

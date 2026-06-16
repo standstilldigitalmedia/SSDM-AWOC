@@ -5,6 +5,7 @@ extends Resource
 @export var res_name: String = ""
 @export var res_uid: String = ""
 @export var stored_resource: Resource = null
+@export var stored_value: Variant
 
 
 func generate_dictionary_key() -> String:

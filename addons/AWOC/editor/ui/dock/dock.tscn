@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://5uqojswpxfrx" path="res://addons/AWOC/editor/ui/dock/dock.gd" id="1_7psl5"]
 [ext_resource type="PackedScene" uid="uid://bylg4iuckm5gy" path="res://addons/AWOC/editor/ui/panels/welcome/welcome_panel.tscn" id="2_7psl5"]
+[ext_resource type="PackedScene" uid="uid://57yolvtioihf" path="res://addons/AWOC/editor/ui/panels/awoc/awoc_panel.tscn" id="3_wqgx1"]
 
-[node name="Dock" type="Control" unique_id=2047145779]
+[node name="Dock" type="Control" unique_id=2047145779 node_paths=PackedStringArray("panel_container", "welcome_panel")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,6 +12,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7psl5")
+panel_container = NodePath("ScrollContainer/PanelContainer/MarginContainer/PanelContainer")
+welcome_panel = NodePath("ScrollContainer/PanelContainer/MarginContainer/PanelContainer/WelcomePanel")
+awoc_panel_scene = ExtResource("3_wqgx1")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=493768277]
 layout_mode = 1
@@ -32,9 +36,9 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/PanelContainer/MarginContainer" unique_id=969608177]
+[node name="PanelContainer" type="HBoxContainer" parent="ScrollContainer/PanelContainer/MarginContainer" unique_id=969608177]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="WelcomePanel" parent="ScrollContainer/PanelContainer/MarginContainer" unique_id=651554068 instance=ExtResource("2_7psl5")]
+[node name="WelcomePanel" parent="ScrollContainer/PanelContainer/MarginContainer/PanelContainer" unique_id=651554068 instance=ExtResource("2_7psl5")]
 layout_mode = 2

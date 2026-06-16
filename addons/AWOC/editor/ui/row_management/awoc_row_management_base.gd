@@ -1,5 +1,5 @@
 @tool
-class_name AWOCWelcomeRowManagement
+class_name AWOCRowManagementBase
 extends SSDMRowManagementMenuBase
 
 

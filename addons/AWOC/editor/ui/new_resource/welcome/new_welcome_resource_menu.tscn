@@ -19,7 +19,7 @@ visible = false
 text = "AWOC Name:"
 
 [node name="NameLineEdit" parent="PanelContainer/MarginContainer/VBoxContainer/ContentContainer/VBoxContainer" parent_id_path=PackedInt32Array(1934722368) index="1" unique_id=441299481]
-placeholder_text = "me_new_awoc"
+placeholder_text = "my_new_awoc"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ContentContainer" parent_id_path=PackedInt32Array(1946287784) index="1" unique_id=1063038177]
 layout_mode = 2

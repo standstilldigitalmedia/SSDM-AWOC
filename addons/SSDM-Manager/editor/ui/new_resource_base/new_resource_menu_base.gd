@@ -4,6 +4,7 @@ extends SSDMVerticalMenuBase
 
 @export var name_line_edit: LineEdit
 @export var create_button: Button
+var resource_type: String
 
 
 func reset_menu() -> void:

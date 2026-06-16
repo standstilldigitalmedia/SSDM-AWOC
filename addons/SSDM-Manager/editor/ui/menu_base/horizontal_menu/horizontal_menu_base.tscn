@@ -8,10 +8,9 @@
 bg_color = Color(1, 1, 1, 0.19607843)
 
 [node name="HorizontalMenuBase" type="HBoxContainer" unique_id=651554068 node_paths=PackedStringArray("menu_button", "scroll_container", "message_display")]
-custom_minimum_size = Vector2(400, 0)
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_right = 27.0
+offset_right = 423.0
 grow_vertical = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 0

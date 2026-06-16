@@ -5,7 +5,5 @@
 
 [node name="ListManagementBase" unique_id=114491061 node_paths=PackedStringArray("content_container") instance=ExtResource("1_i5pc4")]
 script = ExtResource("2_vr03c")
+row_management_scene = null
 content_container = NodePath("PanelContainer/MarginContainer/VBoxContainer/ContentContainer")
-
-[node name="PanelContainer" parent="." index="1" unique_id=652884381]
-visible = false

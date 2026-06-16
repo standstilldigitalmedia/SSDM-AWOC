@@ -32,6 +32,7 @@ func _on_name_line_edit_text_changed(new_text: String) -> void:
 	var validate_text: SSDMResult = SSDMValidator.is_valid_name(new_text)
 	if validate_text.is_success() and new_text != resource_reference.res_name:
 		rename_button.disabled = false
+		message_display.set_label(SSDMResult.success())
 	else:
 		message_display.set_label(validate_text)
 		rename_button.disabled = true

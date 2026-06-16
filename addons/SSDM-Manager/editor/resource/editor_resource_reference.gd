@@ -10,16 +10,18 @@ func get_res_path() -> SSDMResult:
 		var res_path: String = ResourceUID.get_id_path(disk_uid)
 		if path_prefix.is_empty():
 			path_prefix = res_path.left(6)
-			if path_prefix != "res://":
+			if path_prefix == "user:/":
+				path_prefix = "user://"
+			elif path_prefix != "res://":
 				return SSDMResult.failure("Resource path prefix is not valid")
 		if path_extension.is_empty():
 			path_extension = "." + res_path.get_extension()
-		if resource_name.is_empty():
+		if res_name.is_empty():
 			var file_name: String = res_path.get_file()
 			var explode = file_name.split(".")
-			resource_name = file_name[0]
+			res_name = file_name[0]
 		if path_base.is_empty():
-			path_base = res_path.trim_prefix(path_prefix)
+			path_base = res_path.get_base_dir().trim_prefix(path_prefix)
 	else:
 		var path_result: SSDMResult = super()
 		if !path_result.is_success():

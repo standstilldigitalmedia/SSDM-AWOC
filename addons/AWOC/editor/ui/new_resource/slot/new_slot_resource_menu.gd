@@ -1,29 +1,14 @@
 @tool
-class_name AWOCNewWelcomeResourceMenu
+class_name AWOCNewSlotResourceMenu
 extends SSDMNewResourceMenuBase
 
-
-@export var path_line_edit: LineEdit
-@export var file_dialog: FileDialog
-
-
-func reset_menu() -> void:
-	path_line_edit.text = ""
-	file_dialog.hide()
-	super()
-	
 	
 func validate(new_text: String) -> void:
 	var name_validate: SSDMResult = SSDMValidator.is_valid_name(name_line_edit.text)
 	if !name_validate.is_success():	
 		message_display.set_label(name_validate)
 		create_button.disabled = true
-		return	
-	var path_validate: SSDMResult = SSDMValidator.is_valid_new_path(path_line_edit.text)
-	if !path_validate.is_success():
-		message_display.set_label(path_validate)
-		create_button.disabled = true
-		return			
+		return		
 	message_display.set_label(SSDMResult.success())
 	create_button.disabled = false
 
@@ -32,28 +17,15 @@ func _on_name_line_edit_text_changed(new_text: String) -> void:
 	validate(name_line_edit.text)
 	
 	
-func _on_path_line_edit_text_changed(new_text: String) -> void:
-	validate(new_text)
-
-	
 func _on_create_button_pressed() -> void:
 	create_button.disabled = true
 	var params: Dictionary = {}
 	params.set("name", name_line_edit.text)
-	params.set("path", path_line_edit.text)
+	params.set("type", "slot")
 	var add_result: SSDMResult = await AWOCPlugin.work_manager.add_resource(resource_type, params)
 	if add_result.is_success():
 		reset_menu()
 	message_display.set_label(add_result)
-
-
-func _on_browse_button_pressed() -> void:
-	file_dialog.show()
-	
-
-func _on_file_dialog_dir_selected(dir: String) -> void:
-	path_line_edit.text = dir
-	validate(dir)
 	
 	
 func _ready() -> void:

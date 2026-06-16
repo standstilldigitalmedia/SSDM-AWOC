@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://d30ejcdenqovg"]
+
+[ext_resource type="PackedScene" uid="uid://caidexsi3uvwy" path="res://addons/SSDM-Manager/editor/ui/row_management_base/row_management_menu_base.tscn" id="1_y74nb"]
+[ext_resource type="Script" uid="uid://bgi7yghqkun2p" path="res://addons/SSDM-Manager/editor/ui/row_management_base/show_hide_row_management/show_hide_row_management_menu.gd" id="2_ydewb"]
+[ext_resource type="Texture2D" uid="uid://dhvqfbdnd7c8s" path="res://addons/SSDM-Manager/editor/ui/images/godot_icons/GuiVisibilityVisible.svg" id="3_n4dsc"]
+[ext_resource type="Texture2D" uid="uid://d7yrkixyqfps" path="res://addons/SSDM-Manager/editor/ui/images/godot_icons/GuiVisibilityHidden.svg" id="4_hlc2b"]
+
+[node name="ShowHideRowManagementMenu" unique_id=290776461 node_paths=PackedStringArray("show_button", "hide_button") instance=ExtResource("1_y74nb")]
+script = ExtResource("2_ydewb")
+show_button = NodePath("HBoxContainer/ShowButton")
+hide_button = NodePath("HBoxContainer/HideButton")
+
+[node name="ShowButton" type="Button" parent="HBoxContainer" parent_id_path=PackedInt32Array(2142149330) index="3" unique_id=1806809470]
+custom_minimum_size = Vector2(31, 0)
+layout_mode = 2
+icon = ExtResource("3_n4dsc")
+icon_alignment = 1
+
+[node name="HideButton" type="Button" parent="HBoxContainer" parent_id_path=PackedInt32Array(2142149330) index="4" unique_id=205742684]
+custom_minimum_size = Vector2(31, 0)
+layout_mode = 2
+icon = ExtResource("4_hlc2b")
+icon_alignment = 1
+
+[connection signal="pressed" from="HBoxContainer/ShowButton" to="." method="_on_show_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/HideButton" to="." method="_on_hide_button_pressed"]

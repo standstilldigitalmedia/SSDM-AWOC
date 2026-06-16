@@ -3,12 +3,14 @@
 [ext_resource type="PackedScene" uid="uid://dbjy4ltjs8j4p" path="res://addons/SSDM-Manager/editor/ui/menu_base/horizontal_menu/horizontal_menu_base.tscn" id="1_86ju3"]
 [ext_resource type="Script" uid="uid://bjveifce8sjut" path="res://addons/AWOC/editor/ui/panels/welcome/welcome_panel.gd" id="2_21xtl"]
 [ext_resource type="PackedScene" uid="uid://bj18v1smsp8sg" path="res://addons/AWOC/editor/ui/new_resource/welcome/new_welcome_resource_menu.tscn" id="3_rmg2d"]
-[ext_resource type="PackedScene" uid="uid://o1rq8k4dxdwo" path="res://addons/AWOC/editor/ui/list_management/welcome/welcome_list_management.tscn" id="4_cct4g"]
+[ext_resource type="PackedScene" uid="uid://jvxaxjnir3vb" path="res://addons/AWOC/editor/ui/awoc_list_management_base/awoc_list_management_base.tscn" id="4_21xtl"]
+[ext_resource type="PackedScene" uid="uid://b21ejfbvc741b" path="res://addons/AWOC/editor/ui/row_management/welcome/welcome_row_management_menu.tscn" id="5_rmg2d"]
 
-[node name="WelcomePanel" unique_id=651554068 node_paths=PackedStringArray("new_awoc_menu", "list_management_menu") instance=ExtResource("1_86ju3")]
+[node name="WelcomePanel" unique_id=651554068 node_paths=PackedStringArray("new_resource_menu", "list_management_menu") instance=ExtResource("1_86ju3")]
+offset_right = 424.0
 script = ExtResource("2_21xtl")
-new_awoc_menu = NodePath("ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/NewWelcomeResourceMenu")
-list_management_menu = NodePath("ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/WelcomeListManagement")
+new_resource_menu = NodePath("ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/NewWelcomeResourceMenu")
+list_management_menu = NodePath("ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/AWOCListManagementBase")
 
 [node name="MenuButton" parent="." index="0" unique_id=152522930]
 text = "W
@@ -22,8 +24,12 @@ e"
 [node name="MenuLabel" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(413284406) index="0" unique_id=1895106066]
 text = "Welcome"
 
+[node name="CloseButton" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(413284406) index="1" unique_id=809110526]
+visible = false
+
 [node name="NewWelcomeResourceMenu" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1067927598) index="2" unique_id=114491061 instance=ExtResource("3_rmg2d")]
 layout_mode = 2
 
-[node name="WelcomeListManagement" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1067927598) index="3" unique_id=684174204 instance=ExtResource("4_cct4g")]
+[node name="AWOCListManagementBase" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1067927598) index="3" unique_id=952343959 instance=ExtResource("4_21xtl")]
 layout_mode = 2
+row_management_scene = ExtResource("5_rmg2d")

@@ -2,12 +2,12 @@
 class_name SSDMListManagementMenuBase
 extends SSDMVerticalMenuBase
 
-@export var resource_type: String
 @export var row_management_scene: PackedScene
 
 @export_group("Nodes")
 @export var content_container: VBoxContainer
 
+var resource_type: String
 
 func get_resources() -> SSDMResult:
 	message_display.set_label(SSDMResult.failure("get_resource must be overridden"))
@@ -38,9 +38,13 @@ func populate() -> void:
 		var row_control = row_management_scene.instantiate()
 		row_control.set_row(resource_type, resource_ref)
 		content_container.add_child(row_control)	
-		
 	
+		
+func _on_resource_modified(type: String) -> void:
+	if type == resource_type:
+		populate()
+		set_menu_button()
+			
 	
 func _ready() -> void:
-	#message_display.hide()
 	super()

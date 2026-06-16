@@ -115,6 +115,9 @@ func validate_rename_resource_on_disk(new_name: String) -> SSDMResult:
 		
 		
 func save_resource_to_disk(bundle: bool = false) -> SSDMResult:
+	var resource_result: SSDMResult = get_resource()
+	if !resource_result.is_success():
+		return resource_result
 	var res_path_result: SSDMResult = get_res_path()
 	if !res_path_result.is_success():
 		return res_path_result
@@ -186,17 +189,17 @@ func rename_resource_on_disk(new_name: String) -> SSDMResult:
 	var dir: DirAccess = DirAccess.open(path_prefix)
 	if !dir:
 		return SSDMResult.failure("SSDMDiskManager: Failed to open directory for rename")
-	var res_path_result: SSDMResult = get_res_path()
-	if !res_path_result.is_success():
-		return res_path_result
-	var old_path: String = res_path_result.data
-	set_res_path(path_prefix, path_base, new_name, path_extension)
+	var old_path_result: SSDMResult = get_res_path()
+	if !old_path_result.is_success():
+		return old_path_result
+	var old_path: String = old_path_result.data
+	res_name = new_name
 	var new_path_result: SSDMResult = get_res_path()
 	if !new_path_result.is_success():
 		return new_path_result
-	var new_path: String = res_path_result.data
-	var rename_result = dir.rename(old_path, new_path)
+	var new_path: String = new_path_result.data
+	var rename_result = DirAccess.rename_absolute(old_path, new_path)
 	if rename_result != OK:
 		return SSDMResult.failure("SSDMDiskManager: Failed to rename file from " + old_path + " to " + new_path + " (Error: " + str(rename_result) + ")")
 	await wait_for_scan()
-	return await save_resource_to_disk()
+	return SSDMResult.success()

@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://cq1bwanhnndwe"]
+
+[ext_resource type="PackedScene" uid="uid://bac3bv6qgyopy" path="res://addons/SSDM-Manager/editor/ui/row_management_base/edit_row_management/edit_row_management_menu.tscn" id="1_qfitx"]
+
+[node name="SlotRowManagement" unique_id=290776461 instance=ExtResource("1_qfitx")]
