@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://b352y5njspwtv"]
+
+[ext_resource type="PackedScene" uid="uid://cx1kfb1drqs1v" path="res://addons/SSDM-Manager/editor/ui/new_resource_base/new_resource_menu_base.tscn" id="1_4teqi"]
+[ext_resource type="Script" uid="uid://ds42iwx257ueg" path="res://addons/AWOC/editor/ui/new_resource/color/new_color_resource.gd" id="2_qhnm6"]
+
+[node name="NewColorResource" unique_id=114491061 node_paths=PackedStringArray("color_picker_button") instance=ExtResource("1_4teqi")]
+script = ExtResource("2_qhnm6")
+color_picker_button = NodePath("PanelContainer/MarginContainer/VBoxContainer/ContentContainer/VBoxContainer/HBoxContainer2/ColorPickerButton")
+
+[node name="NameLabel" parent="PanelContainer/MarginContainer/VBoxContainer/ContentContainer/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1251125766) index="0" unique_id=976989672]
+size_flags_horizontal = 3
+text = "Color Name:"
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/ContentContainer/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1251125766) index="1" unique_id=1985353390]
+layout_mode = 2
+text = "Color: "
+
+[node name="NameLineEdit" parent="PanelContainer/MarginContainer/VBoxContainer/ContentContainer/VBoxContainer/HBoxContainer2" parent_id_path=PackedInt32Array(2019225201) index="0" unique_id=441299481]
+placeholder_text = "my_new_color"
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="PanelContainer/MarginContainer/VBoxContainer/ContentContainer/VBoxContainer/HBoxContainer2" parent_id_path=PackedInt32Array(2019225201) index="1" unique_id=46480787]
+custom_minimum_size = Vector2(31, 31)
+layout_mode = 2
+tooltip_text = "Color"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ContentContainer" parent_id_path=PackedInt32Array(1946287784) index="1" unique_id=316717829]
+layout_mode = 2
+
+[node name="CreateButton" parent="PanelContainer/MarginContainer/VBoxContainer/ContentContainer" parent_id_path=PackedInt32Array(1946287784) index="2" unique_id=1269181174]
+text = "Create Color"

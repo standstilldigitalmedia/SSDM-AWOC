@@ -12,13 +12,16 @@ file_dialog = NodePath("FileDialog")
 [node name="MenuButton" parent="." index="0" unique_id=137478399]
 text = "New AWOC"
 
-[node name="MessageDisplay" parent="PanelContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(186389240) index="0" unique_id=773782046]
-visible = false
+[node name="PanelContainer" parent="." index="1" unique_id=652884381]
+visible = true
 
-[node name="NameLabel" parent="PanelContainer/MarginContainer/VBoxContainer/ContentContainer/VBoxContainer" parent_id_path=PackedInt32Array(1934722368) index="0" unique_id=976989672]
+[node name="MessageDisplay" parent="PanelContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(186389240) index="0" unique_id=773782046]
+visible = true
+
+[node name="NameLabel" parent="PanelContainer/MarginContainer/VBoxContainer/ContentContainer/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1251125766) index="0" unique_id=976989672]
 text = "AWOC Name:"
 
-[node name="NameLineEdit" parent="PanelContainer/MarginContainer/VBoxContainer/ContentContainer/VBoxContainer" parent_id_path=PackedInt32Array(1934722368) index="1" unique_id=441299481]
+[node name="NameLineEdit" parent="PanelContainer/MarginContainer/VBoxContainer/ContentContainer/VBoxContainer/HBoxContainer2" parent_id_path=PackedInt32Array(2019225201) index="0" unique_id=441299481]
 placeholder_text = "my_new_awoc"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ContentContainer" parent_id_path=PackedInt32Array(1946287784) index="1" unique_id=1063038177]
@@ -44,7 +47,6 @@ icon = ExtResource("3_arfma")
 icon_alignment = 1
 
 [node name="CreateButton" parent="PanelContainer/MarginContainer/VBoxContainer/ContentContainer" parent_id_path=PackedInt32Array(1946287784) index="2" unique_id=1269181174]
-disabled = true
 text = "Create AWOC"
 
 [node name="FileDialog" type="FileDialog" parent="." index="2" unique_id=1221629824]

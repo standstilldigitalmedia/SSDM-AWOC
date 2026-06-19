@@ -13,17 +13,17 @@ func set_managers(resource_reference: SSDMResourceReference) -> void:
 		push_error(get_awoc_result.message)
 		return
 	AWOCPlugin.work_manager.set_library_ref("slots", resource_reference, get_awoc_result.data.slot_library)
-
+	AWOCPlugin.work_manager.set_library_ref("colors", resource_reference, get_awoc_result.data.color_library)
+	
 
 func _on_edit_resource(type: String, resource_reference: SSDMResourceReference) -> void:
 	if type == "welcome":
-		welcome_panel.destroy_children()
-		welcome_panel.menu_children = []
+		welcome_panel.destroy_child()
 		welcome_panel.scroll_container.hide()
 		welcome_panel.menu_button.set_pressed_no_signal(true)
 		set_managers(resource_reference)
 		var awoc_panel = awoc_panel_scene.instantiate()
-		welcome_panel.menu_children.append(awoc_panel)
+		welcome_panel.menu_child = awoc_panel
 		panel_container.add_child(awoc_panel)
 		awoc_panel.show()
 	

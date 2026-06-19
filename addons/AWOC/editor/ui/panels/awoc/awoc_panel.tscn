@@ -2,9 +2,24 @@
 
 [ext_resource type="PackedScene" uid="uid://dbjy4ltjs8j4p" path="res://addons/SSDM-Manager/editor/ui/menu_base/horizontal_menu/horizontal_menu_base.tscn" id="1_5x0hx"]
 [ext_resource type="Script" uid="uid://c1vbprcbll238" path="res://addons/AWOC/editor/ui/panels/awoc/awoc_panel.gd" id="2_1mjk6"]
+[ext_resource type="PackedScene" uid="uid://dcgdellnfwytm" path="res://addons/AWOC/editor/ui/tabs/slots/slots_tab.tscn" id="3_yyppw"]
+[ext_resource type="PackedScene" uid="uid://dyj0u5iyx6fjs" path="res://addons/AWOC/editor/ui/tabs/color/color_tab.tscn" id="4_53ql8"]
 
 [node name="AWOCPanel" unique_id=651554068 instance=ExtResource("1_5x0hx")]
 script = ExtResource("2_1mjk6")
 
+[node name="MessageDisplay" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1067927598) index="1" unique_id=773782046]
+visible = false
+
 [node name="TabContainer" type="TabContainer" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1067927598) index="2" unique_id=338706564]
 layout_mode = 2
+current_tab = 0
+
+[node name="Slots" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer" index="1" unique_id=1194822539 instance=ExtResource("3_yyppw")]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Colors" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer" index="2" unique_id=352741586 instance=ExtResource("4_53ql8")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1

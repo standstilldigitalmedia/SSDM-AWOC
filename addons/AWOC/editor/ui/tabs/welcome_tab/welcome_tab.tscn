@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://nmqgmgh5srlb"]
+
+[ext_resource type="PackedScene" uid="uid://dg5kvu70hffb1" path="res://addons/SSDM-Manager/editor/ui/tab_base/tab_base.tscn" id="1_i6xeu"]
+[ext_resource type="Script" uid="uid://c300sn80xt2qa" path="res://addons/AWOC/editor/ui/tabs/welcome_tab/welcome_tab.gd" id="2_atw3t"]
+[ext_resource type="PackedScene" uid="uid://bj18v1smsp8sg" path="res://addons/AWOC/editor/ui/new_resource/welcome/new_welcome_resource_menu.tscn" id="2_qnf66"]
+[ext_resource type="PackedScene" uid="uid://jvxaxjnir3vb" path="res://addons/AWOC/editor/ui/list_management/awoc_list_management/awoc_list_management_base.tscn" id="3_atw3t"]
+[ext_resource type="PackedScene" uid="uid://b21ejfbvc741b" path="res://addons/AWOC/editor/ui/row_management/welcome/welcome_row_management_menu.tscn" id="5_atw3t"]
+
+[node name="WelcomeTab" unique_id=1194822539 node_paths=PackedStringArray("new_resource_menu", "list_management_menu") instance=ExtResource("1_i6xeu")]
+script = ExtResource("2_atw3t")
+new_resource_menu = NodePath("VBoxContainer/NewWelcomeResourceMenu")
+list_management_menu = NodePath("VBoxContainer/AWOCListManagementBase")
+
+[node name="NewWelcomeResourceMenu" parent="VBoxContainer" parent_id_path=PackedInt32Array(1993446980) index="0" unique_id=114491061 instance=ExtResource("2_qnf66")]
+layout_mode = 2
+
+[node name="AWOCListManagementBase" parent="VBoxContainer" parent_id_path=PackedInt32Array(1993446980) index="1" unique_id=1808974329 instance=ExtResource("3_atw3t")]
+layout_mode = 2
+row_management_scene = ExtResource("5_atw3t")

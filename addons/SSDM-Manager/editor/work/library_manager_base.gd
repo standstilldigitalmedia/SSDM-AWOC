@@ -2,14 +2,14 @@
 @abstract class_name SSDMLibraryManagerBase
 extends RefCounted
 
-var disk_resource_reference: SSDMResourceReference
+var disk_resource_reference: SSDMDiskResourceReference
 var library: SSDMLibrary
-	
+
 
 @abstract func add_resource(params: Dictionary) -> SSDMResult
-@abstract func rename_resource(new_name: String, resource_reference: SSDMResourceReference) -> SSDMResult
-@abstract func delete_resource(resource_reference: SSDMResourceReference) -> SSDMResult
-
+@abstract func rename_resource(new_name: String, resource_reference: SSDMResourceReference, params: Dictionary = {}) -> SSDMResult
+@abstract func delete_resource(resource_reference: SSDMResourceReference, params: Dictionary = {}) -> SSDMResult
+@abstract func modify_resource_property(resource_reference: SSDMResourceReference, params: Dictionary = {}) -> SSDMResult
 
 func set_ref_path(params: Dictionary, resource_reference: SSDMResourceReference) -> SSDMResult:
 	var base_path: String = params.get("path")
@@ -24,7 +24,7 @@ func set_ref_path(params: Dictionary, resource_reference: SSDMResourceReference)
 		resource_reference.path_prefix = "user://"
 		resource_reference.path_base = base_path.trim_prefix("user://")
 	else:
-		return SSDMResult.failure("Invalid path: " + params.get("path"))
+		return SSDMResult.print_failure("Invalid path: " + params.get("path"))
 	resource_reference.res_name = params.get("name")
 	resource_reference.path_extension = ".tres"
 	return SSDMResult.success()
@@ -36,8 +36,8 @@ func set_library_ref(disk_resource_ref: SSDMResourceReference, lib: SSDMLibrary)
 	library = lib
 	
 	
-func add_disk_resource(resource_reference: SSDMDiskResourceReference) -> SSDMResult:
-	var dictionary_validate_result := library.validate_new_dictionary_resource(resource_reference)
+func _add_disk_resource(resource_reference: SSDMDiskResourceReference) -> SSDMResult:
+	var dictionary_validate_result := library.validate_new_resource(resource_reference)
 	if !dictionary_validate_result.is_success():
 		return dictionary_validate_result
 	var disk_validate_result: SSDMResult = resource_reference.validate_new_disk_resource()
@@ -46,14 +46,14 @@ func add_disk_resource(resource_reference: SSDMDiskResourceReference) -> SSDMRes
 	var save_to_disk_result: SSDMResult = await resource_reference.save_resource_to_disk()
 	if !save_to_disk_result.is_success():
 		return save_to_disk_result
-	var add_to_dictionary_result: SSDMResult = library.add_resource_reference_to_dictionary(resource_reference)
+	var add_to_dictionary_result: SSDMResult = library.add_resource_reference(resource_reference)
 	if !add_to_dictionary_result.is_success():
 		return add_to_dictionary_result
-	return disk_resource_reference.save_resource_to_disk()
+	return await disk_resource_reference.save_resource_to_disk()
 	
 
-func rename_disk_resource(new_name: String, resource_reference: SSDMDiskResourceReference) -> SSDMResult:
-	var dictionary_validate_result := library.validate_rename_dictionary_resource(resource_reference.res_name, new_name)
+func _rename_disk_resource(new_name: String, resource_reference: SSDMDiskResourceReference) -> SSDMResult:
+	var dictionary_validate_result := library.validate_rename_resource(resource_reference.res_name, new_name)
 	if !dictionary_validate_result.is_success():
 		return dictionary_validate_result
 	var disk_validate_result: SSDMResult = resource_reference.validate_rename_resource_on_disk(new_name)
@@ -62,8 +62,8 @@ func rename_disk_resource(new_name: String, resource_reference: SSDMDiskResource
 	return await resource_reference.rename_resource_on_disk(new_name)
 	
 
-func delete_disk_resource(resource_reference: SSDMDiskResourceReference) -> SSDMResult:
-	var dictionary_validate_result := library.validate_delete_dictionary_resource(resource_reference.res_name)
+func _delete_disk_resource(resource_reference: SSDMDiskResourceReference) -> SSDMResult:
+	var dictionary_validate_result := library.validate_delete_resource(resource_reference.res_name)
 	if !dictionary_validate_result.is_success():
 		return dictionary_validate_result
 	var disk_validate_result: SSDMResult = resource_reference.validate_delete_resource_from_disk([])
@@ -72,37 +72,37 @@ func delete_disk_resource(resource_reference: SSDMDiskResourceReference) -> SSDM
 	var delete_from_disk_result: SSDMResult = await resource_reference.delete_resource_from_disk()
 	if !delete_from_disk_result.is_success():
 		return delete_from_disk_result
-	var delete_from_dictionary_result: SSDMResult = library.delete_resource_reference_from_dictionary(resource_reference)
+	var delete_from_dictionary_result: SSDMResult = library.delete_resource_reference(resource_reference)
 	if !delete_from_dictionary_result.is_success():
 		return delete_from_dictionary_result
-	return disk_resource_reference.save_resource_to_disk()
+	return await disk_resource_reference.save_resource_to_disk()
 	
 	
-func add_dictionary_resource(resource_reference: SSDMResourceReference) -> SSDMResult:
-	var dictionary_validate_result := library.validate_new_dictionary_resource(resource_reference)
+func _add_dictionary_resource(resource_reference: SSDMResourceReference) -> SSDMResult:
+	var dictionary_validate_result := library.validate_new_resource(resource_reference)
 	if !dictionary_validate_result.is_success():
 		return dictionary_validate_result
-	var add_to_dictionary_result: SSDMResult = library.add_resource_reference_to_dictionary(resource_reference)
+	var add_to_dictionary_result: SSDMResult = library.add_resource_reference(resource_reference)
 	if !add_to_dictionary_result.is_success():
 		return add_to_dictionary_result
-	return disk_resource_reference.save_resource_to_disk()
+	return await disk_resource_reference.save_resource_to_disk()
 	
 
-func rename_dictionary_resource(new_name: String, resource_reference: SSDMResourceReference) -> SSDMResult:
-	var dictionary_validate_result := library.validate_rename_dictionary_resource(resource_reference.res_name, new_name)
+func _rename_dictionary_resource(new_name: String, resource_reference: SSDMResourceReference) -> SSDMResult:
+	var dictionary_validate_result := library.validate_rename_resource(resource_reference.res_name, new_name)
 	if !dictionary_validate_result.is_success():
 		return dictionary_validate_result
-	var rename_result: SSDMResult = library.rename_resource_reference_in_dictionary(resource_reference.res_name, new_name)
+	var rename_result: SSDMResult = library.rename_resource_reference(resource_reference.res_name, new_name)
 	if !rename_result.is_success():
 		return rename_result
-	return disk_resource_reference.save_resource_to_disk()
+	return await disk_resource_reference.save_resource_to_disk()
 	
 
-func delete_dictionary_resource(resource_reference: SSDMResourceReference) -> SSDMResult:
-	var dictionary_validate_result := library.validate_delete_dictionary_resource(resource_reference.res_name)
+func _delete_dictionary_resource(resource_reference: SSDMResourceReference) -> SSDMResult:
+	var dictionary_validate_result := library.validate_delete_resource(resource_reference.res_name)
 	if !dictionary_validate_result.is_success():
 		return dictionary_validate_result
-	var delete_from_dictionary_result: SSDMResult = library.delete_resource_reference_from_dictionary(resource_reference)
+	var delete_from_dictionary_result: SSDMResult = library.delete_resource_reference(resource_reference)
 	if !delete_from_dictionary_result.is_success():
 		return delete_from_dictionary_result
-	return disk_resource_reference.save_resource_to_disk()
+	return await disk_resource_reference.save_resource_to_disk()

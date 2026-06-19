@@ -7,7 +7,7 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4fngk"]
 bg_color = Color(1, 1, 1, 0.19607843)
 
-[node name="HorizontalMenuBase" type="HBoxContainer" unique_id=651554068 node_paths=PackedStringArray("menu_button", "scroll_container", "message_display")]
+[node name="HorizontalMenuBase" type="HBoxContainer" unique_id=651554068 node_paths=PackedStringArray("menu_button", "scroll_container", "menu_label", "message_display")]
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 423.0
@@ -17,6 +17,7 @@ theme_override_constants/separation = 0
 script = ExtResource("1_7p0yp")
 menu_button = NodePath("MenuButton")
 scroll_container = NodePath("ScrollContainer")
+menu_label = NodePath("ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/MenuLabel")
 message_display = NodePath("ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/MessageDisplay")
 
 [node name="MenuButton" type="Button" parent="." unique_id=152522930]

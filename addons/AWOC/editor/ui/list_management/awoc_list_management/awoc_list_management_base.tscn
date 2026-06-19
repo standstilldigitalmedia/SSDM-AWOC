@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://jvxaxjnir3vb"]
 
 [ext_resource type="PackedScene" uid="uid://dic11brmwmkjj" path="res://addons/SSDM-Manager/editor/ui/list_management_base/list_management_menu_base.tscn" id="1_a87o2"]
-[ext_resource type="Script" uid="uid://8uemkprptiad" path="res://addons/AWOC/editor/ui/awoc_list_management_base/awoc_list_management_base.gd" id="2_guxr5"]
+[ext_resource type="Script" uid="uid://8uemkprptiad" path="res://addons/AWOC/editor/ui/list_management/awoc_list_management/awoc_list_management_base.gd" id="2_guxr5"]
 
 [node name="AWOCListManagementBase" unique_id=114491061 instance=ExtResource("1_a87o2")]
 script = ExtResource("2_guxr5")

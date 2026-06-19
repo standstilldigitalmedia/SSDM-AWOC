@@ -1,14 +1,10 @@
 [gd_scene format=3 uid="uid://b8ibrfoxsuq2r"]
 
 [ext_resource type="PackedScene" uid="uid://cx1kfb1drqs1v" path="res://addons/SSDM-Manager/editor/ui/new_resource_base/new_resource_menu_base.tscn" id="1_dwqic"]
+[ext_resource type="Script" uid="uid://d0382fc1mdb8b" path="res://addons/AWOC/editor/ui/new_resource/slot/new_slot_resource_menu.gd" id="2_xf3y4"]
 
 [node name="NewSlotResourceMenu" unique_id=114491061 instance=ExtResource("1_dwqic")]
+script = ExtResource("2_xf3y4")
 
-[node name="MenuButton" parent="." index="0" unique_id=137478399]
-text = "New Slot"
-
-[node name="MessageDisplay" parent="PanelContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(186389240) index="0" unique_id=773782046]
-visible = false
-
-[node name="CreateButton" parent="PanelContainer/MarginContainer/VBoxContainer/ContentContainer" parent_id_path=PackedInt32Array(1946287784) index="1" unique_id=1269181174]
-disabled = true
+[node name="NameLabel" parent="PanelContainer/MarginContainer/VBoxContainer/ContentContainer/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1251125766) index="0" unique_id=976989672]
+text = "Slot Name:"

@@ -2,6 +2,7 @@
 class_name AWOCListManagementBase
 extends SSDMListManagementMenuBase
 
+
 func get_resources() -> SSDMResult:
 	return AWOCPlugin.work_manager.get_refs(resource_type)
 	

@@ -26,6 +26,10 @@ func set_awoc_libraries(awoc: AWOC) -> void:
 	awoc.wardrobe_library = SSDMLibrary.new()
 	
 	
+func modify_resource_property(resource_reference: SSDMResourceReference, params: Dictionary = {}) -> SSDMResult:
+	return SSDMResult.success()
+	
+	
 func add_resource(params: Dictionary) -> SSDMResult:
 	var awoc_ref := SSDMEditorResourceReference.new()
 	var awoc := AWOC.new()
@@ -35,21 +39,21 @@ func add_resource(params: Dictionary) -> SSDMResult:
 	if !set_path_result.is_success():
 		return set_path_result
 	awoc.asset_creation_path_uid = ResourceLoader.get_resource_uid(awoc_ref.path_prefix.path_join(awoc_ref.path_base))
-	var add_disk_result: SSDMResult = await add_disk_resource(awoc_ref)
+	var add_disk_result: SSDMResult = await _add_disk_resource(awoc_ref)
 	if !add_disk_result.is_success():
 		return add_disk_result
-	var save_resource_result: SSDMResult = disk_resource_reference.save_resource_to_disk()
+	var save_resource_result: SSDMResult = await disk_resource_reference.save_resource_to_disk()
 	if !save_resource_result.is_success():
 		return save_resource_result
 	return SSDMResult.success("Resource " + awoc_ref.res_name + " created successfully")
 	
 
-func rename_resource(new_name: String, resource_reference: SSDMResourceReference) -> SSDMResult:
-	var rename_result: SSDMResult = await rename_disk_resource(new_name, resource_reference)
+func rename_resource(new_name: String, resource_reference: SSDMResourceReference, params: Dictionary = {}) -> SSDMResult:
+	var rename_result: SSDMResult = await _rename_disk_resource(new_name, resource_reference)
 	if !rename_result.is_success():
 		return rename_result
-	return disk_resource_reference.save_resource_to_disk()
+	return await disk_resource_reference.save_resource_to_disk()
 	
 
-func delete_resource(resource_reference: SSDMResourceReference) -> SSDMResult:
-	return await delete_disk_resource(resource_reference)
+func delete_resource(resource_reference: SSDMResourceReference, params: Dictionary = {}) -> SSDMResult:
+	return await _delete_disk_resource(resource_reference)

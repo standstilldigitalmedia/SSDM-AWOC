@@ -46,3 +46,6 @@ func set_label(result: SSDMResult) -> void:
 				add_theme_color_override("font_color", Color.RED)
 		text = result.message
 		show()
+
+func _ready() -> void:
+	hide()

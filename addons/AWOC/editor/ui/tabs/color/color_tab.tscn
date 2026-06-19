@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dyj0u5iyx6fjs"]
+
+[ext_resource type="PackedScene" uid="uid://dg5kvu70hffb1" path="res://addons/SSDM-Manager/editor/ui/tab_base/tab_base.tscn" id="1_mfy3e"]
+[ext_resource type="Script" uid="uid://bvfot8c8ijkkn" path="res://addons/AWOC/editor/ui/tabs/color/color_tab.gd" id="2_vv84s"]
+[ext_resource type="PackedScene" uid="uid://b352y5njspwtv" path="res://addons/AWOC/editor/ui/new_resource/color/new_color_resource.tscn" id="3_jkkcc"]
+[ext_resource type="PackedScene" uid="uid://jvxaxjnir3vb" path="res://addons/AWOC/editor/ui/list_management/awoc_list_management/awoc_list_management_base.tscn" id="4_uulpj"]
+[ext_resource type="PackedScene" uid="uid://cmqw62ll7e5l1" path="res://addons/AWOC/editor/ui/row_management/color/color_row_management.tscn" id="5_h2oyw"]
+
+[node name="ColorTab" unique_id=1194822539 node_paths=PackedStringArray("new_resource_menu", "list_management_menu") instance=ExtResource("1_mfy3e")]
+script = ExtResource("2_vv84s")
+new_resource_menu = NodePath("VBoxContainer/NewColorResource")
+list_management_menu = NodePath("VBoxContainer/AWOCListManagementBase")
+
+[node name="NewColorResource" parent="VBoxContainer" parent_id_path=PackedInt32Array(1993446980) index="0" unique_id=114491061 instance=ExtResource("3_jkkcc")]
+layout_mode = 2
+
+[node name="AWOCListManagementBase" parent="VBoxContainer" parent_id_path=PackedInt32Array(1993446980) index="1" unique_id=1447592736 instance=ExtResource("4_uulpj")]
+layout_mode = 2
+row_management_scene = ExtResource("5_h2oyw")

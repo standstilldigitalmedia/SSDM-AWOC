@@ -24,7 +24,7 @@ func _on_name_line_edit_text_changed(new_text: String) -> void:
 
 
 func _on_create_button_pressed() -> void:
-	message_display.set_label(SSDMResult.failure("_on_create_button_pressed must be overridden"))
+	message_display.set_label(SSDMResult.print_failure("_on_create_button_pressed must be overridden"))
 	
 	
 func _ready() -> void:

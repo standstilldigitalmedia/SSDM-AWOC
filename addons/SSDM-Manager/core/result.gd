@@ -11,17 +11,41 @@ var details: Array[Dictionary] = []
 
 static func success(msg: String = "", data: Variant = null) -> SSDMResult:
 	return SSDMResult.new(msg, data, OK, SSDMSeverity.Level.SUCCESS)
+	
+	
+static func print_success(msg: String = "", data: Variant = null) -> SSDMResult:
+	printerr("SSDM Success: " + msg)
+	print_stack()
+	return SSDMResult.new(msg, data, OK, SSDMSeverity.Level.SUCCESS)
 
 
 static func failure(msg: String = "", data: Variant = null, p_error: Error = FAILED) -> SSDMResult:
 	return SSDMResult.new(msg, data, p_error, SSDMSeverity.Level.ERROR)
+	
+	
+static func print_failure(msg: String = "", data: Variant = null, p_error: Error = FAILED) -> SSDMResult:
+	printerr("SSDM Error: " + msg)
+	print_stack()
+	return SSDMResult.new(msg, data, p_error, SSDMSeverity.Level.ERROR)
 
 
-static func warning(msg: String = "", data: Variant = null, p_error: Error = FAILED) -> SSDMResult:
+static func warning(msg: String = "", data: Variant = null, p_error: Error = OK) -> SSDMResult:
+	return SSDMResult.new(msg, data, p_error, SSDMSeverity.Level.WARNING)
+	
+	
+static func print_warning(msg: String = "", data: Variant = null, p_error: Error = OK) -> SSDMResult:
+	printerr("SSDM Warning: " + msg)
+	print_stack()
 	return SSDMResult.new(msg, data, p_error, SSDMSeverity.Level.WARNING)
 
 
-static func info(msg: String = "", data: Variant = null, p_error: Error = FAILED) -> SSDMResult:
+static func info(msg: String = "", data: Variant = null, p_error: Error = OK) -> SSDMResult:
+	return SSDMResult.new(msg, data, p_error, SSDMSeverity.Level.INFO)
+	
+	
+static func print_info(msg: String = "", data: Variant = null, p_error: Error = OK) -> SSDMResult:
+	printerr("SSDM Info: " + msg)
+	print_stack()
 	return SSDMResult.new(msg, data, p_error, SSDMSeverity.Level.INFO)
 
 

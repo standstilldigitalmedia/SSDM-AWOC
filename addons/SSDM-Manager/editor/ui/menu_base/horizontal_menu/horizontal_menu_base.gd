@@ -4,10 +4,9 @@ extends HBoxContainer
 
 @export var menu_button: Button
 @export var scroll_container: ScrollContainer
+@export var menu_label: Label
 @export var message_display: SSDMMessageDisplay
-@export var new_resource_menu: SSDMNewResourceMenuBase
-@export var list_management_menu: SSDMListManagementMenuBase
-var menu_children: Array[SSDMHorizontalMenuBase] = []
+var menu_child: SSDMHorizontalMenuBase = null
 
 
 func turn_string_sideways(horizontal_string: String) -> String:
@@ -17,18 +16,29 @@ func turn_string_sideways(horizontal_string: String) -> String:
 	return return_string
 
 
-func destroy_children() -> void:
-	for child in menu_children:
-		child.destroy_children()
-		child.queue_free()
+func destroy_child() -> void:
+	if menu_child:
+		menu_child.destroy_child()
+		menu_child.queue_free()
+	
+	
+func open_menu() -> void:
+	scroll_container.show()
+	menu_button.set_pressed_no_signal(true)
+	
+	
+func close_menu() -> void:
+	scroll_container.hide()
+	menu_button.set_pressed_no_signal(false)
 
 
 func _on_menu_button_toggled(toggled_on: bool) -> void:
 	if toggled_on:
-		scroll_container.hide()
+		close_menu()
 	else:
-		scroll_container.show()
+		open_menu()
 
 
 func _on_close_button_pressed() -> void:
+	destroy_child()
 	queue_free()

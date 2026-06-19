@@ -21,11 +21,11 @@ func set_row(res_type: String, res_reference: SSDMResourceReference) -> void:
 
 
 func _on_rename_confirmation_dialog_confirmed() -> void:
-	message_display.set_label(SSDMResult.failure("_on_rename_confirmation_dialog_confirmed must be overridden"))
+	message_display.set_label(SSDMResult.print_failure("_on_rename_confirmation_dialog_confirmed must be overridden"))
 	
 	
 func _on_delete_confirmation_dialog_confirmed() -> void:
-	message_display.set_label(SSDMResult.failure("_on_delete_confirmation_dialog_confirmed must be overridden"))
+	message_display.set_label(SSDMResult.print_failure("_on_delete_confirmation_dialog_confirmed must be overridden"))
 	
 	
 func _on_name_line_edit_text_changed(new_text: String) -> void:

@@ -7,12 +7,22 @@ extends VBoxContainer
 @export var message_display: SSDMMessageDisplay
 
 
+func open_menu() -> void:
+	panel_container.show()
+	menu_button.set_pressed_no_signal(true)
+	
+	
+func close_menu() -> void:
+	panel_container.hide()
+	menu_button.set_pressed_no_signal(false)
+
+
 func _on_menu_button_toggled(toggled_on: bool) -> void:
 	if toggled_on:
-		panel_container.show()
+		open_menu()
 	else:
-		panel_container.hide()
+		close_menu()
 		
 		
 func _ready() -> void:
-	panel_container.hide()
+	close_menu()

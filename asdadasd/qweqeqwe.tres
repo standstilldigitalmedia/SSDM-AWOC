@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="AWOC" format=3 uid="uid://du0aglelmeveo"]
+
+[ext_resource type="Script" uid="uid://djgyip8ae7626" path="res://addons/SSDM-Manager/runtime/resource/library/library.gd" id="1_erxue"]
+[ext_resource type="Script" uid="uid://csepyqceuo8cy" path="res://addons/AWOC/runtime/resource/awoc.gd" id="2_u8phh"]
+
+[sub_resource type="Resource" id="Resource_evius"]
+script = ExtResource("1_erxue")
+
+[sub_resource type="Resource" id="Resource_jlhfu"]
+script = ExtResource("1_erxue")
+
+[sub_resource type="Resource" id="Resource_3dx8g"]
+script = ExtResource("1_erxue")
+
+[sub_resource type="Resource" id="Resource_v7rea"]
+script = ExtResource("1_erxue")
+
+[sub_resource type="Resource" id="Resource_dodko"]
+script = ExtResource("1_erxue")
+
+[sub_resource type="Resource" id="Resource_xrm2k"]
+script = ExtResource("1_erxue")
+
+[resource]
+script = ExtResource("2_u8phh")
+asset_creation_path_uid = -1
+slot_library = SubResource("Resource_dodko")
+color_library = SubResource("Resource_evius")
+material_library = SubResource("Resource_jlhfu")
+mesh_library = SubResource("Resource_3dx8g")
+recipe_library = SubResource("Resource_v7rea")
+wardrobe_library = SubResource("Resource_xrm2k")

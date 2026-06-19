@@ -18,5 +18,5 @@ func generate_dictionary_key() -> String:
 	
 func get_resource() -> SSDMResult:
 	if !stored_resource:
-		return SSDMResult.failure()
+		return SSDMResult.print_failure("No resource found in Resource Reference")
 	return SSDMResult.success("", stored_resource)
