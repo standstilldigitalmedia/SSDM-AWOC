@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cpejffynl5vd8"]
+
+[ext_resource type="PackedScene" uid="uid://cx1kfb1drqs1v" path="res://addons/SSDM-Manager/editor/ui/new_resource_base/new_resource_menu_base.tscn" id="1_e4mrl"]
+[ext_resource type="Script" uid="uid://44ym4dtkg7fw" path="res://addons/AWOC/editor/ui/new_resource/material/new_material_menu.gd" id="2_suuy7"]
+
+[node name="NewMaterialMenu" unique_id=114491061 instance=ExtResource("1_e4mrl")]
+script = ExtResource("2_suuy7")
+
+[node name="PanelContainer" parent="." index="1" unique_id=652884381]
+visible = true
+
+[node name="NameLabel" parent="PanelContainer/MarginContainer/VBoxContainer/ContentContainer/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1251125766) index="0" unique_id=976989672]
+text = "Material Name:"
+
+[node name="CreateButton" parent="PanelContainer/MarginContainer/VBoxContainer/ContentContainer" parent_id_path=PackedInt32Array(1946287784) index="1" unique_id=1269181174]
+text = "Create Material"

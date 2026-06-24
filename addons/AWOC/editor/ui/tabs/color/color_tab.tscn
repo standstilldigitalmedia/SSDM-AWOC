@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dg5kvu70hffb1" path="res://addons/SSDM-Manager/editor/ui/tab_base/tab_base.tscn" id="1_mfy3e"]
 [ext_resource type="Script" uid="uid://bvfot8c8ijkkn" path="res://addons/AWOC/editor/ui/tabs/color/color_tab.gd" id="2_vv84s"]
-[ext_resource type="PackedScene" uid="uid://b352y5njspwtv" path="res://addons/AWOC/editor/ui/new_resource/color/new_color_resource.tscn" id="3_jkkcc"]
+[ext_resource type="PackedScene" uid="uid://b352y5njspwtv" path="res://addons/AWOC/editor/ui/new_resource/color/new_color_menu.tscn" id="3_jkkcc"]
 [ext_resource type="PackedScene" uid="uid://jvxaxjnir3vb" path="res://addons/AWOC/editor/ui/list_management/awoc_list_management/awoc_list_management_base.tscn" id="4_uulpj"]
 [ext_resource type="PackedScene" uid="uid://cmqw62ll7e5l1" path="res://addons/AWOC/editor/ui/row_management/color/color_row_management.tscn" id="5_h2oyw"]
 

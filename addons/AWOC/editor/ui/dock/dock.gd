@@ -14,7 +14,7 @@ func set_managers(resource_reference: SSDMResourceReference) -> void:
 		return
 	AWOCPlugin.work_manager.set_library_ref("slots", resource_reference, get_awoc_result.data.slot_library)
 	AWOCPlugin.work_manager.set_library_ref("colors", resource_reference, get_awoc_result.data.color_library)
-	
+	AWOCPlugin.work_manager.set_library_ref("materials", resource_reference, get_awoc_result.data.material_library)
 
 func _on_edit_resource(type: String, resource_reference: SSDMResourceReference) -> void:
 	if type == "welcome":

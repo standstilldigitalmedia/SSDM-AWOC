@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://bj18v1smsp8sg"]
+
+[ext_resource type="PackedScene" uid="uid://cx1kfb1drqs1v" path="res://addons/SSDM-Manager/editor/ui/new_resource_base/new_resource_menu_base.tscn" id="1_6pm1o"]
+[ext_resource type="Script" uid="uid://cgqkilanb1c3f" path="res://addons/AWOC/editor/ui/new_resource/welcome/new_welcome_menu.gd" id="2_hkku7"]
+[ext_resource type="PackedScene" uid="uid://1ejxeyv3yr2s" path="res://addons/SSDM-Manager/editor/ui/path_browser_control/path_browser.tscn" id="3_s7eom"]
+
+[node name="NewWelcomeResourceMenu" unique_id=114491061 node_paths=PackedStringArray("path_browser") instance=ExtResource("1_6pm1o")]
+script = ExtResource("2_hkku7")
+path_browser = NodePath("PanelContainer/MarginContainer/VBoxContainer/ContentContainer/PathBrowser")
+
+[node name="MenuButton" parent="." index="0" unique_id=137478399]
+text = "New AWOC"
+
+[node name="NameLabel" parent="PanelContainer/MarginContainer/VBoxContainer/ContentContainer/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1251125766) index="0" unique_id=976989672]
+text = "AWOC Name:"
+
+[node name="NameLineEdit" parent="PanelContainer/MarginContainer/VBoxContainer/ContentContainer/VBoxContainer/HBoxContainer2" parent_id_path=PackedInt32Array(2019225201) index="0" unique_id=441299481]
+placeholder_text = "my_new_awoc"
+
+[node name="PathBrowser" parent="PanelContainer/MarginContainer/VBoxContainer/ContentContainer" parent_id_path=PackedInt32Array(1946287784) index="1" unique_id=1691888640 instance=ExtResource("3_s7eom")]
+layout_mode = 2
+is_dir = true
+label_text = "Asset Creation Folder"
+
+[node name="ControlLabel" parent="PanelContainer/MarginContainer/VBoxContainer/ContentContainer/PathBrowser" index="0" unique_id=1920291654]
+text = "Asset Creation Folder"
+
+[node name="FileDialog" parent="PanelContainer/MarginContainer/VBoxContainer/ContentContainer/PathBrowser/HBoxContainer" parent_id_path=PackedInt32Array(1691888640, 62761248) index="2" unique_id=970530987]
+oversampling_override = 1.0
+title = "Open a Directory"
+file_mode = 2
+
+[node name="CreateButton" parent="PanelContainer/MarginContainer/VBoxContainer/ContentContainer" parent_id_path=PackedInt32Array(1946287784) index="2" unique_id=1269181174]
+text = "Create AWOC"
+
+[editable path="PanelContainer/MarginContainer/VBoxContainer/ContentContainer/PathBrowser"]

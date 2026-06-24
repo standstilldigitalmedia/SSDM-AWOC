@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://c1vbprcbll238" path="res://addons/AWOC/editor/ui/panels/awoc/awoc_panel.gd" id="2_1mjk6"]
 [ext_resource type="PackedScene" uid="uid://dcgdellnfwytm" path="res://addons/AWOC/editor/ui/tabs/slots/slots_tab.tscn" id="3_yyppw"]
 [ext_resource type="PackedScene" uid="uid://dyj0u5iyx6fjs" path="res://addons/AWOC/editor/ui/tabs/color/color_tab.tscn" id="4_53ql8"]
+[ext_resource type="PackedScene" uid="uid://bq1giosyys7lw" path="res://addons/AWOC/editor/ui/tabs/material/material_tab.tscn" id="5_adhox"]
 
 [node name="AWOCPanel" unique_id=651554068 instance=ExtResource("1_5x0hx")]
 script = ExtResource("2_1mjk6")
@@ -23,3 +24,8 @@ metadata/_tab_index = 0
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
+
+[node name="Materials" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer" index="3" unique_id=15225759 instance=ExtResource("5_adhox")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2

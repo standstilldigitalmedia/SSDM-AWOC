@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://1ejxeyv3yr2s"]
+
+[ext_resource type="Texture2D" uid="uid://bsuxag4mut1ee" path="res://addons/SSDM-Manager/editor/ui/images/godot_icons/folder.svg" id="1_2dj34"]
+[ext_resource type="Script" uid="uid://b6toy6q0gr2fw" path="res://addons/SSDM-Manager/editor/ui/path_browser_control/path_browser.gd" id="1_3owwc"]
+
+[node name="PathBrowser" type="VBoxContainer" unique_id=1691888640 node_paths=PackedStringArray("control_label", "path_line_edit", "browse_button", "file_dialog")]
+offset_left = 110.0
+offset_right = 110.0
+offset_bottom = 31.0
+theme_override_constants/separation = 0
+script = ExtResource("1_3owwc")
+control_label = NodePath("ControlLabel")
+path_line_edit = NodePath("HBoxContainer/PathLineEdit")
+browse_button = NodePath("HBoxContainer/BrowseButton")
+file_dialog = NodePath("HBoxContainer/FileDialog")
+
+[node name="ControlLabel" type="Label" parent="." unique_id=1920291654]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=62761248]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="PathLineEdit" type="LineEdit" parent="HBoxContainer" unique_id=1838750513]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BrowseButton" type="Button" parent="HBoxContainer" unique_id=1608300717]
+custom_minimum_size = Vector2(31, 0)
+layout_mode = 2
+icon = ExtResource("1_2dj34")
+icon_alignment = 1
+
+[node name="FileDialog" type="FileDialog" parent="HBoxContainer" unique_id=970530987]
+title = "Open a File"
+initial_position = 1
+file_mode = 0
+
+[connection signal="text_changed" from="HBoxContainer/PathLineEdit" to="." method="_on_path_line_edit_text_changed"]
+[connection signal="pressed" from="HBoxContainer/BrowseButton" to="." method="_on_browse_button_pressed"]
+[connection signal="dir_selected" from="HBoxContainer/FileDialog" to="." method="_on_file_dialog_dir_selected"]
+[connection signal="file_selected" from="HBoxContainer/FileDialog" to="." method="_on_file_dialog_file_selected"]

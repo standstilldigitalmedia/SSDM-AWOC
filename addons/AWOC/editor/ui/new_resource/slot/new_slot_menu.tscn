@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b8ibrfoxsuq2r"]
 
 [ext_resource type="PackedScene" uid="uid://cx1kfb1drqs1v" path="res://addons/SSDM-Manager/editor/ui/new_resource_base/new_resource_menu_base.tscn" id="1_dwqic"]
-[ext_resource type="Script" uid="uid://d0382fc1mdb8b" path="res://addons/AWOC/editor/ui/new_resource/slot/new_slot_resource_menu.gd" id="2_xf3y4"]
+[ext_resource type="Script" uid="uid://d0382fc1mdb8b" path="res://addons/AWOC/editor/ui/new_resource/slot/new_slot_menu.gd" id="2_xf3y4"]
 
 [node name="NewSlotResourceMenu" unique_id=114491061 instance=ExtResource("1_dwqic")]
 script = ExtResource("2_xf3y4")

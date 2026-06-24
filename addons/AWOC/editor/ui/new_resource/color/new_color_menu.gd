@@ -1,5 +1,5 @@
 @tool
-class_name AWOCNewColorResource
+class_name AWOCNewColorMenu
 extends SSDMNewResourceMenuBase
 
 @export var color_picker_button: ColorPickerButton

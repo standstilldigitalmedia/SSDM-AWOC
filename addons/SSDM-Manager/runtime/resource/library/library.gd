@@ -6,6 +6,14 @@ extends Resource
 @export var library_dictionary: Dictionary
 
 
+func generate_dictionary_key() -> String:
+	var valid_chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*<>?~+=-_"
+	var return_string = ""
+	for i in range(16):
+		return_string += valid_chars[randi() % valid_chars.length()]
+	return return_string
+	
+	
 func has_refs() -> SSDMResult:
 	if library_dictionary.size() > 0:
 		return SSDMResult.success()
@@ -92,7 +100,7 @@ func validate_rename_resource(old_name: String, new_name: String, params: Dictio
 		
 func add_resource_reference(resource_reference: SSDMResourceReference, params: Dictionary = {}) -> SSDMResult:
 	if resource_reference.res_uid.is_empty():
-		var dictionary_key: String = resource_reference.generate_dictionary_key()
+		var dictionary_key: String = generate_dictionary_key()
 		resource_reference.res_uid = dictionary_key
 		library_dictionary.set(dictionary_key, resource_reference)
 	else:

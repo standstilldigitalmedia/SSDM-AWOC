@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://juq43yep5iu2"]
+
+[ext_resource type="PackedScene" uid="uid://dbjy4ltjs8j4p" path="res://addons/SSDM-Manager/editor/ui/menu_base/horizontal_menu/horizontal_menu_base.tscn" id="1_nexoe"]
+[ext_resource type="Script" uid="uid://c6uvc1dif1d7q" path="res://addons/AWOC/editor/ui/panels/material/new_material_panel.gd" id="2_a3g5h"]
+[ext_resource type="Texture2D" uid="uid://bsuxag4mut1ee" path="res://addons/SSDM-Manager/editor/ui/images/godot_icons/folder.svg" id="3_vktta"]
+[ext_resource type="Texture2D" uid="uid://b20fpjow40miv" path="res://addons/SSDM-Manager/editor/ui/images/no_image.png" id="4_m4rut"]
+
+[node name="NewMaterialPanel" unique_id=651554068 instance=ExtResource("1_nexoe")]
+script = ExtResource("2_a3g5h")
+
+[node name="MessageDisplay" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1067927598) index="1" unique_id=773782046]
+visible = false
+
+[node name="AlbedoSection" type="HBoxContainer" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1067927598) index="2" unique_id=613819275]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/AlbedoSection" index="0" unique_id=1610303236]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Label" type="Label" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/AlbedoSection/VBoxContainer" index="0" unique_id=857846721]
+layout_mode = 2
+text = "Albedo:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/AlbedoSection/VBoxContainer" index="1" unique_id=1653999463]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/AlbedoSection/VBoxContainer/HBoxContainer" index="0" unique_id=132363519]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "res://my_albedo_image"
+
+[node name="Button" type="Button" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/AlbedoSection/VBoxContainer/HBoxContainer" index="1" unique_id=1875010078]
+custom_minimum_size = Vector2(31, 0)
+layout_mode = 2
+icon = ExtResource("3_vktta")
+icon_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/AlbedoSection" index="1" unique_id=1996882833]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+texture = ExtResource("4_m4rut")
+
+[node name="FileDialog" type="FileDialog" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/AlbedoSection" index="2" unique_id=195845667]

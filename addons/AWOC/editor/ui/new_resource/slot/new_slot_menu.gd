@@ -1,5 +1,5 @@
 @tool
-class_name AWOCNewSlotResourceMenu
+class_name AWOCNewSlotMenu
 extends SSDMNewResourceMenuBase
 
 	

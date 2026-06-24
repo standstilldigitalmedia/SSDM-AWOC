@@ -1,0 +1,3 @@
+@tool
+class_name AWOCNewMaterialPanel
+extends SSDMHorizontalMenuBase

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b352y5njspwtv"]
 
 [ext_resource type="PackedScene" uid="uid://cx1kfb1drqs1v" path="res://addons/SSDM-Manager/editor/ui/new_resource_base/new_resource_menu_base.tscn" id="1_4teqi"]
-[ext_resource type="Script" uid="uid://ds42iwx257ueg" path="res://addons/AWOC/editor/ui/new_resource/color/new_color_resource.gd" id="2_qhnm6"]
+[ext_resource type="Script" uid="uid://ds42iwx257ueg" path="res://addons/AWOC/editor/ui/new_resource/color/new_color_menu.gd" id="2_qhnm6"]
 
 [node name="NewColorResource" unique_id=114491061 node_paths=PackedStringArray("color_picker_button") instance=ExtResource("1_4teqi")]
 script = ExtResource("2_qhnm6")
