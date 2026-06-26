@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://cv7ul1aoldcib"]
+
+[ext_resource type="Texture2D" uid="uid://bsuxag4mut1ee" path="res://addons/SSDM-Manager/editor/ui/images/godot_icons/folder.svg" id="1_f8oak"]
+[ext_resource type="Script" uid="uid://c2s35mnc6xsg4" path="res://addons/SSDM-Manager/editor/ui/image_control_old/image_control.gd" id="1_i1f4b"]
+[ext_resource type="Texture2D" uid="uid://b20fpjow40miv" path="res://addons/SSDM-Manager/editor/ui/images/no_image.png" id="2_i1f4b"]
+
+[node name="ImageControl" type="HBoxContainer" unique_id=560638573 node_paths=PackedStringArray("texture_rect", "control_label", "path_line_edit", "browse_button", "file_dialog")]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 10
+script = ExtResource("1_i1f4b")
+texture_rect = NodePath("TextureRect")
+no_image = ExtResource("2_i1f4b")
+control_label = NodePath("VBoxContainer/Label")
+path_line_edit = NodePath("VBoxContainer/HBoxContainer/PathLineEdit")
+browse_button = NodePath("VBoxContainer/HBoxContainer/BrowseButton")
+file_dialog = NodePath("VBoxContainer/HBoxContainer/FileDialog")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=990050470]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=2057725316]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=905930559]
+layout_mode = 2
+
+[node name="PathLineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer" unique_id=1051739893]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BrowseButton" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=616756585]
+custom_minimum_size = Vector2(31, 0)
+layout_mode = 2
+icon = ExtResource("1_f8oak")
+icon_alignment = 1
+
+[node name="FileDialog" type="FileDialog" parent="VBoxContainer/HBoxContainer" unique_id=1580194715]
+title = "Open a File"
+initial_position = 1
+file_mode = 0
+filters = PackedStringArray("*.png ; PNG Images", "*.jpg, *.jpeg ; JPEG Images", "*.webp ; WebP Images", "*.svg ; Scalable Vector Graphics")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1524796312]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("2_i1f4b")
+expand_mode = 1
+
+[connection signal="text_changed" from="VBoxContainer/HBoxContainer/PathLineEdit" to="." method="_on_path_line_edit_text_changed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/BrowseButton" to="." method="_on_browse_button_pressed"]
+[connection signal="file_selected" from="VBoxContainer/HBoxContainer/FileDialog" to="." method="_on_file_dialog_file_selected"]

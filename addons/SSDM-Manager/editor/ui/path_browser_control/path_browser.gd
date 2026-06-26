@@ -1,6 +1,6 @@
 @tool
 class_name SSDMPathBrowser
-extends VBoxContainer
+extends Control
 
 signal valid_path(path: String)
 signal invalid_path(path: String)
@@ -14,12 +14,20 @@ signal invalid_path(path: String)
 @export var file_dialog: FileDialog
 
 
+func on_valid_path(path: String) -> void:
+	valid_path.emit(path)
+	
+	
+func on_invalid_path(path: String) -> void:
+	invalid_path.emit(path)
+	
+	
 func validate(new_text: String) -> void:
 	var validate_result: SSDMResult = SSDMValidator.is_valid_new_path(new_text)
 	if validate_result.is_success():
-		valid_path.emit(new_text)
+		on_valid_path(new_text)
 	else:
-		invalid_path.emit(new_text)
+		on_invalid_path(new_text)
 		
 		
 func reset_menu() -> void:
@@ -45,7 +53,6 @@ func _on_path_line_edit_text_changed(new_text: String) -> void:
 
 
 func _on_browse_button_pressed() -> void:
-	print("browse")
 	browse_button.disabled = true
 	file_dialog.show()
 	

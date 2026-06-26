@@ -4,7 +4,7 @@ extends RefCounted
 
 const MIN_NAME_LENGTH: int = 3
 const MAX_NAME_LENGTH: int = 30
-const USE_STRICT_NAMES: bool = true
+const USE_STRICT_NAMES: bool = false
 
 
 static func get_base_path(path: String) -> String:
@@ -34,22 +34,21 @@ static func is_valid_new_path(path: String) -> SSDMResult:
 		return SSDMResult.failure("SSDMValidator: Cleaned path is empty")
 	if !clean_path.is_absolute_path():
 		return SSDMResult.failure("SSDMValidator: New path is not an absolute path: " + clean_path)
-	
-	
-	
 	var extension: String = clean_path.get_extension()
+	var base_dir: String = clean_path
 	if !extension.is_empty():
-		clean_path = clean_path.get_base_dir()
-	var prefix_split := clean_path.split(":")
+		base_dir = clean_path.get_base_dir()
+	var prefix_split := base_dir.split(":")
+	var no_prefix: String = ""
 	if prefix_split[0] == "res":
-		clean_path = clean_path.trim_prefix("res://")
+		no_prefix = clean_path.trim_prefix("res://")
 	elif prefix_split[0] == "user":
-		clean_path = clean_path.trim_prefix("user://")
+		no_prefix = clean_path.trim_prefix("user://")
 	else:
 		return SSDMResult.failure("SSDMValidator: Invalid path: " + path)
-	var base_split := clean_path.split("/")
-	for path_path in base_split:
-		var valid_name_result: SSDMResult = is_valid_name(path_path)
+	var base_split := no_prefix.split("/")
+	for path_part in base_split:
+		var valid_name_result: SSDMResult = is_valid_identifier(path_part)
 		if !valid_name_result.is_success():
 			return valid_name_result
 	return SSDMResult.success()
@@ -67,6 +66,17 @@ static func path_exists(path: String) -> SSDMResult:
 	if !dir_exists:
 		return SSDMResult.failure("SSDMValidator: Path does not exist: " + base_path)
 	return SSDMResult.success()
+	
+	
+static func is_valid_identifier(text: String) -> SSDMResult:
+	var clean_text: String = text.strip_edges()
+	if USE_STRICT_NAMES:
+		if !clean_text.is_valid_ascii_identifier():
+			return SSDMResult.failure("SSDMValidator: Name must be a valid identifier")
+	else:
+		if !clean_text.is_valid_filename():
+			return SSDMResult.failure("SSDMValidator: Name must be a valid name")
+	return SSDMResult.success()
 
 
 static func is_valid_name(name: String) -> SSDMResult:
@@ -76,10 +86,5 @@ static func is_valid_name(name: String) -> SSDMResult:
 		return SSDMResult.failure("SSDMValidator: Name must be at least " + str(MIN_NAME_LENGTH) + " characters long")
 	if length > MAX_NAME_LENGTH:
 		return SSDMResult.failure("SSDMValidator: Name must be no more than " + str(MAX_NAME_LENGTH) + " characters long")
-	if USE_STRICT_NAMES:
-		if !clean_name.is_valid_ascii_identifier():
-			return SSDMResult.failure("SSDMValidator: Name must be a valid identifier")
-	else:
-		if !clean_name.is_valid_filename():
-			return SSDMResult.failure("SSDMValidator: Name must be a valid name")
-	return SSDMResult.success()
+	return is_valid_identifier(name)
+	
