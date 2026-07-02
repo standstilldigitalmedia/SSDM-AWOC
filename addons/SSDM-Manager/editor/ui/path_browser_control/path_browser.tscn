@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://1ejxeyv3yr2s"]
 
-[ext_resource type="Texture2D" uid="uid://bsuxag4mut1ee" path="res://addons/SSDM-Manager/editor/ui/images/godot_icons/folder.svg" id="1_2dj34"]
+[ext_resource type="Texture2D" uid="uid://chjdcyy0odf6s" path="res://addons/SSDM-Manager/editor/ui/images/godot_icons/folder.svg" id="1_2dj34"]
 [ext_resource type="Script" uid="uid://b6toy6q0gr2fw" path="res://addons/SSDM-Manager/editor/ui/path_browser_control/path_browser.gd" id="1_3owwc"]
 
 [node name="PathBrowser" type="VBoxContainer" unique_id=1691888640 node_paths=PackedStringArray("control_label", "path_line_edit", "browse_button", "file_dialog")]

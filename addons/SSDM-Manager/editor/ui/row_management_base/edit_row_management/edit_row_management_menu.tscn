@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://caidexsi3uvwy" path="res://addons/SSDM-Manager/editor/ui/row_management_base/row_management_menu_base.tscn" id="1_3txog"]
 [ext_resource type="Script" uid="uid://p6bcbiny7l5t" path="res://addons/SSDM-Manager/editor/ui/row_management_base/edit_row_management/edit_row_management_menu.gd" id="2_g5c73"]
-[ext_resource type="Texture2D" uid="uid://bjthynaqshg8e" path="res://addons/SSDM-Manager/editor/ui/images/godot_icons/Edit.svg" id="3_ybhcr"]
+[ext_resource type="Texture2D" uid="uid://dpbqrvgqrqol" path="res://addons/SSDM-Manager/editor/ui/images/godot_icons/Edit.svg" id="3_ybhcr"]
 
 [node name="EditRowManagementMenu" unique_id=290776461 instance=ExtResource("1_3txog")]
 script = ExtResource("2_g5c73")

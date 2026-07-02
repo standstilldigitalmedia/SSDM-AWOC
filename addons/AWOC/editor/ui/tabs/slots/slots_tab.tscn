@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://b4bw4j8qt6rij" path="res://addons/AWOC/editor/ui/tabs/slots/slots_tab.gd" id="2_kxuuw"]
 [ext_resource type="PackedScene" uid="uid://b8ibrfoxsuq2r" path="res://addons/AWOC/editor/ui/new_resource/slot/new_slot_menu.tscn" id="3_0cg8c"]
 [ext_resource type="PackedScene" uid="uid://jvxaxjnir3vb" path="res://addons/AWOC/editor/ui/list_management/awoc_list_management/awoc_list_management_base.tscn" id="4_actby"]
-[ext_resource type="PackedScene" uid="uid://cq1bwanhnndwe" path="res://addons/AWOC/editor/ui/row_management/slot/slot_row_management.tscn" id="5_ognhy"]
+[ext_resource type="PackedScene" uid="uid://bac3bv6qgyopy" path="res://addons/SSDM-Manager/editor/ui/row_management_base/edit_row_management/edit_row_management_menu.tscn" id="5_kxuuw"]
 
 [node name="SlotsTab" unique_id=1194822539 node_paths=PackedStringArray("new_resource_menu", "list_management_menu") instance=ExtResource("1_4ir7p")]
 script = ExtResource("2_kxuuw")
@@ -16,4 +16,4 @@ layout_mode = 2
 
 [node name="AWOCListManagementBase" parent="VBoxContainer" parent_id_path=PackedInt32Array(1993446980) index="1" unique_id=637342084 instance=ExtResource("4_actby")]
 layout_mode = 2
-row_management_scene = ExtResource("5_ognhy")
+row_management_scene = ExtResource("5_kxuuw")

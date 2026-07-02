@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://c300sn80xt2qa" path="res://addons/AWOC/editor/ui/tabs/welcome_tab/welcome_tab.gd" id="2_atw3t"]
 [ext_resource type="PackedScene" uid="uid://bj18v1smsp8sg" path="res://addons/AWOC/editor/ui/new_resource/welcome/new_welcome_menu.tscn" id="2_qnf66"]
 [ext_resource type="PackedScene" uid="uid://jvxaxjnir3vb" path="res://addons/AWOC/editor/ui/list_management/awoc_list_management/awoc_list_management_base.tscn" id="3_atw3t"]
-[ext_resource type="PackedScene" uid="uid://b21ejfbvc741b" path="res://addons/AWOC/editor/ui/row_management/welcome/welcome_row_management_menu.tscn" id="5_atw3t"]
+[ext_resource type="PackedScene" uid="uid://bac3bv6qgyopy" path="res://addons/SSDM-Manager/editor/ui/row_management_base/edit_row_management/edit_row_management_menu.tscn" id="5_atw3t"]
 
 [node name="WelcomeTab" unique_id=1194822539 node_paths=PackedStringArray("new_resource_menu", "list_management_menu") instance=ExtResource("1_i6xeu")]
 script = ExtResource("2_atw3t")

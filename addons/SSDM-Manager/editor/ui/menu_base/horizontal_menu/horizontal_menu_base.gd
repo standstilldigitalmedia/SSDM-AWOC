@@ -34,8 +34,10 @@ func close_menu() -> void:
 
 func _on_menu_button_toggled(toggled_on: bool) -> void:
 	if toggled_on:
+		print("close")
 		close_menu()
 	else:
+		print("open")
 		open_menu()
 
 

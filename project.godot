@@ -15,7 +15,7 @@ config/features=PackedStringArray("4.7", "Forward Plus")
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/AWOC/plugin.cfg")
+enabled=PackedStringArray("res://addons/AWOC/plugin.cfg", "res://addons/SSDM-Manager/plugin.cfg")
 
 [physics]
 

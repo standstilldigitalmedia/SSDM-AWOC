@@ -5,7 +5,6 @@ signal resource_modified(type: String)
 signal edit_resource(type: String, resource_reference: SSDMResourceReference)
 signal show_resource(type: String, resource_reference: SSDMResourceReference, show: bool)
 
-static var config: SSDMPluginConfig = null
 var managers := {}
 
 
@@ -103,12 +102,8 @@ func validate_manager_entry(entry: SSDMRegistryEntry) -> SSDMResult:
 	return SSDMResult.success()
 	
 	
-func _init(configure: SSDMPluginConfig) -> void:
-	config = configure
-	if !config:
-		push_error("Config is null")
-		return
-	for entry in config.manager_registry_entries:
+func _init(manager_registry_entries: Array[SSDMRegistryEntry]) -> void:
+	for entry in manager_registry_entries:
 		var validation: SSDMResult = validate_manager_entry(entry)
 		if validation.error:
 			push_error(validation.message)

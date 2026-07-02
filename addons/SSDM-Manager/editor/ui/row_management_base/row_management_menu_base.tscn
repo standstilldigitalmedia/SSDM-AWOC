@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://caidexsi3uvwy"]
 
 [ext_resource type="Script" uid="uid://c8pb7mtu8m0gl" path="res://addons/SSDM-Manager/editor/ui/row_management_base/row_management_menu_base.gd" id="1_8bueo"]
-[ext_resource type="Texture2D" uid="uid://d1dyk1eac3eeo" path="res://addons/SSDM-Manager/editor/ui/images/godot_icons/Rename.svg" id="1_17g04"]
-[ext_resource type="Texture2D" uid="uid://71y04x6cnkpp" path="res://addons/SSDM-Manager/editor/ui/images/godot_icons/Remove.svg" id="2_8bueo"]
+[ext_resource type="Texture2D" uid="uid://cfp1iu1oig3wn" path="res://addons/SSDM-Manager/editor/ui/images/godot_icons/Rename.svg" id="1_17g04"]
+[ext_resource type="Texture2D" uid="uid://cwghabhaeq04a" path="res://addons/SSDM-Manager/editor/ui/images/godot_icons/Remove.svg" id="2_8bueo"]
 [ext_resource type="PackedScene" uid="uid://b82y5boavm1r5" path="res://addons/SSDM-Manager/editor/ui/message_display/message_display.tscn" id="4_nyakf"]
 
 [node name="RowManagementMenuBase" type="VBoxContainer" unique_id=290776461 node_paths=PackedStringArray("name_line_edit", "rename_button", "delete_button", "message_display", "rename_confirmation_dialog", "delete_confirmation_dialog")]

@@ -10,15 +10,13 @@ extends SSDMVerticalMenuBase
 var resource_type: String
 
 func get_resources() -> SSDMResult:
-	message_display.set_label(SSDMResult.print_failure("get_resource must be overridden"))
-	return SSDMResult.failure()
+	return SSDMPlugin.work_manager.get_refs(resource_type)
 	
 	
 func has_resources() -> SSDMResult:
-	message_display.set_label(SSDMResult.print_failure("has_resource must be overridden"))
-	return SSDMResult.failure()
-	
-	
+	return SSDMPlugin.work_manager.has_refs(resource_type)
+		
+		
 func set_menu_button() -> void:
 	var has_resources_result: SSDMResult = has_resources()
 	menu_button.disabled = !has_resources_result.is_success()
@@ -47,4 +45,5 @@ func _on_resource_modified(type: String) -> void:
 			
 	
 func _ready() -> void:
+	SSDMPlugin.work_manager.resource_modified.connect(_on_resource_modified)
 	super()

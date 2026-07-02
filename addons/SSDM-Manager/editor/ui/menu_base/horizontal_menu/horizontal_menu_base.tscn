@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dbjy4ltjs8j4p"]
 
 [ext_resource type="Script" uid="uid://cla3817rqi25t" path="res://addons/SSDM-Manager/editor/ui/menu_base/horizontal_menu/horizontal_menu_base.gd" id="1_7p0yp"]
-[ext_resource type="Texture2D" uid="uid://drtnpm1qa1ego" path="res://addons/SSDM-Manager/editor/ui/images/godot_icons/Close.svg" id="1_f7au8"]
+[ext_resource type="Texture2D" uid="uid://d0xp13g17bwbe" path="res://addons/SSDM-Manager/editor/ui/images/godot_icons/Close.svg" id="1_f7au8"]
 [ext_resource type="PackedScene" uid="uid://b82y5boavm1r5" path="res://addons/SSDM-Manager/editor/ui/message_display/message_display.tscn" id="3_4fngk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4fngk"]
@@ -73,6 +73,7 @@ icon = ExtResource("1_f7au8")
 icon_alignment = 1
 
 [node name="MessageDisplay" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=773782046 instance=ExtResource("3_4fngk")]
+visible = false
 layout_mode = 2
 
 [connection signal="toggled" from="MenuButton" to="." method="_on_menu_button_toggled"]

@@ -24,7 +24,7 @@ func _on_create_button_pressed() -> void:
 	var params: Dictionary = {}
 	params.set("name", name_line_edit.text)
 	params.set("color", color_picker_button.color)
-	var add_result: SSDMResult = await AWOCPlugin.work_manager.add_resource(resource_type, params)
+	var add_result: SSDMResult = await SSDMPlugin.work_manager.add_resource(resource_type, params)
 	if add_result.is_success():
 		reset_menu()
 	message_display.set_label(add_result)

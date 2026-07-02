@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="SSDMPluginConfig" format=3 uid="uid://cl0yege84yylm"]
+
+[ext_resource type="Script" uid="uid://bn6ksi2rwtblx" path="res://addons/SSDM-Manager/editor/resource/registry_entry.gd" id="1_vhm1b"]
+[ext_resource type="Script" uid="uid://ckenroaj41lcf" path="res://addons/AWOC/editor/work/welcome_library_manager.gd" id="2_2qyjd"]
+[ext_resource type="Script" uid="uid://d32dvxengdtnr" path="res://addons/SSDM-Manager/editor/resource/config.gd" id="2_8k0rn"]
+[ext_resource type="Script" uid="uid://b5khm4uc2n8p5" path="res://addons/SSDM-Manager/editor/resource/file_extension.gd" id="3_rd051"]
+[ext_resource type="Script" uid="uid://covc2pqocvrvo" path="res://addons/AWOC/editor/work/slot_library_manager.gd" id="3_s6s8j"]
+[ext_resource type="Script" uid="uid://bhorn52cwq0wa" path="res://addons/AWOC/editor/work/color_library_manager.gd" id="4_pyvmc"]
+[ext_resource type="Script" uid="uid://b30qpwgd8nr5r" path="res://addons/AWOC/editor/work/material_library_manager.gd" id="5_5ba3f"]
+
+[sub_resource type="Resource" id="Resource_8t8cl"]
+script = ExtResource("1_vhm1b")
+type_key = "welcome"
+manager_script = ExtResource("2_2qyjd")
+metadata/_custom_type_script = "uid://bn6ksi2rwtblx"
+
+[sub_resource type="Resource" id="Resource_2qyjd"]
+script = ExtResource("1_vhm1b")
+type_key = "slots"
+manager_script = ExtResource("3_s6s8j")
+metadata/_custom_type_script = "uid://bn6ksi2rwtblx"
+
+[sub_resource type="Resource" id="Resource_s6s8j"]
+script = ExtResource("1_vhm1b")
+type_key = "colors"
+manager_script = ExtResource("4_pyvmc")
+metadata/_custom_type_script = "uid://bn6ksi2rwtblx"
+
+[sub_resource type="Resource" id="Resource_pyvmc"]
+script = ExtResource("1_vhm1b")
+type_key = "materials"
+manager_script = ExtResource("5_5ba3f")
+metadata/_custom_type_script = "uid://bn6ksi2rwtblx"
+
+[resource]
+script = ExtResource("2_8k0rn")
+manager_registry_entries = Array[ExtResource("1_vhm1b")]([SubResource("Resource_8t8cl"), SubResource("Resource_2qyjd"), SubResource("Resource_s6s8j"), SubResource("Resource_pyvmc")])
