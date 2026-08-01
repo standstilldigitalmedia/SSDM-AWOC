@@ -24,20 +24,18 @@ func destroy_child() -> void:
 	
 func open_menu() -> void:
 	scroll_container.show()
-	menu_button.set_pressed_no_signal(true)
+	menu_button.set_pressed_no_signal(false)
 	
 	
 func close_menu() -> void:
 	scroll_container.hide()
-	menu_button.set_pressed_no_signal(false)
+	menu_button.set_pressed_no_signal(true)
 
 
 func _on_menu_button_toggled(toggled_on: bool) -> void:
 	if toggled_on:
-		print("close")
 		close_menu()
 	else:
-		print("open")
 		open_menu()
 
 

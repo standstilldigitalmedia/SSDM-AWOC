@@ -8,3 +8,6 @@ script = ExtResource("2_xf3y4")
 
 [node name="NameLabel" parent="PanelContainer/MarginContainer/VBoxContainer/ContentContainer/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1251125766) index="0" unique_id=976989672]
 text = "Slot Name:"
+
+[node name="CreateButton" parent="PanelContainer/MarginContainer/VBoxContainer/ContentContainer" parent_id_path=PackedInt32Array(1946287784) index="1" unique_id=1269181174]
+text = "Create Slot"

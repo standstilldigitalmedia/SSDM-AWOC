@@ -105,7 +105,7 @@ func validate_manager_entry(entry: SSDMRegistryEntry) -> SSDMResult:
 func _init(manager_registry_entries: Array[SSDMRegistryEntry]) -> void:
 	for entry in manager_registry_entries:
 		var validation: SSDMResult = validate_manager_entry(entry)
-		if validation.error:
+		if !validation.is_success():
 			push_error(validation.message)
 			continue
 		var manager = entry.manager_script.new()

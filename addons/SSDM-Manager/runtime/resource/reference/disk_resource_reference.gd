@@ -18,16 +18,15 @@ func set_res_path(prefix: String, base:String, name: String, extension: String) 
 	
 func get_res_path() -> SSDMResult:
 	if path_prefix.is_empty() or path_base.is_empty() or res_name.is_empty() or path_extension.is_empty():
-		return SSDMResult.print_failure("Could not determine path for resource")
+		return SSDMResult.print_failure("SSDM: Resource path is empty.")
 	return SSDMResult.success("", path_prefix.path_join(path_base).path_join(res_name) + path_extension)
 
 
 func get_base_res_path() -> SSDMResult:
 	var res_path_result: SSDMResult = get_res_path()
-	if res_path_result.error:
+	if !res_path_result.is_success():
 		return res_path_result
-	var res_path: String = res_path_result.data
-	return SSDMResult.success("", res_path.get_base_dir())
+	return res_path_result.data.get_base_dir()
 
 
 func get_resource() -> SSDMResult:
@@ -36,20 +35,19 @@ func get_resource() -> SSDMResult:
 	
 	var res_path_result: SSDMResult = get_res_path()
 	if !res_path_result.is_success():
-		return res_path_result
+		return SSDMResult.failure("SSDM: Resource path is empty")
 	var res_path: String = res_path_result.data
 	if !FileAccess.file_exists(res_path):
-		return SSDMResult.failure("File does not exist: " + res_path)
+		return SSDMResult.failure("SSDM: Resource file does not exist at: " + res_path)
 	
 	if path_extension == ".tscn" or path_extension == ".scn":
 		loaded_resource = ResourceLoader.load(res_path, "PackedScene", ResourceLoader.CACHE_MODE_REUSE)
 	else:
 		loaded_resource = ResourceLoader.load(res_path, "", ResourceLoader.CACHE_MODE_REUSE)
 
-	if not loaded_resource:
-		return SSDMResult.print_failure("Failed to load resource at: " + res_path)
-
-	return SSDMResult.success("", loaded_resource)
+	if !loaded_resource:
+		return SSDMResult.failure("SSDM: Failed to load resource at: " + res_path)
+	return SSDMResult.success("",loaded_resource)
 	
 	
 func wait_for_scan() -> void:
@@ -169,7 +167,7 @@ func delete_resource_from_disk(send_to_recycle: bool = false) -> SSDMResult:
 			if dir.get_files_at(base_dir).size() < 1 and dir.get_directories_at(base_dir).size() < 1:
 				var dir_trash_result = OS.move_to_trash(ProjectSettings.globalize_path(base_dir))
 				if dir_trash_result != OK:
-					SSDMResult.print_warning("Failed to move empty directory to trash: " + base_dir + " (Error: " + str(dir_trash_result) + ")")
+					push_warning("Failed to move empty directory to trash: " + base_dir + " (Error: " + str(dir_trash_result) + ")")
 	else:
 		var remove_result = dir.remove(file_path)
 		if remove_result != OK:
@@ -178,7 +176,7 @@ func delete_resource_from_disk(send_to_recycle: bool = false) -> SSDMResult:
 			if dir.get_files_at(base_dir).size() < 1 and dir.get_directories_at(base_dir).size() < 1:
 				var dir_remove_result = dir.remove(base_dir)
 				if dir_remove_result != OK:
-					SSDMResult.print_warning("Failed to remove empty directory: " + base_dir + " (Error: " + str(dir_remove_result) + ")")
+					push_warning("Failed to remove empty directory: " + base_dir + " (Error: " + str(dir_remove_result) + ")")
 	if !result.is_empty():
 		return SSDMResult.print_failure(result)
 	await wait_for_scan()

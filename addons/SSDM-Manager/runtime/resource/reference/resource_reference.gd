@@ -10,5 +10,5 @@ extends Resource
 	
 func get_resource() -> SSDMResult:
 	if !stored_resource:
-		return SSDMResult.print_failure("No resource found in Resource Reference")
+		return SSDMResult.print_failure("No resource stored")
 	return SSDMResult.success("", stored_resource)
